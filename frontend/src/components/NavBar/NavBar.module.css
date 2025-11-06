@@ -1,0 +1,13 @@
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 108px;
+  background: rgba(255, 255, 255, 1);
+  width: 1440px;
+}
+
+.iconHome {
+  width: 102px;
+  height: 84px;
+}

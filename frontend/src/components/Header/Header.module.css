@@ -1,0 +1,84 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+
+  background-color: bisque;
+  width: 1440px;
+  margin: 0 auto;
+}
+
+.city {
+  color: var(--text-green);
+  font-family: var(--font-literal);
+  font-size: 16px;
+  font-weight: 700;
+  padding-left: 11px;
+  padding-right: 3px;
+}
+
+.topHeader {
+  background: var(--Brown, rgba(91, 74, 88, 1));
+}
+
+.topHeaderContainer {
+  width: 1440px;
+  display: flex;
+  justify-content: space-between;
+  gap: 135px;
+  margin: 0 auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: var(--font-literal);
+  line-height: 19px;
+  color: white;
+}
+
+.telegram {
+  display: flex;
+  color: white;
+  font-weight: var(--font-literal);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 12px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.phone {
+  color: rgba(255, 255, 255, 1);
+  font-family: var(--font-literal);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19px;
+  letter-spacing: 0%;
+  text-align: left;
+}
+
+.cash {
+  color: white;
+  font-family: var(--font-literal);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 98%;
+  letter-spacing: 0%;
+  text-align: left;
+}
+
+.basket {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contacts {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}

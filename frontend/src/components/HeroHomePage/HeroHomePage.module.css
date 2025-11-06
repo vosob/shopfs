@@ -1,0 +1,49 @@
+.h1 {
+  font-weight: 400;
+  font-size: 65px;
+  letter-spacing: 0.08em;
+  color: var(--text-chocolate);
+  font-family: var(--font-karton);
+  padding-bottom: 33px;
+}
+
+.h2 {
+  font-size: 48px;
+  font-family: var(--font-karton);
+  color: var(--text-chocolate);
+  padding-bottom: 17px;
+}
+
+.container {
+  background-image: url("/public/images/backfoto.png");
+  background-size: cover;
+  height: 699px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.span {
+  color: var(--text-green);
+}
+
+.button {
+  width: 210px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: var(--text-green);
+  border: 1px solid var(--text-green);
+  color: rgba(255, 255, 255, 1);
+  font-family: var(--font-literal);
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: var(--back-color), var(--bord-color);
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: var(--text-chocolate);
+  border: 1px solid var(--text-chocolate);
+}
