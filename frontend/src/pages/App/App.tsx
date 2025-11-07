@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router";
 import "./App.css";
 import { Layout } from "../../Layout";
-import { HomePage } from "./HomePage/HomePage";
+import { HomePage } from "../HomePage/HomePage";
 import { Category } from "../Category/Category";
 import { LogIn } from "../LogIn/LogIn";
 import { Basket } from "../Basket/Basket";
