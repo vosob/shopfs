@@ -1,12 +1,24 @@
 import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UserModule } from './user/user.module';
 import { PrismaModule } from './prisma/prisma.module';
-import { CategoryModule } from './category/category.module';
+import { FlowerModule } from './flower/flower.module';
+import { BouquetModule } from './bouquet/bouquet.module';
+import { CloudinaryModule } from './cloudinary/cloudinary.module';
 
 @Module({
-  imports: [PrismaModule, UserModule, CategoryModule],
+  imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
+    PrismaModule,
+    UserModule,
+    FlowerModule,
+    BouquetModule,
+    CloudinaryModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })

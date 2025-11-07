@@ -17,41 +17,61 @@ model User {
   updatedAt DateTime @updatedAt
 }
 
-model Product {
-  id          String   @id @default(cuid())
-  name        String
-  description String
-  price       Int
-  category    Category @relation(fields: [categoryId], references: [id])
-  categoryId  String
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-}
-
-model Category {
+model Flower {
   id        String   @id @default(cuid())
-  name      String   @unique
-  description String
-  products  Product[]
+  name      String
+  color     String
+  price     Int
+
+  
+  bouquets  BouquetFlower[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
-//  model Category
+model BouquetImage {
+  id        String   @id @default(cuid())
+  url       String
+  bouquetId String
 
-//  category {
-//   Apple
-//   phone
-//   laptop
-//   tablet
-//   TV
-//   smartwatch
-//   console
-//   headphones
-//   camera
-//   service
-// }
+  bouquet   Bouquet  @relation(fields: [bouquetId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([bouquetId])
+}
+
+model Bouquet {
+  id        String   @id @default(cuid())
+  name      String
+  size      Int
+  price     Int
+  
+ 
+  images    BouquetImage[]
+  flowers   BouquetFlower[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model BouquetFlower {
+  id        String   @id @default(cuid())
+  bouquetId String
+  flowerId  String
+  quantity  Int      @default(1) 
+
+  bouquet   Bouquet  @relation(fields: [bouquetId], references: [id], onDelete: Cascade)
+  flower    Flower   @relation(fields: [flowerId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([bouquetId, flowerId])
+  @@index([bouquetId])
+  @@index([flowerId])
+}
 
 // npx prisma db push
