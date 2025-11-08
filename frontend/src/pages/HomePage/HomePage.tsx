@@ -16,10 +16,12 @@ export const HomePage = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [sortList, setSortList] = useState<SortType>("default");
   const deferredSearch = useDeferredValue(searchQuery);
+  const [selectedPrise, setSelectedPrise] = useState<string>("");
+  console.log(selectedPrise);
 
   const { data, isLoading, isError } = useQuery({
-    queryKey: ["bouquet", deferredSearch],
-    queryFn: () => fetchBouquet(deferredSearch),
+    queryKey: ["bouquet", deferredSearch, selectedPrise],
+    queryFn: () => fetchBouquet(deferredSearch, selectedPrise),
     keepPreviousData: true,
   });
 
@@ -46,7 +48,11 @@ export const HomePage = () => {
           )}
         </div>
 
-        <Filters onSearchChange={setSearchQuery} />
+        <Filters
+          onSearchChange={setSearchQuery}
+          onSelectedPrise={setSelectedPrise}
+          selectedPrise={selectedPrise}
+        />
       </div>
       <Order />
     </div>
