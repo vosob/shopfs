@@ -8,10 +8,11 @@ const BASE_URL = "http://localhost:3000";
 //   return res.data;
 // };
 
-export const fetchBouquet = async (search?: string) => {
+export const fetchBouquet = async (search?: string, sortByPrise?: string) => {
   const res = await axios.get<Bouquet[]>(`${BASE_URL}/bouquet`, {
     params: {
-      ...(search && { search }), // додати search тільки якщо він є
+      ...(search && { search }),
+      ...(sortByPrise && { sortByPrise }), // додати search тільки якщо він є
     },
   });
   return res.data;

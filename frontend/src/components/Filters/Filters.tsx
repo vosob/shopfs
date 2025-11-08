@@ -3,9 +3,24 @@ import { CiSearch } from "react-icons/ci";
 
 interface FiltersProps {
   onSearchChange: (value: string) => void;
+  onSelectedPrise: (value: string) => void;
+  selectedPrise: string;
 }
 
-export const Filters = ({ onSearchChange }: FiltersProps) => {
+export const Filters = ({
+  onSearchChange,
+  onSelectedPrise,
+  selectedPrise,
+}: FiltersProps) => {
+  const prices = [
+    { id: 1, name: "до 700 грн", value: "700" },
+    { id: 2, name: "від 700 до 800 грн", value: "700/800" },
+    { id: 3, name: "від 800 до 900 грн", value: "800/900" },
+    { id: 4, name: " від 900 до 1000 грн", value: "900/1000" },
+    { id: 5, name: "від 1000 до 1200 грн", value: "1000/1200" },
+    { id: 6, name: "1200 грн і більше", value: "1200+" },
+  ];
+
   return (
     <div className={css.filterContainer}>
       <div className={css.searchContainer}>
@@ -20,30 +35,19 @@ export const Filters = ({ onSearchChange }: FiltersProps) => {
       </div>
       <div className={css.priceFilter}>
         <p className={css.labelBox}>Ціна:</p>
-        <div className={css.checkboxFlex}>
-          <input type="checkbox" />
-          <span> до 700 грн</span>
-        </div>
-        <div className={css.checkboxFlex}>
-          <input type="checkbox" />
-          <span>від 700 до 800 грн </span>
-        </div>
-        <div className={css.checkboxFlex}>
-          <input type="checkbox" />
-          <span> від 800 до 900 грн </span>
-        </div>
-        <div className={css.checkboxFlex}>
-          <input type="checkbox" />
-          <span> від 900 до 1000 грн </span>
-        </div>
-        <div className={css.checkboxFlex}>
-          <input type="checkbox" />
-          <span> від 1000 до 1200 грн </span>
-        </div>
-        <div className={css.checkboxFlex}>
-          <input type="checkbox" />
-          <span> 1200 грн і більше </span>
-        </div>
+        {prices.map((price) => (
+          <div className={css.checkboxFlex} key={price.id}>
+            <input
+              type="radio"
+              name="price" // всі радіо в групі мають однакове name
+              value={price.value}
+              checked={selectedPrise === price.value}
+              onChange={() => onSelectedPrise(price.value)}
+            />
+            <span>{price.name}</span>
+          </div>
+        ))}
+        <button onClick={() => onSelectedPrise("")}>Reset</button>
       </div>
     </div>
   );
