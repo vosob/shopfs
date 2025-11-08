@@ -10,6 +10,7 @@ import css from "./HomePage.module.css";
 import { useQuery } from "@tanstack/react-query";
 import { sortProducts, SortType } from "../../components/Utils/SortList";
 import { Filters } from "../../components/Filters/Filters";
+import { Order } from "../../components/Order/Order";
 
 export const HomePage = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -44,8 +45,10 @@ export const HomePage = () => {
             <div className={css.noData}> No data </div>
           )}
         </div>
+
         <Filters onSearchChange={setSearchQuery} />
       </div>
+      <Order />
     </div>
   );
 };

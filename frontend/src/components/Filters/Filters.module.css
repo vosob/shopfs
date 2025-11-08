@@ -1,4 +1,78 @@
-.filtersContainer {
+.searchContainer {
   min-width: 260px;
-  background-color: teal;
+  padding: 17px 15px 15px 15px;
+  position: relative;
+}
+
+.filterContainer {
+  width: 262px;
+  height: 1068px;
+  background-color: white;
+}
+
+.search {
+  width: 233px;
+  height: 50px;
+  border-radius: 10px;
+  padding-left: 20px;
+  background-color: #f9f9fb;
+  border: none;
+  padding-right: 40px;
+}
+
+.search:active,
+.search:hover,
+.search:focus {
+  border: none;
+  outline: none;
+}
+
+.searchIcon {
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #4c3f4c;
+  font-size: 22px;
+  pointer-events: none;
+}
+
+.priceFilter {
+  padding: 17px 15px 15px 15px;
+}
+
+.checkboxFlex {
+  display: flex;
+  gap: 13px;
+  margin-bottom: 10px;
+  color: var(--Gray 2, rgba(79, 79, 79, 1));
+  font-family: var(--font-literal);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0%;
+  text-align: left;
+}
+
+.checkboxFlex:hover,
+.checkboxFlex:focus {
+  color: var(--text-chocolate);
+  font-family: var(--font-literal);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17px;
+  letter-spacing: 0%;
+  text-align: left;
+  cursor: pointer;
+}
+
+.labelBox {
+  margin-bottom: 10px;
+  color: rgba(189, 189, 189, 1);
+  font-family: var(--font-literal);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17px;
+  letter-spacing: 0%;
+  text-align: left;
 }
