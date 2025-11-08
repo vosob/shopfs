@@ -7,6 +7,7 @@ import {
   Param,
   ParseFilePipe,
   Post,
+  Query,
   UploadedFile,
   UseInterceptors,
 } from '@nestjs/common';
@@ -19,8 +20,8 @@ export class BouquetController {
   constructor(private readonly bouquetService: BouquetService) {}
 
   @Get()
-  getAllBouquets() {
-    return this.bouquetService.getAllBouquets();
+  getAllBouquets(@Query('search') search?: string) {
+    return this.bouquetService.getAllBouquets({ search });
   }
 
   @Get('bouquetId/:id')

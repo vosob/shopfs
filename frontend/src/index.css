@@ -47,6 +47,7 @@ var {
 ol,
 ul {
   list-style: none;
+  text-decoration: none;
 }
 caption,
 th {
@@ -71,18 +72,22 @@ acronym {
 }
 a:link {
   text-decoration: none;
+  color: inherit;
 }
 
 a:visited {
   text-decoration: none;
+  color: inherit;
 }
 
 a:hover {
   text-decoration: none;
+  color: inherit;
 }
 
 a:active {
   text-decoration: none;
+  color: inherit;
 }
 
 @font-face {
@@ -93,7 +98,7 @@ a:active {
 
 @font-face {
   font-family: "Karton2";
-  src: url("/fonts/karton.woff2") format("woff2");
+  src: url("/fonts/Karton-Regular.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
 }
@@ -108,5 +113,5 @@ a:active {
 }
 
 body {
-  background-color: #f2f2f2;
+  background-color: #f9f9fb;
 }

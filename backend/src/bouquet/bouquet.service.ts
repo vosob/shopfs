@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { CreateBouquetDto } from './dto/create-bouquet.dto';
-import { Bouquet } from '@prisma/client';
+import { Bouquet, Prisma } from '@prisma/client';
 import { CloudinaryService } from 'src/cloudinary/cloudinary.service';
 
 @Injectable()
@@ -11,8 +11,19 @@ export class BouquetService {
     private readonly cloudinaryService: CloudinaryService,
   ) {}
 
-  async getAllBouquets(): Promise<Bouquet[]> {
+  async getAllBouquets(filters?: { search?: string }): Promise<Bouquet[]> {
+    const where: Prisma.BouquetWhereInput = {};
+
+    // Якщо є пошуковий запит
+    if (filters?.search) {
+      where.name = {
+        contains: filters.search,
+        mode: 'insensitive', // регістронезалежний пошук
+      };
+    }
+
     return this.prismaService.bouquet.findMany({
+      where,
       include: {
         flowers: {
           include: { flower: true },

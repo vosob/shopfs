@@ -11,7 +11,7 @@ export const Header = () => {
         <div className={css.topHeaderContainer}>
           <div className={css.location}>
             <FaLocationDot size="19" fill="white" />
-            <span className={css.city}>м.Рівне, </span>
+            <span className={css.city}>м.Рівне,</span>
             вул. Кулика і Гудачека 28
           </div>
           <div className={css.contacts}>

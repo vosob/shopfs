@@ -3,7 +3,7 @@ import css from "./NavBar.module.css";
 
 export const NavBar = () => {
   return (
-    <div>
+    <div className={css.navbarContainer}>
       <ul className={css.navbar}>
         <Link to="/category">Каталог</Link>
         <Link to="/reviews">Відгуки</Link>

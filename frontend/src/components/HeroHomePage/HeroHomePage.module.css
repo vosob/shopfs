@@ -15,7 +15,7 @@
 }
 
 .container {
-  background-image: url("/public/images/backfoto.png");
+  /* background-image: url("/public/images/backfoto.png"); */
   background-size: cover;
   height: 699px;
   display: flex;
@@ -46,4 +46,15 @@
 .button:hover {
   background-color: var(--text-chocolate);
   border: 1px solid var(--text-chocolate);
+}
+
+.embla {
+  overflow: hidden;
+}
+.embla__container {
+  display: flex;
+}
+.embla__slide {
+  flex: 0 0 100%;
+  min-width: 0;
 }

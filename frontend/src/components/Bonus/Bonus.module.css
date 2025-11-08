@@ -1,4 +1,6 @@
 .bonusList {
+  width: 1440px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
 
@@ -21,6 +23,7 @@
   padding-top: 100px;
   padding-bottom: 110px;
   background-color: white;
+  margin: 0 auto;
 }
 
 .spanColor {

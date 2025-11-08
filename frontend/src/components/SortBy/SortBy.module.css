@@ -1,7 +1,7 @@
 .sortContainer {
-  width: 828px;
+  /* width: 1440px; */
+  margin: 0 auto;
   height: 50px;
-  margin-top: 100px;
   margin-bottom: 20px;
   background-color: white;
   display: flex;

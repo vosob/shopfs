@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useDeferredValue, useState } from "react";
 import { Bonus } from "../../components/Bonus/Bonus";
 import { BouquetList } from "../../components/BouquetList/BouquetList";
 
@@ -9,15 +9,18 @@ import { fetchBouquet } from "../../services/items";
 import css from "./HomePage.module.css";
 import { useQuery } from "@tanstack/react-query";
 import { sortProducts, SortType } from "../../components/Utils/SortList";
+import { Filters } from "../../components/Filters/Filters";
 
 export const HomePage = () => {
-  const { data, isLoading, isError } = useQuery({
-    queryKey: ["bouquet"],
-    queryFn: fetchBouquet,
-  });
-
+  const [searchQuery, setSearchQuery] = useState("");
   const [sortList, setSortList] = useState<SortType>("default");
-  console.log(sortList);
+  const deferredSearch = useDeferredValue(searchQuery);
+
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ["bouquet", deferredSearch],
+    queryFn: () => fetchBouquet(deferredSearch),
+    keepPreviousData: true,
+  });
 
   const sortedBouquet = sortProducts({
     bouquets: data || [],
@@ -30,10 +33,18 @@ export const HomePage = () => {
       {isLoading && <p>Loading...</p>}
       {isError && <p>An error occurred</p>}
 
-      <div className={css.homeContainer}>
-        <Bonus />
-        <SortBy sort={setSortList} />
-        {data && <BouquetList data={sortedBouquet} />}
+      <Bonus />
+
+      <div className={css.mainContent}>
+        <div className={css.homeContainer}>
+          <SortBy sort={setSortList} />
+          {data && data.length > 0 ? (
+            <BouquetList data={sortedBouquet} />
+          ) : (
+            <div className={css.noData}> No data </div>
+          )}
+        </div>
+        <Filters onSearchChange={setSearchQuery} />
       </div>
     </div>
   );

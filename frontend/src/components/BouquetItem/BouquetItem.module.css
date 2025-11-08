@@ -9,6 +9,10 @@
   width: 263px;
   background-color: white;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
 }
 
 .textBouquet {
