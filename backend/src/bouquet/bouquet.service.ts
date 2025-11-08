@@ -11,7 +11,11 @@ export class BouquetService {
     private readonly cloudinaryService: CloudinaryService,
   ) {}
 
-  async getAllBouquets(filters?: { search?: string }): Promise<Bouquet[]> {
+  async getAllBouquets(filters?: {
+    search?: string;
+    sortByPrise?: string;
+    sortBySize?: number;
+  }): Promise<Bouquet[]> {
     const where: Prisma.BouquetWhereInput = {};
 
     // Якщо є пошуковий запит
@@ -20,6 +24,29 @@ export class BouquetService {
         contains: filters.search,
         mode: 'insensitive', // регістронезалежний пошук
       };
+    }
+    // Якщо є сортування за ціною
+    // lte - менше або дорівнює
+    // gte - більше або дорівнює
+    // gt - більше ніж
+
+    if (filters?.sortByPrise === '700') {
+      where.price = { lte: 700 };
+    } else if (filters?.sortByPrise === '700/800') {
+      where.price = { gte: 700, lte: 800 };
+    } else if (filters?.sortByPrise === '800/900') {
+      where.price = { gte: 800, lte: 900 };
+    } else if (filters?.sortByPrise === '900/1000') {
+      where.price = { gte: 900, lte: 1000 };
+    } else if (filters?.sortByPrise === '1000/1200') {
+      where.price = { gte: 1000, lte: 1200 };
+    } else if (filters?.sortByPrise === '1200+') {
+      where.price = { gte: 1200 };
+    }
+
+    // Якщо є сортування за розміром
+    if (Number(filters?.sortBySize)) {
+      where.size = Number(filters?.sortBySize);
     }
 
     return this.prismaService.bouquet.findMany({

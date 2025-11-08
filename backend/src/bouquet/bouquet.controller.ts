@@ -20,8 +20,16 @@ export class BouquetController {
   constructor(private readonly bouquetService: BouquetService) {}
 
   @Get()
-  getAllBouquets(@Query('search') search?: string) {
-    return this.bouquetService.getAllBouquets({ search });
+  getAllBouquets(
+    @Query('search') search?: string,
+    @Query('sortByPrise') sortByPrise?: string,
+    @Query('sortBySize') sortBySize?: number,
+  ) {
+    return this.bouquetService.getAllBouquets({
+      search,
+      sortByPrise,
+      sortBySize,
+    });
   }
 
   @Get('bouquetId/:id')
