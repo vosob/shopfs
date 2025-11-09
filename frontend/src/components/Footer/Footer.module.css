@@ -1,0 +1,99 @@
+.footer {
+  background-color: #5b4a56;
+  color: #ffffff;
+  padding: 40px 20px 20px;
+  font-family: var(--font-literal, "Arial", sans-serif);
+}
+
+.footerContainer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footerColumn {
+  flex: 1;
+  min-width: 250px;
+}
+
+.footerTitle {
+  color: var(--text-green);
+  margin-bottom: 16px;
+  font-family: var(--font-literal);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0%;
+  text-align: left;
+}
+
+.footerColumn p,
+.footerLinks li {
+  margin-bottom: 8px;
+  font-size: 15px;
+  color: #ffffffcc;
+}
+
+.footerLinks {
+  list-style: none;
+  padding: 0;
+}
+
+.footerLinks li:hover {
+  color: var(--text-green);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.footerForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footerInputs {
+  display: flex;
+  gap: 10px;
+}
+
+.footerForm input,
+.footerForm textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  outline: none;
+}
+
+.footerForm textarea {
+  resize: none;
+  height: 80px;
+}
+
+.footerForm button {
+  background-color: #62b15c;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: background-color 0.3s ease;
+}
+
+.footerForm button:hover {
+  background-color: var(--text-green);
+}
+
+.footerCopy {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 14px;
+  color: #cccccc;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 15px;
+}

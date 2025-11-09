@@ -1,3 +1,4 @@
+import { Footer } from "./components/Footer/Footer";
 import { Header } from "./components/Header/Header";
 
 interface LayoutProps {
@@ -9,6 +10,7 @@ export const Layout = ({ children }: LayoutProps) => {
     <div>
       <Header />
       <main>{children}</main>
+      <Footer />
     </div>
   );
 };

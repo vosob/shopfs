@@ -1,0 +1,45 @@
+.deliveryInfo {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: var(--font-literal, "Arial", sans-serif);
+  line-height: 1.6;
+  color: var(--text-dark, #333);
+}
+
+.deliveryTitle {
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 24px;
+  color: var(--text-chocolate, #5b3a29);
+  font-family: var(--font-karton);
+}
+
+.deliveryText {
+  margin-bottom: 16px;
+  font-size: 16px;
+}
+
+.deliveryBlock {
+  background-color: #fff7f3;
+  border-left: 4px solid var(--text-chocolate, #5b3a29);
+  padding: 16px 20px;
+  margin: 24px 0;
+  border-radius: 8px;
+}
+
+.deliverySubtitle {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.deliveryList {
+  list-style-type: disc;
+  padding-left: 24px;
+}
+
+.deliveryList li {
+  margin-bottom: 8px;
+}
