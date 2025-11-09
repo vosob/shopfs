@@ -1,0 +1,96 @@
+.prohoPage {
+  width: 733px;
+  height: 313px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f8f8f9;
+}
+
+.card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 320px;
+  padding: 20px;
+  text-align: left;
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 20px;
+}
+
+.tab {
+  flex: 1;
+  padding: 10px 0;
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  color: #777;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.tab:hover {
+  color: #333;
+}
+
+.active {
+  color: #000;
+  border-bottom: 2px solid #5b4a56; /* темний акцент */
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  color: #333;
+}
+
+.input {
+  margin-top: 4px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.input:focus {
+  border-color: #5b4a56;
+}
+
+.submitBtn {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 10px 0;
+  border-radius: 4px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submitBtn:hover {
+  background-color: #43a047;
+}

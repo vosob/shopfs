@@ -12,7 +12,7 @@ export const NavBar = () => {
           <img className={css.iconHome} src="../../../public/images/icon.png" />
         </Link>
         <Link to="/info">Інформація для клієнтів</Link>
-        <Link to="/login">Log in</Link>
+        <Link to="/auth">Log in</Link>
         <Link to="/basket">Basket</Link>
       </ul>
     </div>
