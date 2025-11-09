@@ -1,0 +1,78 @@
+.orderActionsContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.decrement {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+
+  outline: none;
+  border: none;
+  padding: 6px;
+  background-color: rgba(224, 224, 224, 1);
+  cursor: pointer;
+}
+
+.increment {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+
+  outline: none;
+  border: none;
+  padding: 6px;
+  background-color: var(--text-green);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.price {
+  color: var(--text-green);
+
+  font-family: var(--font-literal);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.totalPrice {
+  color: var(--text-chocolate);
+  font-family: var(--font-literal);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 22px;
+}
+
+.orderBtn {
+  min-width: 200px;
+  outline: none;
+  border: none;
+  padding: 11px 34px 11px 34px;
+  color: white;
+  background-color: var(--text-green);
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+
+  cursor: pointer;
+}
+
+.icon {
+  margin-right: 20px;
+  color: white;
+}

@@ -1,3 +1,10 @@
+.container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
 .activeTab {
   display: flex;
   gap: 34px;

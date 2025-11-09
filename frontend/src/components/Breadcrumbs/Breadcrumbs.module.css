@@ -1,0 +1,19 @@
+.breadcrumbs {
+  width: 1440px;
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  /* gap: 10px; */
+  color: rgba(130, 130, 130, 1);
+}
+
+.breadcrumbs .crumb::after {
+  content: ">";
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.breadcrumbs .crumb:last-child::after {
+  display: none;
+}

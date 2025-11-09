@@ -18,7 +18,7 @@ export const BouquetDetailsTab = ({
   setActiveTab,
 }: Props) => {
   return (
-    <div>
+    <div className={css.container}>
       <div className={css.activeTab}>
         <button
           className={activeTab === "composition" ? css.active : ""}
