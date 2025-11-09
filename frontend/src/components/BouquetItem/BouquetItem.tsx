@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import { Bouquet } from "../../types/typesItem";
 import css from "./BouquetItem.module.css";
 
@@ -6,10 +7,10 @@ interface BouquetItemProps {
 }
 
 export const BouquetItem = ({ data }: BouquetItemProps) => {
-  const { name, price, images, size } = data;
+  const { name, price, images, size, id } = data;
 
   return (
-    <li className={css.itemContainer}>
+    <Link to={`/bouquet/${id}`} className={css.itemContainer}>
       <img className={css.flowerPhoto} src={images[1].url} alt={name} />
       <h3 className={css.textBouquet}>{name}</h3>
       <p className={css.priceBouquet}>
@@ -18,6 +19,6 @@ export const BouquetItem = ({ data }: BouquetItemProps) => {
       </p>
       <p className={css.size}>Розмір цього букету {size} см</p>
       <button className={css.bouquetBtn}>В корзину</button>
-    </li>
+    </Link>
   );
 };
