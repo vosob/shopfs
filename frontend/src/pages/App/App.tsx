@@ -3,12 +3,13 @@ import "./App.css";
 import { Layout } from "../../Layout";
 import { HomePage } from "../HomePage/HomePage";
 import { Category } from "../Category/Category";
-import { LogIn } from "../LogIn/LogIn";
+
 import { Basket } from "../Basket/Basket";
 import { Reviews } from "../Reviews/Reviews";
 import { Contacts } from "../Contacts/Contacts";
 import { Info } from "../Info/Info";
 import { BouquetByIdPage } from "../BouquetByIdPage/BouquetByIdPage";
+import { Auth } from "../Auth/Auth";
 
 export const App = () => {
   return (
@@ -19,7 +20,7 @@ export const App = () => {
         <Route path="/reviews" element={<Reviews />} />
         <Route path="/contacts" element={<Contacts />} />
         <Route path="/info" element={<Info />} />
-        <Route path="/login" element={<LogIn />} />
+        <Route path="/auth" element={<Auth />} />
         <Route path="/basket" element={<Basket />} />
 
         <Route path="/bouquet/:id" element={<BouquetByIdPage />} />
