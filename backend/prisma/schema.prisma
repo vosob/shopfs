@@ -9,12 +9,31 @@ datasource db {
 
 model User {
   id       String @id @default(cuid())
+
   email    String @unique
   name     String
+  city     String
+  phone    String
   password String
+
+  comments   Comment[]
+
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model Comment {
+  id        String   @id @default(cuid())
+  text      String
+  userId    String
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
 }
 
 model Flower {
@@ -28,6 +47,8 @@ model Flower {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+
 }
 
 model BouquetImage {

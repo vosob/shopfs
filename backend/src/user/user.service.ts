@@ -20,13 +20,17 @@ export class UserService {
     });
   }
 
-  async getUserById(id: string): Promise<Pick<User, 'id' | 'name' | 'email'>> {
+  async getUserById(
+    id: string,
+  ): Promise<Pick<User, 'id' | 'name' | 'email' | 'city' | 'phone'>> {
     const user = await this.prismaService.user.findUnique({
       where: { id },
       select: {
         id: true,
         name: true,
         email: true,
+        city: true,
+        phone: true,
       },
     });
 
@@ -38,13 +42,23 @@ export class UserService {
   }
 
   async createUser(dto: CreateUserDto): Promise<User> {
-    const { name, email, password } = dto;
+    const { name, email, password, city, phone } = dto;
+
+    const existingUser = await this.prismaService.user.findUnique({
+      where: { email },
+    });
+
+    if (existingUser) {
+      throw new Error('User with this email already exists');
+    }
 
     const newUser = await this.prismaService.user.create({
       data: {
         name,
         email,
         password,
+        city,
+        phone,
       },
     });
 
