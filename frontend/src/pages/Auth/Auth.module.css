@@ -67,13 +67,41 @@ label {
   color: #333;
 }
 
+.passwordWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
 .input {
+  width: 100%;
+  padding-right: 35px;
   margin-top: 4px;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
   outline: none;
   transition: border-color 0.3s ease;
+  /* padding-bottom: 20px; */
+}
+
+.eyeBtn {
+  position: absolute;
+  right: 8px;
+  top: 55%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #777;
+  font-size: 18px;
+}
+
+.eyeBtn:hover {
+  color: #333;
 }
 
 .input:focus {
@@ -93,4 +121,19 @@ label {
 
 .submitBtn:hover {
   background-color: #43a047;
+}
+
+.error {
+  display: block;
+  color: #e53935;
+  font-size: 14px;
+  font-weight: 400;
+  /* position: absolute; */
+  /* top: 100%;
+  left: 0; */
+}
+
+.labelForm {
+  margin-bottom: 20px;
+  /* position: relative; */
 }

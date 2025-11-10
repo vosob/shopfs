@@ -1,9 +1,17 @@
 import { useEffect, useId, useState } from "react";
 import css from "./Auth.module.css";
-import { Field, Formik, Form as FormikForm, FormikHelpers } from "formik";
+import {
+  ErrorMessage,
+  Field,
+  Formik,
+  Form as FormikForm,
+  FormikHelpers,
+} from "formik";
 import { registerUser, loginUser, me } from "../../services/users";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router";
+import * as Yup from "yup";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 type ActivePathType = "login" | "register";
 
@@ -23,6 +31,7 @@ interface OrderFormValuesLogin {
 export const Auth = () => {
   const [activePath, setActivePath] = useState<ActivePathType>("login");
   const fieldId = useId();
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -32,6 +41,27 @@ export const Auth = () => {
     };
     fetchMe();
   }, []);
+
+  const loginForm = Yup.object().shape({
+    email: Yup.string()
+      .email("Не вірний формат пошти")
+      .required("Ведіть ваші данні"),
+    password: Yup.string()
+      .required("Ведіть ваші данні")
+      .min(4, "Пароль повинен бути більше за 4 символи"),
+  });
+
+  const registerForm = Yup.object().shape({
+    name: Yup.string()
+      .required("Поле обов'язкове")
+      .min(2, "Ім'я повинен бути більше за 2 символи"),
+    email: Yup.string()
+      .required("Поле обов'язкове")
+      .email("Не вірний формат пошти"),
+    phone: Yup.string().required("Поле обов'язкове"),
+    city: Yup.string().required("Поле обов'язкове"),
+    password: Yup.string().required("Поле обов'язкове"),
+  });
 
   const initialValuesRegister: OrderFormValuesRegister = {
     name: "",
@@ -71,7 +101,7 @@ export const Auth = () => {
 
     try {
       await loginUser(values);
-      navigate("/");
+      // navigate("/");
       toast.success("Successfully user login!");
     } catch (error) {
       toast.error("Login usser error");
@@ -105,11 +135,12 @@ export const Auth = () => {
 
         {activePath === "login" && (
           <Formik
+            validationSchema={loginForm}
             initialValues={initialValuesLogin}
             onSubmit={handleSubmitLogin}
           >
             <FormikForm className={css.form}>
-              <label htmlFor={`${fieldId}-email`}>
+              <label className={css.labelForm} htmlFor={`${fieldId}-email`}>
                 Пошта:
                 <Field
                   id={`${fieldId}-email`}
@@ -118,16 +149,39 @@ export const Auth = () => {
                   placeholder="Ваша почта"
                   className={css.input}
                 />
+                <ErrorMessage
+                  name="email"
+                  component="span"
+                  className={css.error}
+                />
               </label>
 
               <label htmlFor={`${fieldId}-password`}>
                 Пароль:
-                <Field
-                  id={`${fieldId}-password`}
-                  type="password"
+                <div className={css.passwordWrapper}>
+                  <Field
+                    id={`${fieldId}-password`}
+                    type={showPassword ? "text" : "password"}
+                    name="password"
+                    placeholder="Введіть пароль"
+                    className={css.input}
+                  />
+                  <button
+                    type="button"
+                    className={css.eyeBtn}
+                    onClick={() => setShowPassword((prev) => !prev)}
+                  >
+                    {showPassword ? (
+                      <AiOutlineEyeInvisible />
+                    ) : (
+                      <AiOutlineEye />
+                    )}
+                  </button>
+                </div>
+                <ErrorMessage
                   name="password"
-                  placeholder="Введіть пароль"
-                  className={css.input}
+                  component="span"
+                  className={css.error}
                 />
               </label>
 
@@ -140,6 +194,7 @@ export const Auth = () => {
 
         {activePath === "register" && (
           <Formik
+            validationSchema={registerForm}
             initialValues={initialValuesRegister}
             onSubmit={handleSubmitRegister}
           >
@@ -153,6 +208,11 @@ export const Auth = () => {
                   placeholder="Введіть ім’я та прізвище"
                   className={css.input}
                 />
+                <ErrorMessage
+                  name="name"
+                  component="span"
+                  className={css.error}
+                />
               </label>
 
               <label htmlFor={`${fieldId}-email`}>
@@ -163,6 +223,11 @@ export const Auth = () => {
                   name="email"
                   placeholder="Введіть пошту"
                   className={css.input}
+                />
+                <ErrorMessage
+                  name="email"
+                  component="span"
+                  className={css.error}
                 />
               </label>
 
@@ -175,6 +240,11 @@ export const Auth = () => {
                   placeholder="+380 __ ___ __ __"
                   className={css.input}
                 />
+                <ErrorMessage
+                  name="phone"
+                  component="span"
+                  className={css.error}
+                />
               </label>
 
               <label htmlFor={`${fieldId}-city`}>
@@ -186,6 +256,11 @@ export const Auth = () => {
                   placeholder="Введіть місто"
                   className={css.input}
                 />
+                <ErrorMessage
+                  name="city"
+                  component="span"
+                  className={css.error}
+                />
               </label>
 
               <label htmlFor={`${fieldId}-password`}>
@@ -196,6 +271,11 @@ export const Auth = () => {
                   name="password"
                   placeholder="Введіть пароль"
                   className={css.input}
+                />
+                <ErrorMessage
+                  name="password"
+                  component="span"
+                  className={css.error}
                 />
               </label>
 
