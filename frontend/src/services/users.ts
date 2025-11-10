@@ -4,7 +4,7 @@ import {
   userRegister,
   userRegisterData,
 } from "../types/users";
-import { instance } from "../api/api";
+import { instance } from "./axiosInstans";
 
 export const registerUser = async (
   userRegisterData: userRegister
@@ -21,6 +21,6 @@ export const loginUser = async (
 };
 
 export const me = async () => {
-  const res = await instance.get("auth/me", { withCredentials: true });
+  const res = await instance.get("auth/me");
   return res.data;
 };
