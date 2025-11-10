@@ -10,6 +10,7 @@ import {
   Put,
   Req,
   Res,
+  UseGuards,
 } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -17,7 +18,8 @@ import { UpdateUserDto } from './dto/update-user.dto';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { LoginUserDto } from './dto/login-user.dto';
 import type { Response, Request } from 'express';
-import { Authorization } from './decorators/auth.decorator';
+// import { Authorization } from './decorators/auth.decorator';
+import { JwtCookieGuard } from './guards/auth.guards';
 
 @ApiTags('Authorization')
 @Controller('auth')
@@ -68,7 +70,8 @@ export class UserController {
     return this.userService.logout(res);
   }
 
-  @Authorization()
+  // @Authorization()
+  @UseGuards(JwtCookieGuard)
   @Get('me')
   getMe(@Req() req: Request) {
     return req.user;

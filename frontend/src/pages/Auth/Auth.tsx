@@ -1,19 +1,22 @@
 import { useId, useState } from "react";
 import css from "./Auth.module.css";
 import { Field, Formik, Form as FormikForm, FormikHelpers } from "formik";
+import { registerUser, loginUser } from "../../services/users";
+import toast from "react-hot-toast";
 
 type ActivePathType = "login" | "register";
 
 interface OrderFormValuesRegister {
-  regName: string;
-  regMail: string;
-  regTel: string;
-  regPass: string;
+  name: string;
+  email: string;
+  phone: string;
+  city: string;
+  password: string;
 }
 
 interface OrderFormValuesLogin {
-  logPhone: string;
-  logPass: string;
+  email: string;
+  password: string;
 }
 
 export const Auth = () => {
@@ -21,31 +24,50 @@ export const Auth = () => {
   const fieldId = useId();
 
   const initialValuesRegister: OrderFormValuesRegister = {
-    regName: "",
-    regMail: "",
-    regTel: "",
-    regPass: "",
+    name: "",
+    email: "",
+    phone: "",
+    password: "",
+    city: "",
   };
 
   const initialValuesLogin: OrderFormValuesLogin = {
-    logPhone: "",
-    logPass: "",
+    email: "",
+    password: "",
   };
 
-  const handleSubmitRegister = (
+  const handleSubmitRegister = async (
     values: OrderFormValuesRegister,
     actions: FormikHelpers<OrderFormValuesRegister>
   ) => {
     console.log("Register data:", values);
-    actions.resetForm();
+
+    try {
+      await registerUser(values);
+      toast.success("Successfully user register!");
+    } catch (error) {
+      toast.error("Register usser error");
+      console.log(error);
+    } finally {
+      actions.resetForm();
+    }
   };
 
-  const handleSubmitLogin = (
+  const handleSubmitLogin = async (
     values: OrderFormValuesLogin,
     actions: FormikHelpers<OrderFormValuesLogin>
   ) => {
     console.log("Login data:", values);
-    actions.resetForm();
+
+    try {
+      await loginUser(values);
+      toast.success("Successfully user login!");
+    } catch (error) {
+      toast.error("Login usser error");
+      console.log(error);
+    } finally {
+      actions.resetForm();
+    }
   };
 
   return (
@@ -76,23 +98,23 @@ export const Auth = () => {
             onSubmit={handleSubmitLogin}
           >
             <FormikForm className={css.form}>
-              <label htmlFor={`${fieldId}-logPhone`}>
-                Телефон:
+              <label htmlFor={`${fieldId}-email`}>
+                Пошта:
                 <Field
-                  id={`${fieldId}-logPhone`}
-                  type="tel"
-                  name="logPhone"
-                  placeholder="+380 __ ___ __ __"
+                  id={`${fieldId}-email`}
+                  type="email"
+                  name="email"
+                  placeholder="Ваша почта"
                   className={css.input}
                 />
               </label>
 
-              <label htmlFor={`${fieldId}-logPass`}>
+              <label htmlFor={`${fieldId}-password`}>
                 Пароль:
                 <Field
-                  id={`${fieldId}-logPass`}
+                  id={`${fieldId}-password`}
                   type="password"
-                  name="logPass"
+                  name="password"
                   placeholder="Введіть пароль"
                   className={css.input}
                 />
@@ -111,45 +133,56 @@ export const Auth = () => {
             onSubmit={handleSubmitRegister}
           >
             <FormikForm className={css.form}>
-              <label htmlFor={`${fieldId}-regName`}>
+              <label htmlFor={`${fieldId}-name`}>
                 Ім’я та прізвище:
                 <Field
-                  id={`${fieldId}-regName`}
+                  id={`${fieldId}-name`}
                   type="text"
-                  name="regName"
+                  name="name"
                   placeholder="Введіть ім’я та прізвище"
                   className={css.input}
                 />
               </label>
 
-              <label htmlFor={`${fieldId}-regMail`}>
+              <label htmlFor={`${fieldId}-email`}>
                 Пошта:
                 <Field
-                  id={`${fieldId}-regMail`}
+                  id={`${fieldId}-email`}
                   type="email"
-                  name="regMail"
+                  name="email"
                   placeholder="Введіть пошту"
                   className={css.input}
                 />
               </label>
 
-              <label htmlFor={`${fieldId}-regTel`}>
+              <label htmlFor={`${fieldId}-phone`}>
                 Телефон:
                 <Field
-                  id={`${fieldId}-regTel`}
+                  id={`${fieldId}-phone`}
                   type="tel"
-                  name="regTel"
+                  name="phone"
                   placeholder="+380 __ ___ __ __"
                   className={css.input}
                 />
               </label>
 
-              <label htmlFor={`${fieldId}-regPass`}>
+              <label htmlFor={`${fieldId}-city`}>
+                Місто:
+                <Field
+                  id={`${fieldId}-city`}
+                  type="text"
+                  name="city"
+                  placeholder="Введіть місто"
+                  className={css.input}
+                />
+              </label>
+
+              <label htmlFor={`${fieldId}-password`}>
                 Пароль:
                 <Field
-                  id={`${fieldId}-regPass`}
+                  id={`${fieldId}-password`}
                   type="password"
-                  name="regPass"
+                  name="password"
                   placeholder="Введіть пароль"
                   className={css.input}
                 />
