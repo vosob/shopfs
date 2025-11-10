@@ -19,3 +19,8 @@ export const loginUser = async (
   const resLog = await instance.post("auth/login", userLoginData);
   return resLog.data;
 };
+
+export const me = async () => {
+  const res = await instance.get("auth/me", { withCredentials: true });
+  return res.data;
+};

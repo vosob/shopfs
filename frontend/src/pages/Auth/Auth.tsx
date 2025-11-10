@@ -1,8 +1,9 @@
-import { useId, useState } from "react";
+import { useEffect, useId, useState } from "react";
 import css from "./Auth.module.css";
 import { Field, Formik, Form as FormikForm, FormikHelpers } from "formik";
-import { registerUser, loginUser } from "../../services/users";
+import { registerUser, loginUser, me } from "../../services/users";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router";
 
 type ActivePathType = "login" | "register";
 
@@ -22,6 +23,15 @@ interface OrderFormValuesLogin {
 export const Auth = () => {
   const [activePath, setActivePath] = useState<ActivePathType>("login");
   const fieldId = useId();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchMe = async () => {
+      const a = await me();
+      console.log("useEffect", a);
+    };
+    fetchMe();
+  }, []);
 
   const initialValuesRegister: OrderFormValuesRegister = {
     name: "",
@@ -61,6 +71,7 @@ export const Auth = () => {
 
     try {
       await loginUser(values);
+      navigate("/");
       toast.success("Successfully user login!");
     } catch (error) {
       toast.error("Login usser error");
