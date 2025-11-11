@@ -1,4 +1,4 @@
-import { Bouquet } from "../../types/typesItem";
+import { Bouquet } from "../types/typesItem";
 
 export type SortType = "default" | "price-asc" | "price-desc" | "size" | "new";
 

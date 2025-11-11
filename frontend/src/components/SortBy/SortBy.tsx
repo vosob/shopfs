@@ -1,4 +1,4 @@
-import { SortType } from "../Utils/SortList";
+import { SortType } from "../../Utils/SortList";
 import css from "./SortBy.module.css";
 
 interface SortProps {

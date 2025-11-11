@@ -1,0 +1,29 @@
+.container {
+  width: 1440px;
+  margin: 0 auto;
+}
+
+.title {
+  color: var(--text-chocolate);
+
+  font-family: var(--font-literal);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 29px;
+  margin-bottom: 28px;
+}
+
+.btn {
+  background-color: #62b15c;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: var(--text-green);
+}

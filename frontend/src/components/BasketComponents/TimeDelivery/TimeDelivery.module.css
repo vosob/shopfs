@@ -1,0 +1,167 @@
+.container {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+
+  margin-bottom: 20px;
+}
+
+.container h3 {
+  color: var(--text-chocolate);
+  font-family: var(--font-literal);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19px;
+  padding-bottom: 12px;
+}
+
+/* --- Date Section Styles --- */
+.dateContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-chocolate);
+  font-family: var(--font-literal);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  border-bottom: 1px solid #e6e0e0;
+  padding-bottom: 12px; /* Adjusted padding */
+  margin-bottom: 20px;
+}
+
+.dateDisplay {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #8c8c8c; /* Lighter color for date value */
+}
+
+.calendarIcon {
+  font-size: 18px; /* For the emoji calendar icon */
+  color: #8c8c8c;
+}
+
+.calendar {
+  border: none;
+}
+
+/* --- Radio Button and Checkbox Section Styles --- */
+.textPosition {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.radioOption,
+.activeRadio {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-chocolate);
+  font-family: var(--font-literal);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  cursor: pointer;
+  padding-bottom: 12px; /* Space between radio groups */
+  border-bottom: 1px solid #f0f0f0; /* Subtle separator line */
+}
+
+/* Last radio option does not need a bottom border */
+.textPosition > label:nth-last-of-type(2) {
+  border-bottom: none;
+}
+
+/* --- Custom Radio Button Styling --- */
+.hiddenRadio {
+  display: none;
+}
+
+.customRadio {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  display: inline-block;
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* Style for UNSELECTED radio button */
+.radioOption .customRadio {
+  border-color: #e0e0e0; /* Gray border for unselected */
+  background-color: white;
+}
+
+/* Style for SELECTED radio button (Green dot) */
+.activeRadio .customRadio {
+  border-color: #6aaa49; /* Green border for selected */
+  background-color: white;
+}
+
+.activeRadio .customRadio::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #6aaa49; /* Green inner dot */
+  transform: translate(-50%, -50%);
+}
+
+/* --- Time Display/Input Styling for "Time" option --- */
+.timeDisplay {
+  margin-left: auto; /* Push to the right */
+  color: #8c8c8c;
+  font-weight: 700;
+  padding: 4px 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.timeIcon {
+  font-size: 16px;
+  color: #8c8c8c;
+}
+
+/* --- Help Icon Styling for "Call" option --- */
+.helpIcon {
+  margin-left: auto; /* Push to the right */
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  color: #8c8c8c;
+  font-weight: bold;
+}
+
+/* --- Checkbox Styling --- */
+.checkboxOption {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 10px;
+}
+
+.actualCheckbox {
+  /* Style or replace the default checkbox if needed to match the image */
+  width: 16px;
+  height: 16px;
+}
+
+.checkboxLabel {
+  /* Style for the checkbox text */
+  color: #8c8c8c; /* Slightly lighter color as in the image */
+  font-size: 14px;
+}

@@ -1,9 +1,10 @@
 import { Link } from "react-router";
 import css from "./NavBar.module.css";
 import { useAuth } from "../../context/contextAuth";
+import { FaRegUserCircle } from "react-icons/fa";
 
 export const NavBar = () => {
-  const { isAuthenticated, logout } = useAuth();
+  const { isAuthenticated } = useAuth();
 
   return (
     <div className={css.navbarContainer}>
@@ -17,12 +18,15 @@ export const NavBar = () => {
         <Link to="/info">Інформація для клієнтів</Link>
 
         {isAuthenticated ? (
-          <button onClick={logout}>Вихід</button>
+          <Link className={css.orderContainer} to="/personalPage/myOrder">
+            <FaRegUserCircle size={24} />
+            МоЇ замовлення
+          </Link>
         ) : (
           <Link to="/auth">Вхід</Link>
         )}
 
-        <Link to="/basket">Basket</Link>
+        <Link to="/basket">Корзина</Link>
       </ul>
     </div>
   );
