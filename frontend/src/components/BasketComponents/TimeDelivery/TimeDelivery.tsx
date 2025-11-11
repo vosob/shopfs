@@ -54,7 +54,7 @@ export const TimeDelivery = () => {
           <span className={css.customRadio}></span>
 
           <span className={css.labelContent}>
-            Подзвонити отримувачу для уточнення часу і адреси
+            Подзвонити отримувачу для уточнення часу і адреси.
           </span>
         </label>
 
