@@ -1,0 +1,44 @@
+.container {
+  width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  gap: 20px;
+}
+
+.asideContainer {
+  padding: 37px 17px 0px 17px;
+  background-color: rgba(242, 242, 242, 1);
+}
+
+.profileLayoutTitle {
+  color: var(--text-chocolate);
+
+  font-family: var(--font-karton);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 29px;
+  margin-bottom: 20px;
+}
+
+.navContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.linkItem {
+  padding: 14px 0px 14px 20px;
+  border-radius: 10px;
+  background: white;
+  width: 250px;
+  color: var(--text-chocolate);
+  font-family: var(--font-literal);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+.linkItem:focus,
+.linkItem:hover {
+  background-color: rgba(246, 255, 243, 1);
+}

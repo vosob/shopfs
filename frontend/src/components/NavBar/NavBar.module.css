@@ -24,3 +24,9 @@
   width: 102px;
   height: 84px;
 }
+
+.orderContainer {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}

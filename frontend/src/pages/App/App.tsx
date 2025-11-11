@@ -11,8 +11,12 @@ import { Info } from "../Info/Info";
 import { BouquetByIdPage } from "../BouquetByIdPage/BouquetByIdPage";
 import { Auth } from "../Auth/Auth";
 
-// import { PrivateRoute } from "../../pages/Route/PrivateRoute";
 import { PublicRoute } from "../../pages/Route/PublicRoute";
+import { PrivateRoute } from "../Route/PrivateRoute";
+import { MyOrders } from "../../components/MyOrders/MyOrders";
+import { ProfileLayout } from "../ProfileLayout/ProfileLayout";
+import { Profile } from "../../components/Profile/Profile";
+import { ChangePassword } from "../../components/ChangePassword/ChangePassword";
 
 export const App = () => {
   return (
@@ -31,6 +35,18 @@ export const App = () => {
             </PublicRoute>
           }
         />
+        <Route
+          path="/personalPage"
+          element={
+            <PrivateRoute>
+              <ProfileLayout />
+            </PrivateRoute>
+          }
+        >
+          <Route path="profile" element={<Profile />} />
+          <Route path="myOrder" element={<MyOrders />} />
+          <Route path="password" element={<ChangePassword />} />
+        </Route>
 
         <Route path="/basket" element={<Basket />} />
 

@@ -8,7 +8,7 @@ import { fetchBouquet } from "../../services/items";
 
 import css from "./HomePage.module.css";
 import { useQuery } from "@tanstack/react-query";
-import { sortProducts, SortType } from "../../components/Utils/SortList";
+import { sortProducts, SortType } from "../../Utils/SortList";
 import { Filters } from "../../components/Filters/Filters";
 import { Order } from "../../components/Order/Order";
 import { DeliveryInfo } from "../../components/DeliveryInfo/DeliveryInfo";
