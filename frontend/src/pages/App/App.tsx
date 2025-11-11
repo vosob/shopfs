@@ -11,6 +11,9 @@ import { Info } from "../Info/Info";
 import { BouquetByIdPage } from "../BouquetByIdPage/BouquetByIdPage";
 import { Auth } from "../Auth/Auth";
 
+// import { PrivateRoute } from "../../pages/Route/PrivateRoute";
+import { PublicRoute } from "../../pages/Route/PublicRoute";
+
 export const App = () => {
   return (
     <Layout>
@@ -20,7 +23,15 @@ export const App = () => {
         <Route path="/reviews" element={<Reviews />} />
         <Route path="/contacts" element={<Contacts />} />
         <Route path="/info" element={<Info />} />
-        <Route path="/auth" element={<Auth />} />
+        <Route
+          path="/auth"
+          element={
+            <PublicRoute>
+              <Auth />
+            </PublicRoute>
+          }
+        />
+
         <Route path="/basket" element={<Basket />} />
 
         <Route path="/bouquet/:id" element={<BouquetByIdPage />} />

@@ -1,12 +1,17 @@
-// import { useAuth } from "../context/AuthContext";
-// import type { ReactNode } from "react";
+import { Navigate } from "react-router-dom";
+import { useAuth } from "../../context/contextAuth";
+import type { ReactNode } from "react";
 
-// export const PublicRoute = ({ children }: { children: ReactNode }) => {
-//   const { isLoading } = useAuth();
+export const PublicRoute = ({ children }: { children: ReactNode }) => {
+  const { isLoading, isAuthenticated } = useAuth();
 
-//   if (isLoading) {
-//     return <div>Loading...</div>;
-//   }
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
-//   return <>{children}</>;
-// };
+  if (isAuthenticated) {
+    return <Navigate to="/" replace />;
+  }
+
+  return <>{children}</>;
+};

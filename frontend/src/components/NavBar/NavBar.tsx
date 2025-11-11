@@ -1,7 +1,10 @@
 import { Link } from "react-router";
 import css from "./NavBar.module.css";
+import { useAuth } from "../../context/contextAuth";
 
 export const NavBar = () => {
+  const { isAuthenticated, logout } = useAuth();
+
   return (
     <div className={css.navbarContainer}>
       <ul className={css.navbar}>
@@ -12,7 +15,13 @@ export const NavBar = () => {
           <img className={css.iconHome} src="../../../public/images/icon.png" />
         </Link>
         <Link to="/info">Інформація для клієнтів</Link>
-        <Link to="/auth">Log in</Link>
+
+        {isAuthenticated ? (
+          <button onClick={logout}>Вихід</button>
+        ) : (
+          <Link to="/auth">Вхід</Link>
+        )}
+
         <Link to="/basket">Basket</Link>
       </ul>
     </div>

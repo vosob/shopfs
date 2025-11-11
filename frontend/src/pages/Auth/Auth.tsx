@@ -1,4 +1,4 @@
-import { useEffect, useId, useState } from "react";
+import { useId, useState } from "react";
 import css from "./Auth.module.css";
 import {
   ErrorMessage,
@@ -7,11 +7,13 @@ import {
   Form as FormikForm,
   FormikHelpers,
 } from "formik";
-import { registerUser, loginUser, me } from "../../services/users";
+import { registerUser, loginUser } from "../../services/users";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router";
+// import { useNavigate } from "react-router";
 import * as Yup from "yup";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import { useAuth } from "../../context/contextAuth";
+import { useNavigate } from "react-router";
 
 type ActivePathType = "login" | "register";
 
@@ -31,16 +33,9 @@ interface OrderFormValuesLogin {
 export const Auth = () => {
   const [activePath, setActivePath] = useState<ActivePathType>("login");
   const fieldId = useId();
-  const [showPassword, setShowPassword] = useState(false);
+  const { createToken } = useAuth();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const fetchMe = async () => {
-      const a = await me();
-      console.log("useEffect", a);
-    };
-    fetchMe();
-  }, []);
+  const [showPassword, setShowPassword] = useState(false);
 
   const loginForm = Yup.object().shape({
     email: Yup.string()
@@ -84,6 +79,7 @@ export const Auth = () => {
 
     try {
       await registerUser(values);
+
       toast.success("Successfully user register!");
     } catch (error) {
       toast.error("Register usser error");
@@ -100,8 +96,9 @@ export const Auth = () => {
     console.log("Login data:", values);
 
     try {
-      await loginUser(values);
-      // navigate("/");
+      const response = await loginUser(values);
+      createToken(response.accessToken);
+      navigate("/");
       toast.success("Successfully user login!");
     } catch (error) {
       toast.error("Login usser error");

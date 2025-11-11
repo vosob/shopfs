@@ -18,3 +18,14 @@ export interface userLogin {
 export interface userLoginData {
   accessToken: string;
 }
+
+export interface userMe {
+  city: string;
+  createdAt: string;
+  email: string;
+  id: string;
+  name: string;
+  password: string;
+  phone: string;
+  updatedAt: string;
+}

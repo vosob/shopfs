@@ -130,9 +130,9 @@ export class UserService {
   }
 
   // logout
-
-  logout(res: Response) {
-    this.setCookies(res, '', '', new Date(0));
+  logout(res: Response): { message: string } {
+    this.setCookies(res, '', new Date(0));
+    return { message: 'Logout successful' };
   }
 
   async validate(id: string) {
@@ -200,7 +200,6 @@ export class UserService {
 
     this.setCookies(
       res,
-      accessToken,
       refreshToken,
       new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
     );
@@ -226,23 +225,31 @@ export class UserService {
 
   private setCookies(
     res: Response,
-    accessToken: string,
-    refreshToken: string,
+    // accessToken: string,
+    // refreshToken: string,
+    value: string,
     expires: Date,
   ) {
-    res.cookie('refreshToken', refreshToken, {
+    // res.cookie('refreshToken', refreshToken, {
+    //   httpOnly: true,
+    //   domain: this.COOKIE_DOMAIN,
+    //   expires,
+    //   secure: !isDev(this.configService),
+    //   sameSite: !isDev(this.configService) ? 'none' : 'lax',
+    // });
+    // res.cookie('accessToken', accessToken, {
+    //   httpOnly: true,
+    //   domain: this.COOKIE_DOMAIN,
+    //   secure: !isDev(this.configService),
+    //   sameSite: !isDev(this.configService) ? 'none' : 'lax',
+    // });
+
+    res.cookie('refreshToken', value, {
       httpOnly: true,
       domain: this.COOKIE_DOMAIN,
       expires,
       secure: !isDev(this.configService),
-      sameSite: !isDev(this.configService) ? 'none' : 'lax',
-    });
-
-    res.cookie('accessToken', accessToken, {
-      httpOnly: true,
-      domain: this.COOKIE_DOMAIN,
-      secure: !isDev(this.configService),
-      sameSite: !isDev(this.configService) ? 'none' : 'lax',
+      sameSite: isDev(this.configService) ? 'none' : 'lax',
     });
   }
 }

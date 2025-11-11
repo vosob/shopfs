@@ -4,8 +4,7 @@ import {
   userRegister,
   userRegisterData,
 } from "../types/users";
-import { instance } from "./axiosInstans";
-
+import instance from "./axiosInstans";
 export const registerUser = async (
   userRegisterData: userRegister
 ): Promise<userRegisterData> => {
@@ -18,6 +17,10 @@ export const loginUser = async (
 ): Promise<userLoginData> => {
   const resLog = await instance.post("auth/login", userLoginData);
   return resLog.data;
+};
+export const logout = async () => {
+  const res = await instance.post("auth/logout");
+  return res.data;
 };
 
 export const me = async () => {
