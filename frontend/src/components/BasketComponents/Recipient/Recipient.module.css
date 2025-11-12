@@ -1,0 +1,117 @@
+.container {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+}
+
+.container h3 {
+  color: var(--text-chocolate);
+  font-family: var(--font-literal);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19px;
+  padding-bottom: 12px;
+}
+
+.textPosition {
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 24px;
+}
+
+.recipientOrder {
+  padding-right: 102px;
+}
+
+.radioOption,
+.activeRadio {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-chocolate);
+  font-family: var(--font-literal);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  cursor: pointer;
+}
+
+.hiddenRadio {
+  display: none;
+}
+
+.customRadio {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  display: inline-block;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.activeRadio .customRadio::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #6aaa49;
+  transform: translate(-50%, -50%);
+}
+
+.nameAndMobile {
+  display: flex;
+  margin: 0 auto;
+  width: 1440px;
+  gap: 20px;
+  padding-bottom: 24px;
+}
+
+.cityContainer {
+  display: flex;
+  margin: 0 auto;
+  width: 1440px;
+  gap: 20px;
+  padding-bottom: 24px;
+}
+
+.labelName {
+  color: var(--text-chocolate);
+  font-family: var(--font-literal);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 120%;
+  padding-bottom: 12px;
+}
+
+.inputStyle {
+  box-sizing: border-box;
+  border: 1px solid rgba(224, 224, 224, 1);
+  border-radius: 5px;
+  background: rgba(250, 250, 250, 1);
+  width: 280px;
+  height: 40px;
+  padding-left: 10px;
+}
+
+.labelPosition {
+  display: flex;
+  flex-direction: column;
+}
+
+.noteStyle {
+  width: 578px;
+  height: 90px;
+  box-sizing: border-box;
+  border: 1px solid rgba(224, 224, 224, 1);
+  border-radius: 5px;
+  background: rgba(250, 250, 250, 1);
+  padding-left: 10px;
+  padding-top: 5px;
+  resize: none;
+}
