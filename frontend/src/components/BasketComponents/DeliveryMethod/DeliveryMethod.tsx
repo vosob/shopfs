@@ -1,24 +1,43 @@
-import { useState } from "react";
+import { useId } from "react";
 import css from "./DeliveryMethod.module.css";
+import { Field, useFormikContext } from "formik";
+
+// interface DeliveryMethodOrder {
+//   deliveryMethod: string;
+// }
+
+// const initialValues: DeliveryMethodOrder = {
+//   deliveryMethod: "",
+// };
 
 export const DeliveryMethod = () => {
-  const [method, setMethod] = useState("delivery");
+  const { values, setFieldValue } = useFormikContext<{
+    deliveryMethod: string;
+  }>();
+  const fieldId = useId();
 
   return (
     <div className={css.container}>
       <h3>Спосіб доставки</h3>
       <div className={css.textPosition}>
         <label
-          className={method === "delivery" ? css.activeRadio : css.radioOption}
+          className={
+            values.deliveryMethod === "delivery"
+              ? css.activeRadio
+              : css.radioOption
+          }
+          htmlFor={`${fieldId}-delivery`}
         >
           <div>
-            <input
+            <Field
               type="radio"
-              id="delivery"
+              id={`${fieldId}-delivery`}
               name="deliveryMethod"
               value="delivery"
-              checked={method === "delivery"}
-              onChange={(e) => setMethod(e.target.value)}
+              checked={values.deliveryMethod === "delivery"}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setFieldValue("deliveryMethod", e.target.value)
+              }
               className={css.hiddenRadio}
             />
             <span className={css.customRadio}></span>
@@ -27,16 +46,21 @@ export const DeliveryMethod = () => {
         </label>
 
         <label
-          className={method === "self" ? css.activeRadio : css.radioOption}
+          className={
+            values.deliveryMethod === "self" ? css.activeRadio : css.radioOption
+          }
+          htmlFor={`${fieldId}-self`}
         >
           <div>
-            <input
+            <Field
               type="radio"
-              id="self"
+              id={`${fieldId}-self`}
               name="deliveryMethod"
               value="self"
-              checked={method === "self"}
-              onChange={(e) => setMethod(e.target.value)}
+              checked={values.deliveryMethod === "self"}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setFieldValue("deliveryMethod", e.target.value)
+              }
               className={css.hiddenRadio}
             />
             <span className={css.customRadio}></span>
