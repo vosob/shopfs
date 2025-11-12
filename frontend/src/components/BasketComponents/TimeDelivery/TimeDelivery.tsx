@@ -38,7 +38,6 @@ export const TimeDelivery = () => {
             defaultValue={formattedTime}
           />
         </label>
-
         <label
           className={method === "call" ? css.activeRadio : css.radioOption}
         >

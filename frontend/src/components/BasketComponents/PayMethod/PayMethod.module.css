@@ -4,7 +4,7 @@
   padding: 20px 24px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 
-  height: 140px;
+  height: 213px;
   margin-bottom: 20px;
 }
 
@@ -19,8 +19,8 @@
 
 .textPosition {
   display: flex;
-  gap: 95px;
-  align-items: flex-start;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .textPosition div {
@@ -46,16 +46,6 @@
   display: inline-block;
   position: relative;
   flex-shrink: 0;
-}
-
-.radioOption .customRadio {
-  border-color: #e0e0e0;
-  background-color: white;
-}
-
-.activeRadio .customRadio {
-  border-color: #6aaa49;
-  background-color: white;
 }
 
 .activeRadio .customRadio::after {
