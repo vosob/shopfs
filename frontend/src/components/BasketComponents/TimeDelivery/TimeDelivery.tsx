@@ -1,33 +1,43 @@
-import { useState } from "react";
 import css from "./TimeDelivery.module.css";
-import { formatted, formattedTime } from "../../../Utils/TodayDate";
+import { formatted } from "../../../Utils/TodayDate";
+import { Field, useFormikContext } from "formik";
+import { useId } from "react";
 
 export const TimeDelivery = () => {
-  const [method, setMethod] = useState("time");
+  const { values, setFieldValue } = useFormikContext<{
+    timeMethod: string;
+    deliveryDate: string;
+    deliveryTime: string;
+    incognito: boolean;
+  }>();
+  const fieldId = useId();
 
   return (
     <div className={css.container}>
       <h3>Дата і час</h3>
       <div className={css.dateContainer}>
         <label>Дата</label>
-        <input
+        <Field
           type="date"
           className={css.calendar}
           defaultValue={String(formatted)}
+          checked={values.timeMethod === "time"}
         />
       </div>
 
       <div className={css.textPosition}>
         <label
-          className={method === "time" ? css.activeRadio : css.radioOption}
+          className={
+            values.timeMethod === "time" ? css.activeRadio : css.radioOption
+          }
+          htmlFor={`${fieldId}-time`}
         >
-          <input
+          <Field
             type="radio"
-            id="time"
+            id={`${fieldId}-time`}
             name="timeMethod"
             value="time"
-            checked={method === "time"}
-            onChange={(e) => setMethod(e.target.value)}
+            checked={values.timeMethod === "time"}
             className={css.hiddenRadio}
           />
           <span className={css.customRadio}></span>
@@ -35,19 +45,24 @@ export const TimeDelivery = () => {
           <input
             type="time"
             className={css.timeDisplay}
-            defaultValue={formattedTime}
+            name="deliveryDate"
+            value={values.deliveryDate}
+            onChange={(e) => setFieldValue("deliveryDate", e.target.value)}
+            min={String(formatted)}
           />
         </label>
         <label
-          className={method === "call" ? css.activeRadio : css.radioOption}
+          className={
+            values.timeMethod === "call" ? css.activeRadio : css.radioOption
+          }
+          htmlFor={`${fieldId}-call`}
         >
-          <input
+          <Field
             type="radio"
-            id="call"
+            id={`${fieldId}-call`}
             name="timeMethod"
             value="call"
-            checked={method === "call"}
-            onChange={(e) => setMethod(e.target.value)}
+            checked={values.timeMethod === "call"}
             className={css.hiddenRadio}
           />
           <span className={css.customRadio}></span>
@@ -58,9 +73,10 @@ export const TimeDelivery = () => {
         </label>
 
         <div className={css.checkboxOption}>
-          <input
+          <Field
             type="checkbox"
             id="noFlowers"
+            name="incognito"
             className={css.actualCheckbox}
           />
           <label htmlFor="noFlowers" className={css.checkboxLabel}>
