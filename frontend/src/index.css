@@ -108,6 +108,7 @@ a:active {
   --font-karton: "Karton2", sans-serif;
   --text-green: rgba(106, 174, 85, 1);
   --text-chocolate: rgba(91, 74, 88, 1);
+  --text-gray: rgba(79, 79, 79, 1);
   --back-color: background-color 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
   --bord-color: border-color 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
 }

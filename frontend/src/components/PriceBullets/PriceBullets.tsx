@@ -3,7 +3,7 @@ import css from "./PriceBullets.module.css";
 interface Props {
   price: number;
   activePrice: string;
-  setActivePrice: (active: string) => void;
+  setActivePrice: (active: "small" | "medium" | "big") => void;
 }
 
 export const PriceBullets = ({ price, activePrice, setActivePrice }: Props) => {

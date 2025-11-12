@@ -1,3 +1,4 @@
+import { BasketList } from "../../components/BasketComponents/BasketList/BasketList";
 import { DeliveryMethod } from "../../components/BasketComponents/DeliveryMethod/DeliveryMethod";
 import { PayMethod } from "../../components/BasketComponents/PayMethod/PayMethod";
 import { Recipient } from "../../components/BasketComponents/Recipient/Recipient";
@@ -9,8 +10,8 @@ export const Basket = () => {
   return (
     <>
       <div className={css.container}>
-        <h2 className={css.title}>Оформлення замовлення</h2>
         <div>
+          <h2 className={css.title}>Оформлення замовлення</h2>
           <DeliveryMethod />
           <TimeDelivery />
           <Recipient />
@@ -19,9 +20,9 @@ export const Basket = () => {
           {/* Компонент замовлення заказу, який буде складатися з 5 окремих компонентів спосіб доставки,дата та час, отримувач, ваші контактні дані і спосіб оплати*/}
         </div>
         <div>
-          {/* Корзина в яка буде складатися з 2 компонентів(корзина і загальна ціна) */}
+          <h3 className={`${css.title} ${css.basketTitle}`}>Корзина</h3>
+          <BasketList />
         </div>
-        <button className={css.btn}>Оформити замовлення</button>
       </div>
     </>
   );

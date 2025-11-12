@@ -7,14 +7,14 @@ import { BouquetDetailsTab } from "../../components/BouquetDetailsTab/BouquetDet
 import { useState } from "react";
 import { Breadcrumbs } from "../../components/Breadcrumbs/Breadcrumbs";
 import { BouquetByIdOrderActions } from "../../components/BouquetByIdOrderActions/BouquetByIdOrderActions";
+import { Size } from "../../types/typesItem";
 
 export const BouquetByIdPage = () => {
   const { id } = useParams<{ id: string }>();
   const [activeTab, setActiveTab] = useState<"composition" | "delivery">(
     "composition"
   );
-
-  const [activePrice, setActivePrice] = useState("medium");
+  const [activePrice, setActivePrice] = useState<Size>("medium");
 
   const { data, error, isLoading } = useQuery({
     queryKey: ["bouquetById", id],

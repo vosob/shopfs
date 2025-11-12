@@ -1,63 +1,75 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import css from "./BouquetByIdOrderActions.module.css";
-import { FiMinus } from "react-icons/fi";
-import { FiPlus } from "react-icons/fi";
+import { FiMinus, FiPlus } from "react-icons/fi";
 import { RiRedPacketLine } from "react-icons/ri";
-import { Bouquet } from "../../types/typesItem";
+import { BasketItem, Bouquet } from "../../types/typesItem";
+import { v4 as uuidv4 } from "uuid";
+import { useBasket } from "../../context/contextBasket";
+import toast from "react-hot-toast";
 
 interface Props {
   data: Bouquet;
-  activePrice: string;
+  activePrice: "small" | "medium" | "big";
 }
 
 export const BouquetByIdOrderActions = ({ data, activePrice }: Props) => {
-  const [counter, setCounter] = useState(1);
-  const [value, setValue] = useState(0);
+  const [quantity, setQuantity] = useState(1);
+  const { addToBasket, calculatePrice } = useBasket();
 
-  useEffect(() => {
-    let basePrice = data.price;
-
-    if (activePrice === "small") {
-      basePrice = data.price - data.price * 0.15;
-    } else if (activePrice === "medium") {
-      basePrice = data.price;
-    } else if (activePrice === "big") {
-      basePrice = data.price + data.price * 0.15;
-    }
-
-    setValue(basePrice * counter);
-  }, [activePrice, counter, data.price]);
-
-  const handleDecrement = () => {
-    if (counter > 1) {
-      setCounter(counter - 1);
-    }
-  };
+  const currentPrice = calculatePrice(data.price, activePrice);
 
   const handleIncrement = () => {
-    setCounter(counter + 1);
+    setQuantity((prev) => prev + 1);
   };
+
+  const handleDecrement = () => {
+    setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
+  };
+
+  const handleAddToBasket = () => {
+    const item: BasketItem = {
+      id: uuidv4(),
+      productId: data.id,
+      name: data.name,
+      price: data.price,
+      images: data.images,
+      size: activePrice,
+      quantity: quantity,
+    };
+
+    addToBasket(item, activePrice);
+
+    setQuantity(1);
+
+    toast.success("Додано в корзину!");
+  };
+
+  const totalPrice = currentPrice * quantity;
 
   return (
     <div className={css.orderActionsContainer}>
       <div className={css.counter}>
-        <button className={css.decrement} onClick={handleDecrement}>
+        <button
+          onClick={handleDecrement}
+          className={css.decrement}
+          disabled={quantity <= 1}
+        >
           <FiMinus />
         </button>
         <span>
-          <strong>{counter}</strong> шт.
+          <strong>{quantity}</strong> шт.
         </span>
-        <button className={css.increment} onClick={handleIncrement}>
+        <button onClick={handleIncrement} className={css.increment}>
           <FiPlus />
         </button>
       </div>
 
       <div className={css.total}>
         <p className={css.price}>Сума:</p>
-        <p className={css.totalPrice}>{value.toFixed(2)} грн.</p>
+        <p className={css.totalPrice}>{totalPrice.toFixed(2)} грн.</p>
       </div>
 
-      <button className={css.orderBtn}>
+      <button onClick={handleAddToBasket} className={css.orderBtn}>
         <RiRedPacketLine className={css.icon} />В корзину
       </button>
     </div>
