@@ -67,7 +67,6 @@
 .nameAndMobile {
   display: flex;
   margin: 0 auto;
-  width: 1440px;
   gap: 20px;
   padding-bottom: 24px;
 }

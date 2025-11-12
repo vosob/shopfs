@@ -6,6 +6,42 @@ import { TimeDelivery } from "../../components/BasketComponents/TimeDelivery/Tim
 import { YouContacts } from "../../components/BasketComponents/YouContacts/Contacts";
 import css from "./Basket.module.css";
 
+interface DeliveryMethod {
+  deliveryMethod: "delivery" | "self";
+  deliveryTimePeriod: number;
+  incognito?: boolean;
+}
+
+interface recipientIsYou {
+  name: string;
+  phone: number;
+  city: string;
+  street: string;
+  textarea?: string;
+}
+
+interface RecipientOtherPerson {
+  name: string;
+  phone: number;
+  city: string;
+  street: string;
+  textarea?: string;
+}
+
+interface YouContacts {
+  name: string;
+  phone: number;
+  city: string;
+}
+
+interface initialValues {
+  deliveryMethod: string;
+  deliveryTimePeriod: DeliveryMethod;
+  recipient: recipientIsYou | RecipientOtherPerson;
+  contacts: YouContacts;
+  payMethod: string;
+}
+
 export const Basket = () => {
   return (
     <>
@@ -17,7 +53,6 @@ export const Basket = () => {
           <Recipient />
           <YouContacts />
           <PayMethod />
-          {/* Компонент замовлення заказу, який буде складатися з 5 окремих компонентів спосіб доставки,дата та час, отримувач, ваші контактні дані і спосіб оплати*/}
         </div>
         <div>
           <h3 className={`${css.title} ${css.basketTitle}`}>Корзина</h3>
