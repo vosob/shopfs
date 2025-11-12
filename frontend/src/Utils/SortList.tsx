@@ -9,7 +9,6 @@ interface SortProductsProps {
 
 export const sortProducts = ({ bouquets, sortType }: SortProductsProps) => {
   const sorted = [...bouquets];
-  console.log(sorted);
 
   switch (sortType) {
     case "price-asc":

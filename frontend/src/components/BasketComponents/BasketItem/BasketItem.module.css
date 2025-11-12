@@ -1,0 +1,95 @@
+.flowerPhoto {
+  width: 120px;
+  height: 120px;
+  border-radius: 10px;
+}
+
+.itemContainer {
+  width: 400px;
+  gap: 20px;
+
+  padding-top: 25px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 25px;
+
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 1);
+}
+
+.textBouquet {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.titleBouquet {
+  color: var(--text-chocolate);
+  font-family: var(--font-literal);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19px;
+}
+
+.priceBouquet {
+  color: var(--text-gray);
+  font-family: var(--font-literal);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  margin-bottom: 20px;
+  background: rgba(230, 224, 224, 1);
+}
+
+.itemInfo {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.totalPriceContainer {
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.priceText {
+  color: var(--text-chocolate);
+  font-family: var(--font-literal);
+  text-align: end;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19px;
+}
+
+.totalPriceText {
+  color: var(--text-gray);
+
+  font-family: var(--font-literal);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14px;
+}
+
+.quantityBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25px;
+  height: 25px;
+  border: none;
+  cursor: pointer;
+}
+
+.quantityContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

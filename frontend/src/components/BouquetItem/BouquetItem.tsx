@@ -18,7 +18,7 @@ export const BouquetItem = ({ data }: BouquetItemProps) => {
         <span className={css.positionPrice}> {price} грн.</span>
       </p>
       <p className={css.size}>Розмір цього букету {size} см</p>
-      <button className={css.bouquetBtn}>В корзину</button>
+      <button className={css.bouquetBtn}>Переглянути</button>
     </Link>
   );
 };
