@@ -3,9 +3,7 @@
   border-radius: 12px;
   padding: 20px 24px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-
-  height: 213px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .container h3 {
@@ -14,7 +12,7 @@
   font-size: 16px;
   font-weight: 700;
   line-height: 19px;
-  padding-bottom: 12px;
+  margin-bottom: 15px;
 }
 
 .textPosition {

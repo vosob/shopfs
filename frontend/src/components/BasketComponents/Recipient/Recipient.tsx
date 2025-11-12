@@ -1,88 +1,120 @@
-import { useState } from "react";
+import { UseFormRegister } from "react-hook-form";
 import css from "./Recipient.module.css";
+import { Inputs } from "../../../pages/Basket/Basket";
+import { useId } from "react";
 
-export const Recipient = () => {
-  const [method, setMethod] = useState("recipient");
+interface Props {
+  register: UseFormRegister<Inputs>;
+}
+
+export const Recipient = ({ register }: Props) => {
+  const fieldId = useId();
   return (
     <div className={css.container}>
       <h3>Отримувач</h3>
 
       <div className={css.textPosition}>
-        <label
-          className={method === "time" ? css.activeRadio : css.radioOption}
-        >
+        {/* Я отримувач */}
+        <label className="labelContainer" htmlFor={`${fieldId}-iRecipient`}>
           <input
             type="radio"
-            id="time"
-            name="timeMethod"
-            value="time"
-            checked={method === "time"}
-            onChange={(e) => setMethod(e.target.value)}
+            {...register("iRecipient")}
+            id={`${fieldId}-iRecipient`}
             className={css.hiddenRadio}
           />
-          <span className={css.customRadio}></span>
+          <span className="customRadio"></span>
           <span className={css.recipientOrder}>Я отримувач</span>
         </label>
-        <label
-          className={method === "call" ? css.activeRadio : css.radioOption}
-        >
+
+        {/* Отримувач інша людина */}
+        <label className="labelContainer" htmlFor={`${fieldId}-call`}>
           <input
             type="radio"
-            id="call"
-            name="timeMethod"
-            value="call"
-            checked={method === "call"}
-            onChange={(e) => setMethod(e.target.value)}
+            {...register("iRecipient")}
+            id={`${fieldId}-call`}
             className={css.hiddenRadio}
           />
-          <span className={css.customRadio}></span>
+          <span className="customRadio"></span>
           <span className={css.labelContent}>Отримувач інша людина</span>
         </label>
       </div>
+
       <div className={css.nameAndMobile}>
+        {/* Ім'я та фамілія отримувача */}
         <div className={css.labelPosition}>
-          <label className={css.labelName} htmlFor="text">
+          <label className={css.labelName} htmlFor={`${fieldId}-recipientName`}>
             Ім'я та фамілія
+            <input
+              type="text"
+              {...register("recipientName")}
+              className={css.inputStyle}
+              placeholder="Введіть ваше ім'я"
+              id={`${fieldId}-recipientName`}
+            />
           </label>
-          <input
-            className={css.inputStyle}
-            type="text"
-            placeholder="Введіть ваше ім'я"
-          />
         </div>
+
+        {/* Моб.телефон отримувача */}
         <div className={css.labelPosition}>
-          <label className={css.labelName} htmlFor="">
+          <label
+            className={css.labelName}
+            htmlFor={`${fieldId}-recipientMobile`}
+          >
             Моб.телефон
+            <input
+              type="tel"
+              {...register("recipientMobile")}
+              className={css.inputStyle}
+              placeholder="+_(___) ___-__-__"
+              id={`${fieldId}-recipientMobile`}
+            />
           </label>
-          <input
-            className={css.inputStyle}
-            type="tel"
-            placeholder="+_(___) ___-__-__"
-          />
         </div>
       </div>
+
       <div className={css.cityContainer}>
+        {/* Місто отримувача */}
         <div className={css.labelPosition}>
-          <label className={css.labelName} htmlFor="text">
+          <label className={css.labelName} htmlFor={`${fieldId}-recipientCity`}>
             Місто
+            <input
+              className={css.inputStyle}
+              type="text"
+              {...register("recipientCity")}
+              placeholder="Рівне"
+              id={`${fieldId}-recipientCity`}
+            />
           </label>
-          <input className={css.inputStyle} type="text" placeholder="Рівне" />
         </div>
+        {/* Адрес отримувача */}
         <div className={css.labelPosition}>
-          <label className={css.labelName} htmlFor="">
+          <label
+            className={css.labelName}
+            htmlFor={`${fieldId}-recipientAddress`}
+          >
             Адрес
+            <input
+              type="text"
+              className={css.inputStyle}
+              {...register("recipientAddress")}
+              placeholder="м.Рівне, вул. Макарова 28"
+              id={`${fieldId}-recipientAddress`}
+            />
           </label>
-          <input
-            className={css.inputStyle}
-            type="text"
-            placeholder="м.Рівне, вул. Макарова 28"
-          />
         </div>
       </div>
       <div>
+        {/* Примітка отримувача */}
         <div className={css.labelPosition}>
-          <label className={css.labelName}>Примітка</label>
-          <textarea className={css.noteStyle} />
+          <label className={css.labelName} htmlFor={`${fieldId}-recipientNote`}>
+            Примітка
+            <textarea
+              {...register("recipientNote")}
+              placeholder="Введіть вашу примітку"
+              className={css.noteStyle}
+              id={`${fieldId}-recipientNote`}
+            />
+          </label>
         </div>
       </div>
     </div>

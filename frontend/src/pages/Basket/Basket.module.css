@@ -26,8 +26,11 @@
   padding: 10px 16px;
   border-radius: 4px;
   cursor: pointer;
-  align-self: flex-start;
+
   transition: background-color 0.3s ease;
+  display: block;
+  margin-left: auto;
+  margin-bottom: 50px;
 }
 
 .btn:hover {

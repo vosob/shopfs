@@ -116,3 +116,65 @@ a:active {
 body {
   background-color: #f9f9fb;
 }
+
+/* !--- Custom Radio Button Styling --- */
+
+.labelContainer {
+  display: block;
+  position: relative;
+  /* padding-left: 35px; */
+  /* margin-right: 35px; */
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+}
+
+.labelContainer input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+.customRadio {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  margin-right: 20px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  display: inline-block;
+  position: relative;
+  flex-shrink: 0;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.labelContainer:hover input ~ .customRadio {
+  background-color: #ccc;
+  /* bground-color: teal; */
+}
+.labelContainer input:checked ~ .customRadio {
+  background-color: #2196f3;
+  background-color: #6aaa49;
+}
+
+.customRadio:after {
+  content: "";
+  position: absolute;
+  inset: 0; /* займає весь елемент */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  color: white;
+  display: none; /* або block, якщо потрібно показати */
+}
+.labelContainer input:checked ~ .customRadio:after {
+  display: block;
+}
+
+/* !--- Custom Radio Button Styling --- */

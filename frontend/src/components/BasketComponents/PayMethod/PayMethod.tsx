@@ -1,66 +1,58 @@
+import { useId } from "react";
 import css from "./PayMethod.module.css";
-import { useState } from "react";
+import { UseFormRegister } from "react-hook-form";
+import { Inputs } from "../../../pages/Basket/Basket";
 
-export const PayMethod = () => {
-  const [method, setMethod] = useState("pay");
+interface Props {
+  register: UseFormRegister<Inputs>;
+}
+
+export const PayMethod = ({ register }: Props) => {
+  const fieldId = useId();
   return (
     <div className={css.container}>
-      <h3>Спосіб доставки</h3>
+      <h3>Спосіб оплати</h3>
       <div className={css.textPosition}>
-        <label
-          className={method === "paySelf" ? css.activeRadio : css.radioOption}
-        >
-          <div>
-            <input
-              type="radio"
-              id="paySelf"
-              name="payMethod"
-              value="paySelf"
-              checked={method === "paySelf"}
-              onChange={(e) => setMethod(e.target.value)}
-              className={css.hiddenRadio}
-            />
-            <span className={css.customRadio}></span>
-            <span>Оплата готівкою під час отримання (самовиклик)</span>
-          </div>
+        {/* Оплата готівкою */}
+        <label className="labelContainer" htmlFor={`${fieldId}-selfPickupCash`}>
+          <input
+            type="radio"
+            {...register("selfPickupCash")}
+            id={`${fieldId}-selfPickupCash`}
+            className={css.hiddenRadio}
+          />
+          <span className="customRadio"></span>
+          <span>Оплата готівкою під час отримання (самовиклик)</span>
         </label>
 
+        {/* Оплата готівкою кур'єру */}
         <label
-          className={
-            method === "payCourier" ? css.activeRadio : css.radioOption
-          }
+          className="labelContainer"
+          htmlFor={`${fieldId}-selfPickupCash2`}
         >
-          <div>
-            <input
-              type="radio"
-              id="payCourier"
-              name="payMethod"
-              value="payCourier"
-              checked={method === "payCourier"}
-              onChange={(e) => setMethod(e.target.value)}
-              className={css.hiddenRadio}
-            />
-            <span className={css.customRadio}></span>
-            <span>Оплата готівкою кур'єру (тільки, якщо одержувач — Ви)</span>
-          </div>
+          <input
+            type="radio"
+            {...register("selfPickupCash")}
+            id={`${fieldId}-selfPickupCash2`}
+            className={css.hiddenRadio}
+          />
+          <span className="customRadio"></span>
+          <span>Оплата готівкою кур'єру (тільки, якщо одержувач — Ви)</span>
         </label>
 
+        {/* Онлайн оплата — Монобанк */}
         <label
-          className={method === "payOnline" ? css.activeRadio : css.radioOption}
+          className="labelContainer"
+          htmlFor={`${fieldId}-selfPickupCash3`}
         >
-          <div>
-            <input
-              type="radio"
-              id="payOnline"
-              name="payMethod"
-              value="payOnline"
-              checked={method === "payOnline"}
-              onChange={(e) => setMethod(e.target.value)}
-              className={css.hiddenRadio}
-            />
-            <span className={css.customRadio}></span>
-            <span>Онлайн оплата — Монобанк</span>
-          </div>
+          <input
+            type="radio"
+            {...register("selfPickupCash")}
+            id={`${fieldId}-selfPickupCash3`}
+            className={css.hiddenRadio}
+          />
+          <span className="customRadio"></span>
+          <span>Онлайн оплата — Монобанк</span>
         </label>
       </div>
     </div>

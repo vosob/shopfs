@@ -9,9 +9,9 @@ import { Reviews } from "../Reviews/Reviews";
 import { Contacts } from "../Contacts/Contacts";
 import { Info } from "../Info/Info";
 import { BouquetByIdPage } from "../BouquetByIdPage/BouquetByIdPage";
-import { Auth } from "../Auth/Auth";
+// import { Auth } from "../Auth/Auth";
 
-import { PublicRoute } from "../../pages/Route/PublicRoute";
+// import { PublicRoute } from "../../pages/Route/PublicRoute";
 import { PrivateRoute } from "../Route/PrivateRoute";
 import { MyOrders } from "../../components/MyOrders/MyOrders";
 import { ProfileLayout } from "../ProfileLayout/ProfileLayout";
@@ -27,14 +27,14 @@ export const App = () => {
         <Route path="/reviews" element={<Reviews />} />
         <Route path="/contacts" element={<Contacts />} />
         <Route path="/info" element={<Info />} />
-        <Route
+        {/* <Route
           path="/auth"
           element={
             <PublicRoute>
               <Auth />
             </PublicRoute>
           }
-        />
+        /> */}
         <Route
           path="/personalPage"
           element={
