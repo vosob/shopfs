@@ -17,6 +17,8 @@ import { MyOrders } from "../../components/MyOrders/MyOrders";
 import { ProfileLayout } from "../ProfileLayout/ProfileLayout";
 import { Profile } from "../../components/Profile/Profile";
 import { ChangePassword } from "../../components/ChangePassword/ChangePassword";
+import { PublicRoute } from "../Route/PublicRoute";
+import { Auth } from "../Auth/Auth";
 
 export const App = () => {
   return (
@@ -27,14 +29,14 @@ export const App = () => {
         <Route path="/reviews" element={<Reviews />} />
         <Route path="/contacts" element={<Contacts />} />
         <Route path="/info" element={<Info />} />
-        {/* <Route
+        <Route
           path="/auth"
           element={
             <PublicRoute>
               <Auth />
             </PublicRoute>
           }
-        /> */}
+        />
         <Route
           path="/personalPage"
           element={

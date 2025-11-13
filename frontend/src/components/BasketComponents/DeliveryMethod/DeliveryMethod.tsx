@@ -22,7 +22,7 @@ export const DeliveryMethod = ({ register }: Props) => {
             className={css.hiddenRadio}
           />
           <span className={css.customRadio}></span>
-          <span>Доставка по місту</span>
+          <span className={css.hStyle}>Доставка по місту</span>
         </label>
 
         <label className={css.labelContainer} htmlFor={`${fieldId}-self`}>
@@ -33,9 +33,9 @@ export const DeliveryMethod = ({ register }: Props) => {
             className={css.hiddenRadio}
           />
           <span className={css.customRadio}></span>
-          <span>
+          <span className={css.hStyle}>
             Самовивіз
-            <span>м. Рівне, вул. Кулика і Гудачека 28</span>
+            <span> м. Рівне, вул. Кулика і Гудачека 28</span>
           </span>
         </label>
       </div>

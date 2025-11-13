@@ -1,0 +1,7 @@
+.titleStyle {
+  color: var(--text-chocolate);
+  font-family: var(--font-karton);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 29px;
+}
