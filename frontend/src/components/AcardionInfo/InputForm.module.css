@@ -1,0 +1,73 @@
+.inputFormContainer {
+  background-color: white;
+}
+
+.formContainer {
+  padding: 24px 30px 24px 30px;
+  /* display: flex;
+  gap: 20px; */
+}
+
+.inputSize {
+  width: 327px;
+  height: 40px;
+}
+
+.inputSize {
+  display: flex;
+  flex-direction: column;
+  width: 330px;
+  padding-left: 15px;
+  margin-bottom: 15px;
+  color: var(--text-chocolate);
+  font-family: var(--font-literal);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 120%;
+}
+
+.spanName {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--text-chocolate);
+  font-family: var(--font-literal);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 120%;
+}
+
+.areaContainer {
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 15px;
+}
+
+.areaStyle {
+  resize: none;
+  min-width: 700px;
+  min-height: 123px;
+  padding-left: 15px;
+  padding-top: 15px;
+  box-sizing: border-box;
+  border: 1px solid rgba(224, 224, 224, 1);
+  border-radius: 5px;
+  color: var(--text-chocolate);
+  font-family: var(--font-literal);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 120%;
+}
+
+.buttonStyle {
+  display: block;
+  background-color: #62b15c;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: background-color 0.3s ease;
+  margin-left: auto;
+  margin-right: 330px;
+}
