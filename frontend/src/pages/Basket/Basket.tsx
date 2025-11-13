@@ -8,16 +8,16 @@ import css from "./Basket.module.css";
 import { useForm } from "react-hook-form";
 
 export type Inputs = {
-  deliveryMethod: string;
-  deliveryDate: string;
+  deliveryMethod: "deliveryInTheCity" | "pickup";
 
-  deliveryTimeOrDate: string;
-  deliveryExactTime: string;
+  deliveryDate: string; // значення з input: date
+  deliveryTimeOrDate: "timeFrameForReceivingAnOrder" | "exactTime";
+  deliveryExactTime: string; // значення з input: time типу 20:00
   incognito: boolean;
 
-  iRecipient: string;
-  recipientName: string;
+  Recipient: "iRecipient" | "OtherRecipient";
   recipientMobile: number;
+  recipientName: string;
   recipientCity: string;
   recipientAddress: string;
   recipientNote: string;
@@ -26,9 +26,7 @@ export type Inputs = {
   yourMobile: number;
   yourCity: string;
 
-  selfPickupCash: boolean;
-  courierCash: boolean;
-  onlineMonobank: boolean;
+  selfPickupCash: "Cash" | "CashCourier" | "OnlinePayment";
 };
 
 export const Basket = () => {

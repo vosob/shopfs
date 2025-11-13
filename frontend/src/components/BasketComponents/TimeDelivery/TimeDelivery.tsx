@@ -13,23 +13,28 @@ export const TimeDelivery = ({ register }: Props) => {
   return (
     <div className={css.container}>
       <h3>Дата і час</h3>
-      <div className={css.dateContainer}>
-        <p>Дата</p>
-        <input
-          type="date"
-          {...register("deliveryDate")}
-          className={css.calendar}
-          defaultValue={String(formatted)}
-        />
+      <div>
+        {/* Вкажіть дату input: calendar */}
+        <label className={css.dateContainer}>
+          Дата
+          <input
+            type="date"
+            {...register("deliveryDate")}
+            className={css.calendar}
+            defaultValue={String(formatted)}
+          />
+        </label>
       </div>
 
       <div className={css.textPosition}>
         <div className={css.timeContainer}>
+          {/* Вкажіть проміжок часу input */}
           <label className="labelContainer" htmlFor={`${fieldId}-time`}>
             <input
               type="radio"
               id={`${fieldId}-time`}
               {...register("deliveryTimeOrDate")}
+              value="timeFrameForReceivingAnOrder"
               className="customRadio"
             />
             <span className="customRadio"></span>
@@ -38,6 +43,7 @@ export const TimeDelivery = ({ register }: Props) => {
             </span>
           </label>
 
+          {/* input: time picker */}
           <label htmlFor={`${fieldId}-time-picker`}>
             <input
               type="time"
@@ -49,11 +55,13 @@ export const TimeDelivery = ({ register }: Props) => {
           </label>
         </div>
 
+        {/* Подзвонити отримувачу для уточнення input */}
         <label className="labelContainer" htmlFor={`${fieldId}-call`}>
           <input
             type="radio"
             id={`${fieldId}-call`}
             {...register("deliveryTimeOrDate")}
+            value="scheduleCall"
             className={css.hiddenRadio}
           />
           <span className="customRadio"></span>
@@ -62,6 +70,7 @@ export const TimeDelivery = ({ register }: Props) => {
           </span>
         </label>
 
+        {/* incognito input */}
         <div className={css.checkboxOption}>
           <label htmlFor={`${fieldId}-incognito`} className={css.checkboxLabel}>
             <input

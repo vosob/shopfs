@@ -18,7 +18,8 @@ export const Recipient = ({ register }: Props) => {
         <label className="labelContainer" htmlFor={`${fieldId}-iRecipient`}>
           <input
             type="radio"
-            {...register("iRecipient")}
+            value="iRecipient"
+            {...register("Recipient")}
             id={`${fieldId}-iRecipient`}
             className={css.hiddenRadio}
           />
@@ -30,7 +31,8 @@ export const Recipient = ({ register }: Props) => {
         <label className="labelContainer" htmlFor={`${fieldId}-call`}>
           <input
             type="radio"
-            {...register("iRecipient")}
+            value="OtherRecipient"
+            {...register("Recipient")}
             id={`${fieldId}-call`}
             className={css.hiddenRadio}
           />

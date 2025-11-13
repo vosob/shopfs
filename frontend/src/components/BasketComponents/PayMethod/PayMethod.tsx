@@ -17,6 +17,7 @@ export const PayMethod = ({ register }: Props) => {
         <label className="labelContainer" htmlFor={`${fieldId}-selfPickupCash`}>
           <input
             type="radio"
+            value="Cash"
             {...register("selfPickupCash")}
             id={`${fieldId}-selfPickupCash`}
             className={css.hiddenRadio}
@@ -34,6 +35,7 @@ export const PayMethod = ({ register }: Props) => {
         >
           <input
             type="radio"
+            value="CashCourier"
             {...register("selfPickupCash")}
             id={`${fieldId}-selfPickupCash2`}
             className={css.hiddenRadio}
@@ -51,6 +53,7 @@ export const PayMethod = ({ register }: Props) => {
         >
           <input
             type="radio"
+            value="OnlinePayment"
             {...register("selfPickupCash")}
             id={`${fieldId}-selfPickupCash3`}
             className={css.hiddenRadio}

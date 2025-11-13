@@ -19,6 +19,7 @@ export const DeliveryMethod = ({ register }: Props) => {
             type="radio"
             {...register("deliveryMethod")}
             id={`${fieldId}-delivery`}
+            value="deliveryInTheCity"
             className={css.hiddenRadio}
           />
           <span className={css.customRadio}></span>
@@ -30,6 +31,7 @@ export const DeliveryMethod = ({ register }: Props) => {
             type="radio"
             id={`${fieldId}-self`}
             {...register("deliveryMethod")}
+            value="pickup"
             className={css.hiddenRadio}
           />
           <span className={css.customRadio}></span>
