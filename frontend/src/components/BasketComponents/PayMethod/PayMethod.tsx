@@ -22,7 +22,9 @@ export const PayMethod = ({ register }: Props) => {
             className={css.hiddenRadio}
           />
           <span className="customRadio"></span>
-          <span>Оплата готівкою під час отримання (самовиклик)</span>
+          <span className={css.sStyle}>
+            Оплата готівкою під час отримання (самовиклик)
+          </span>
         </label>
 
         {/* Оплата готівкою кур'єру */}
@@ -37,7 +39,9 @@ export const PayMethod = ({ register }: Props) => {
             className={css.hiddenRadio}
           />
           <span className="customRadio"></span>
-          <span>Оплата готівкою кур'єру (тільки, якщо одержувач — Ви)</span>
+          <span className={css.sStyle}>
+            Оплата готівкою кур'єру (тільки, якщо одержувач — Ви)
+          </span>
         </label>
 
         {/* Онлайн оплата — Монобанк */}
@@ -52,7 +56,7 @@ export const PayMethod = ({ register }: Props) => {
             className={css.hiddenRadio}
           />
           <span className="customRadio"></span>
-          <span>Онлайн оплата — Монобанк</span>
+          <span className={css.sStyle}>Онлайн оплата — Монобанк</span>
         </label>
       </div>
     </div>

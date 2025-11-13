@@ -1,96 +1,84 @@
-import {
-  ErrorMessage,
-  Field,
-  Formik,
-  Form as FormikForm,
-  FormikHelpers,
-} from "formik";
-
-import * as Yup from "yup";
 import css from "./LoginForm.module.css";
-
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { useId, useState } from "react";
+import { useForm } from "react-hook-form";
+import { loginUser } from "../../services/users";
+import { useAuth } from "../../context/contextAuth";
+import { useNavigate } from "react-router";
+import toast from "react-hot-toast";
 
 export interface OrderFormValuesLogin {
   email: string;
   password: string;
 }
 
-interface Props {
-  handleSubmitLogin: (
-    values: OrderFormValuesLogin,
-    actions: FormikHelpers<OrderFormValuesLogin>
-  ) => void | Promise<void>;
-}
-
-export const LoginForm = ({ handleSubmitLogin }: Props) => {
+export const LoginForm = () => {
+  const { register, handleSubmit } = useForm<OrderFormValuesLogin>();
   const fieldId = useId();
+  const { createToken } = useAuth();
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
-
-  const initialValuesLogin: OrderFormValuesLogin = {
-    email: "",
-    password: "",
+  const onSubmit = async (data: OrderFormValuesLogin) => {
+    try {
+      const response = await loginUser(data);
+      createToken(response.accessToken);
+      navigate("/");
+      toast.success("Successfully user login!");
+    } catch (error) {
+      toast.error("Login usser error");
+      console.log(error);
+    } finally {
+      console.log("qwe");
+    }
+    console.log("Login data:", data);
   };
 
-  const loginForm = Yup.object().shape({
-    email: Yup.string()
-      .email("Не вірний формат пошти")
-      .required("Ведіть ваші данні"),
-    password: Yup.string()
-      .required("Ведіть ваші данні")
-      .min(4, "Пароль повинен бути більше за 4 символи"),
-  });
+  // const loginForm = Yup.object().shape({
+  //   email: Yup.string()
+  //     .email("Не вірний формат пошти")
+  //     .required("Ведіть ваші данні"),
+  //   password: Yup.string()
+  //     .required("Ведіть ваші данні")
+  //     .min(4, "Пароль повинен бути більше за 4 символи"),
+  // });
   return (
     <div>
-      <Formik
-        validationSchema={loginForm}
-        initialValues={initialValuesLogin}
-        onSubmit={handleSubmitLogin}
-      >
-        <FormikForm className={css.form}>
-          <label className={css.labelForm} htmlFor={`${fieldId}-email`}>
-            Пошта:
-            <Field
-              id={`${fieldId}-email`}
-              type="email"
-              name="email"
-              placeholder="Ваша почта"
+      <form onSubmit={handleSubmit(onSubmit)} className={css.form}>
+        <label className={css.labelForm} htmlFor={`${fieldId}-email`}>
+          Пошта:
+          <input
+            id={`${fieldId}-email`}
+            type="email"
+            {...register("email")}
+            placeholder="Ваша почта"
+            className={css.input}
+          />
+        </label>
+
+        <label htmlFor={`${fieldId}-password`}>
+          Пароль:
+          <div className={css.passwordWrapper}>
+            <input
+              id={`${fieldId}-password`}
+              type={showPassword ? "text" : "password"}
+              {...register("password")}
+              placeholder="Введіть пароль"
               className={css.input}
             />
-            <ErrorMessage name="email" component="span" className={css.error} />
-          </label>
+            <button
+              type="button"
+              className={css.eyeBtn}
+              onClick={() => setShowPassword((prev) => !prev)}
+            >
+              {showPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
+            </button>
+          </div>
+        </label>
 
-          <label htmlFor={`${fieldId}-password`}>
-            Пароль:
-            <div className={css.passwordWrapper}>
-              <Field
-                id={`${fieldId}-password`}
-                type={showPassword ? "text" : "password"}
-                name="password"
-                placeholder="Введіть пароль"
-                className={css.input}
-              />
-              <button
-                type="button"
-                className={css.eyeBtn}
-                onClick={() => setShowPassword((prev) => !prev)}
-              >
-                {showPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
-              </button>
-            </div>
-            <ErrorMessage
-              name="password"
-              component="span"
-              className={css.error}
-            />
-          </label>
-
-          <button type="submit" className={css.submitBtn}>
-            Увійти
-          </button>
-        </FormikForm>
-      </Formik>
+        <button type="submit" className={css.submitBtn}>
+          Увійти
+        </button>
+      </form>
     </div>
   );
 };

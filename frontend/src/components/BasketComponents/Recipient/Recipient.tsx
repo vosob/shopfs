@@ -35,7 +35,7 @@ export const Recipient = ({ register }: Props) => {
             className={css.hiddenRadio}
           />
           <span className="customRadio"></span>
-          <span className={css.labelContent}>Отримувач інша людина</span>
+          <span className={css.recipientOrder}>Отримувач інша людина</span>
         </label>
       </div>
 

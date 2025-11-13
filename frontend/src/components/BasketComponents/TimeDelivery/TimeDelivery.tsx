@@ -33,7 +33,9 @@ export const TimeDelivery = ({ register }: Props) => {
               className="customRadio"
             />
             <span className="customRadio"></span>
-            <span>Вкажіть проміжок часу для отримання замовлення</span>
+            <span className={css.labelContent}>
+              Вкажіть проміжок часу для отримання замовлення
+            </span>
           </label>
 
           <label htmlFor={`${fieldId}-time-picker`}>

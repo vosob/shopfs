@@ -120,7 +120,7 @@ body {
 /* !--- Custom Radio Button Styling --- */
 
 .labelContainer {
-  display: block;
+  display: flex;
   position: relative;
   /* padding-left: 35px; */
   /* margin-right: 35px; */
