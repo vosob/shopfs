@@ -7,6 +7,7 @@ import { PrismaModule } from './prisma/prisma.module';
 import { FlowerModule } from './flower/flower.module';
 import { BouquetModule } from './bouquet/bouquet.module';
 import { CloudinaryModule } from './cloudinary/cloudinary.module';
+import { OrderModule } from './order/order.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { CloudinaryModule } from './cloudinary/cloudinary.module';
     FlowerModule,
     BouquetModule,
     CloudinaryModule,
+    OrderModule,
   ],
   controllers: [AppController],
   providers: [AppService],

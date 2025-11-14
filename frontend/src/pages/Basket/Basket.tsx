@@ -4,6 +4,7 @@ import { PayMethod } from "../../components/BasketComponents/PayMethod/PayMethod
 import { Recipient } from "../../components/BasketComponents/Recipient/Recipient";
 import { TimeDelivery } from "../../components/BasketComponents/TimeDelivery/TimeDelivery";
 import { YouContacts } from "../../components/BasketComponents/YouContacts/YouContacts";
+import { useBasket } from "../../context/contextBasket";
 import css from "./Basket.module.css";
 import { useForm } from "react-hook-form";
 
@@ -16,14 +17,14 @@ export type Inputs = {
   incognito: boolean;
 
   Recipient: "iRecipient" | "OtherRecipient";
-  recipientMobile: number;
+  recipientMobile: string;
   recipientName: string;
   recipientCity: string;
   recipientAddress: string;
-  recipientNote: string;
+  recipientNote?: string;
 
   yourName: string;
-  yourMobile: number;
+  yourMobile: string;
   yourCity: string;
 
   selfPickupCash: "Cash" | "CashCourier" | "OnlinePayment";
@@ -31,9 +32,15 @@ export type Inputs = {
 
 export const Basket = () => {
   const { register, handleSubmit } = useForm<Inputs>();
+  const { items } = useBasket();
 
   const onSubmit = (data: Inputs) => {
-    console.log(data);
+    const requestBody = {
+      ...data,
+      ["orders"]: items,
+    };
+
+    console.log(requestBody);
   };
 
   return (

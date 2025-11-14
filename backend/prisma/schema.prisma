@@ -7,6 +7,15 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum OrderStatus {
+  PENDING
+  CONFIRMED
+  IN_DELIVERY
+  COMPLETED
+  CANCELLED
+}
+
+
 model User {
   id       String @id @default(cuid())
 
@@ -17,6 +26,7 @@ model User {
   password String
 
   comments   Comment[]
+  orders   Order[]
 
 
   createdAt DateTime @default(now())
@@ -73,6 +83,7 @@ model Bouquet {
  
   images    BouquetImage[]
   flowers   BouquetFlower[]
+  orderItems OrderItem[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -94,5 +105,64 @@ model BouquetFlower {
   @@index([bouquetId])
   @@index([flowerId])
 }
+
+model Order {
+  id        String   @id @default(cuid())
+  userId    String? // nullable для незалогінених користувачів
+  status    OrderStatus   @default(PENDING)
+
+  // Данні доставки
+  deliveryMethod         String
+  deliveryDate           String?
+  deliveryTimePreference String
+  deliveryExactTime      String?
+  incognito              Boolean        @default(false)
+
+  // Данні отримувача 
+  isRecipientSender String
+  recipientMobile   String
+  recipientName     String
+  recipientCity     String
+  recipientAddress  String
+  recipientNote     String?
+
+   
+  senderName   String
+  senderMobile String
+  senderCity   String
+
+  // Оплата
+  paymentMethod String
+
+  // Товари в замовленні
+  items OrderItem[]
+
+  user User? @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+  @@index([status])
+}
+
+model OrderItem {
+  id        String @id @default(cuid())
+  orderId   String
+  bouquetId String
+  quantity  Int
+  price     Float  // зберігаємо ціну на момент замовлення
+  size      String // "big", "medium", "small"
+
+  order   Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  bouquet Bouquet @relation(fields: [bouquetId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([orderId])
+  @@index([bouquetId])
+}
+
 
 // npx prisma db push
