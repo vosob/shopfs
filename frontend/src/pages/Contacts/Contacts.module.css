@@ -1,0 +1,15 @@
+.contactsContainer {
+  width: 1440px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  padding-top: 80px;
+  padding-bottom: 30px;
+  color: var(--text-chocolate);
+  font-family: var(--font-karton);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 29px;
+  text-transform: uppercase;
+  background-color: rgba(249, 248, 251, 1);
+}

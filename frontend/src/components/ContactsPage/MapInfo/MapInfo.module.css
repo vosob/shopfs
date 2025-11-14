@@ -1,0 +1,11 @@
+.mapInfo {
+  border: 1px solid black;
+  width: 1440px;
+}
+
+.mapContainer {
+  display: flex;
+  margin: 0 auto;
+  width: 825px;
+  height: 400px;
+}
