@@ -5,6 +5,7 @@ import {
 } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { CreateOrderDto } from './dto/create-order.dto';
+import { OrderStatus, Prisma } from '@prisma/client';
 
 @Injectable()
 export class OrderService {
@@ -127,5 +128,28 @@ export class OrderService {
       orderId: order.id,
       order,
     };
+  }
+
+  async getUserOrders(userId: string, status?: OrderStatus) {
+    const where: Prisma.OrderWhereInput = {
+      userId,
+      ...(status && { status }),
+    };
+
+    return this.prismaService.order.findMany({
+      where,
+      include: {
+        items: {
+          include: {
+            bouquet: {
+              include: {
+                images: true,
+              },
+            },
+          },
+        },
+      },
+      orderBy: { createdAt: 'desc' },
+    });
   }
 }
