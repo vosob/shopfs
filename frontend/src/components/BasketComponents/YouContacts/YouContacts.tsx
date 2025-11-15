@@ -20,7 +20,7 @@ export const YouContacts = ({ register }: Props) => {
             Ім'я та фамілія
             <input
               type="text"
-              {...register("yourName")}
+              {...register("senderName")}
               className={css.inputStyle}
               placeholder="Введіть ваше ім'я"
               id={`${fieldId}-yourName`}
@@ -35,7 +35,7 @@ export const YouContacts = ({ register }: Props) => {
             <input
               type="tel"
               className={css.inputStyle}
-              {...register("yourMobile")}
+              {...register("senderMobile")}
               placeholder="+_(___) ___-__-__"
               id={`${fieldId}-yourMobile`}
             />
@@ -49,7 +49,7 @@ export const YouContacts = ({ register }: Props) => {
             <input
               className={css.inputStyle}
               type="text"
-              {...register("yourCity")}
+              {...register("senderCity")}
               placeholder="Рівне"
               id={`${fieldId}-yourCity`}
             />

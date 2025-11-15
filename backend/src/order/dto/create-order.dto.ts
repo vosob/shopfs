@@ -79,13 +79,13 @@ export class CreateOrderDto {
   // Відправник (всі optional)
 
   @IsString()
-  senderName: string;
+  senderName?: string;
 
   @IsString()
-  senderMobile: string;
+  senderMobile?: string;
 
   @IsString()
-  senderCity: string;
+  senderCity?: string;
 
   // Оплата (optional)
 

@@ -11,3 +11,51 @@
   padding: 20px;
   margin-bottom: 20px;
 }
+
+.tableContainer {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 12px 16px;
+  text-align: left;
+}
+
+th {
+  background-color: #f5f5f5;
+  font-weight: 500;
+}
+
+tr {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+tr.orderHeader {
+  background-color: #fafafa;
+}
+
+td > div {
+  margin-bottom: 4px;
+}
+
+.delivered {
+  color: green;
+  font-weight: 600;
+}
+
+.paid {
+  color: orange;
+  font-weight: 600;
+}
+
+.processing {
+  color: #2f3eb1;
+  font-weight: 600;
+}

@@ -42,3 +42,20 @@
 .btn:hover {
   background-color: var(--text-green);
 }
+
+.hiddenWrapper {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.35s ease, opacity 0.25s ease;
+}
+
+.visible {
+  max-height: 500px; /* достатньо для твого блоку */
+  opacity: 1;
+}
+
+.hidden {
+  max-height: 0;
+  opacity: 0;
+}

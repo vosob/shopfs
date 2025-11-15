@@ -53,15 +53,7 @@ export class OrderService {
     if (!dto.recipientAddress) {
       throw new BadRequestException("Адреса отримувача є обов'язковою");
     }
-    if (!dto.senderName) {
-      throw new BadRequestException("Ваше ім'я є обов'язковим");
-    }
-    if (!dto.senderMobile) {
-      throw new BadRequestException("Ваш телефон є обов'язковим");
-    }
-    if (!dto.senderCity) {
-      throw new BadRequestException("Ваше місто є обов'язковим");
-    }
+
     if (!dto.selfPickupCash) {
       throw new BadRequestException("Метод оплати є обов'язковим");
     }
@@ -86,9 +78,9 @@ export class OrderService {
         recipientNote: dto.recipientNote ?? null,
 
         // Відправник
-        senderName: dto.senderName,
-        senderMobile: dto.senderMobile,
-        senderCity: dto.senderCity,
+        senderName: dto.senderName ?? null,
+        senderMobile: dto.senderMobile ?? null,
+        senderCity: dto.senderCity ?? null,
 
         // Оплата
         paymentMethod: dto.selfPickupCash ?? null,

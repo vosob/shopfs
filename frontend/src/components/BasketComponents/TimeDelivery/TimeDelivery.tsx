@@ -21,7 +21,7 @@ export const TimeDelivery = ({ register }: Props) => {
             type="date"
             {...register("deliveryDate")}
             className={css.calendar}
-            defaultValue={String(formatted)}
+            // defaultValue={String(formatted)}
           />
         </label>
       </div>

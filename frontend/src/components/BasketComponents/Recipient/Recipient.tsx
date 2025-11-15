@@ -52,6 +52,7 @@ export const Recipient = ({ register }: Props) => {
               className={css.inputStyle}
               placeholder="Введіть ваше ім'я"
               id={`${fieldId}-recipientName`}
+              autoComplete="one-time-code"
             />
           </label>
         </div>
@@ -69,6 +70,7 @@ export const Recipient = ({ register }: Props) => {
               className={css.inputStyle}
               placeholder="+_(___) ___-__-__"
               id={`${fieldId}-recipientMobile`}
+              autoComplete="one-time-code"
             />
           </label>
         </div>
@@ -85,6 +87,7 @@ export const Recipient = ({ register }: Props) => {
               {...register("recipientCity")}
               placeholder="Рівне"
               id={`${fieldId}-recipientCity`}
+              autoComplete="one-time-code"
             />
           </label>
         </div>
@@ -101,6 +104,7 @@ export const Recipient = ({ register }: Props) => {
               {...register("recipientAddress")}
               placeholder="м.Рівне, вул. Макарова 28"
               id={`${fieldId}-recipientAddress`}
+              autoComplete="one-time-code"
             />
           </label>
         </div>

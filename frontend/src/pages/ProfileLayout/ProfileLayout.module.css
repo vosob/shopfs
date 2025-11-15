@@ -22,6 +22,7 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
+  margin-bottom: 15px;
 }
 
 .linkItem {
@@ -39,4 +40,26 @@
 .linkItem:focus,
 .linkItem:hover {
   background-color: rgba(246, 255, 243, 1);
+}
+
+.logoutButton {
+  display: block;
+  border-radius: 10px;
+  padding: 14px;
+  border: none;
+
+  color: white;
+  background: var(--text-chocolate);
+  font-family: var(--font-literal);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  cursor: pointer;
+
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.logoutButton:hover {
+  background-color: #eedfcc;
+  color: var(--text-chocolate);
 }
