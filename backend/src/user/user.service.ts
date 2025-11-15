@@ -129,9 +129,23 @@ export class UserService {
     return this.auth(res, user.id);
   }
 
-  // logout
   logout(res: Response): { message: string } {
-    this.setCookies(res, '', new Date(0));
+    // Видаляємо accessToken
+    res.clearCookie('accessToken', {
+      domain: this.COOKIE_DOMAIN,
+      httpOnly: true,
+      secure: !isDev(this.configService),
+      sameSite: isDev(this.configService) ? 'lax' : 'none',
+    });
+
+    // Видаляємо refreshToken
+    res.clearCookie('refreshToken', {
+      domain: this.COOKIE_DOMAIN,
+      httpOnly: true,
+      secure: !isDev(this.configService),
+      sameSite: isDev(this.configService) ? 'lax' : 'none',
+    });
+
     return { message: 'Logout successful' };
   }
 
@@ -200,8 +214,10 @@ export class UserService {
 
     this.setCookies(
       res,
+      accessToken,
       refreshToken,
-      new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+
+      // new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
     );
 
     return { accessToken };
@@ -225,31 +241,29 @@ export class UserService {
 
   private setCookies(
     res: Response,
-    // accessToken: string,
-    // refreshToken: string,
-    value: string,
-    expires: Date,
+    accessToken: string,
+    refreshToken: string,
+    // value: string,
+    // expires: Date,
   ) {
-    // res.cookie('refreshToken', refreshToken, {
+    res.cookie('refreshToken', refreshToken, {
+      httpOnly: true,
+      domain: this.COOKIE_DOMAIN,
+      secure: !isDev(this.configService),
+      sameSite: !isDev(this.configService) ? 'none' : 'lax',
+    });
+    res.cookie('accessToken', accessToken, {
+      httpOnly: true,
+      domain: this.COOKIE_DOMAIN,
+      secure: !isDev(this.configService),
+      sameSite: !isDev(this.configService) ? 'none' : 'lax',
+    });
+    // res.cookie('refreshToken', value, {
     //   httpOnly: true,
     //   domain: this.COOKIE_DOMAIN,
     //   expires,
     //   secure: !isDev(this.configService),
-    //   sameSite: !isDev(this.configService) ? 'none' : 'lax',
+    //   sameSite: isDev(this.configService) ? 'none' : 'lax',
     // });
-    // res.cookie('accessToken', accessToken, {
-    //   httpOnly: true,
-    //   domain: this.COOKIE_DOMAIN,
-    //   secure: !isDev(this.configService),
-    //   sameSite: !isDev(this.configService) ? 'none' : 'lax',
-    // });
-
-    res.cookie('refreshToken', value, {
-      httpOnly: true,
-      domain: this.COOKIE_DOMAIN,
-      expires,
-      secure: !isDev(this.configService),
-      sameSite: isDev(this.configService) ? 'none' : 'lax',
-    });
   }
 }

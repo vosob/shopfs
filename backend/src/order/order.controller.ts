@@ -10,13 +10,14 @@ import {
 import type { Request } from 'express';
 import { OrderService } from './order.service';
 import { CreateOrderDto } from './dto/create-order.dto';
+import { OptionalAuthorization } from 'src/user/decorators/auth.decorator';
 // import { JwtCookieGuard } from 'src/user/guards/auth.guards';
 
 @Controller('order')
 export class OrderController {
   constructor(private readonly orderService: OrderService) {}
 
-  // @UseGuards(JwtCookieGuard)
+  @OptionalAuthorization()
   @Post()
   @HttpCode(HttpStatus.CREATED)
   async createOrder(@Body() dto: CreateOrderDto, @Req() req: Request) {
