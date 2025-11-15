@@ -39,7 +39,7 @@ export const HomePage = () => {
 
       <Bonus />
 
-      <div className={css.mainContent}>
+      <div className={`${css.mainContent} ${"container"}`}>
         <div className={css.homeContainer}>
           <SortBy sort={setSortList} />
           {data && data.length > 0 ? (

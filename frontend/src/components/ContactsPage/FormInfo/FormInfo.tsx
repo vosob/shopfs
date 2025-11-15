@@ -2,9 +2,11 @@ import css from "./FormInfo.module.css";
 
 export const FormInfo = () => {
   return (
-    <div className={css.inputFormContainer}>
+    <div className={`${css.inputFormContainer} ${"container"}`}>
       <div className={css.textContainer}>
-        <h3 className={css.titleStyle}>Залишились питання? Звяжіться з нами</h3>
+        <h3 className={`${css.titleStyle} ${"container"}`}>
+          Залишились питання? Звяжіться з нами
+        </h3>
         <form className={css.formContainer}>
           <div style={{ display: "flex", gap: "20px" }}>
             <div>

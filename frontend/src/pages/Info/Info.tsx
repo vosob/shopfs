@@ -4,7 +4,7 @@ import css from "./info.module.css";
 
 export const Info = () => {
   return (
-    <div className={css.infoContainer}>
+    <div className={`${css.infoContainer} ${"container"}`}>
       <h2 className={css.titleStyle}>Відповіді на популярні питання </h2>
       <AcardionInfo />
       <InputForm />

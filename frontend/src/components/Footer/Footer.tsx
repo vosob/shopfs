@@ -3,7 +3,7 @@ import css from "./Footer.module.css";
 export const Footer = () => {
   return (
     <footer className={css.footer}>
-      <div className={css.footerContainer}>
+      <div className={`${css.footerContainer} ${"container"}`}>
         <div className={css.footerColumn}>
           <h3 className={css.footerTitle}>Контактна інформація</h3>
           <p>м. Рівне, вул. Кулика і Гудачека, 28</p>

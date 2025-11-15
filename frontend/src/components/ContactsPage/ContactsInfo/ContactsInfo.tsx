@@ -36,7 +36,7 @@ const datas = [
 
 export const ContactsInfo = () => {
   return (
-    <div className={css.infoContainer}>
+    <div className={`${css.infoContainer} ${"container"}`}>
       <ul className={css.navContainer}>
         {datas.map((data) => (
           <li key={data.id}>

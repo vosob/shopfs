@@ -3,7 +3,7 @@ import css from "./ProfileLayout.module.css";
 
 export const ProfileLayout = () => {
   return (
-    <div className={css.container}>
+    <div className={`${css.profileLayoutContainer} ${"container"}`}>
       <aside className={css.asideContainer}>
         <h2 className={css.profileLayoutTitle}>Особистий кабінет</h2>
         <nav className={css.navContainer}>

@@ -1,12 +1,12 @@
 .flowerPhoto {
-  width: 263px;
+  width: 250px;
   height: 242px;
   border-radius: 10px;
   margin-bottom: 16px;
 }
 
 .itemContainer {
-  width: 263px;
+  width: 250px;
   background-color: white;
   border-radius: 10px;
   display: flex;

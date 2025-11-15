@@ -45,8 +45,8 @@ export const Basket = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className={css.container}>
-        <div>
+      <div className={`${css.basketContainer} ${"container"}`}>
+        <div className={css.leftSide}>
           <h2 className={css.title}>Оформлення замовлення</h2>
           <DeliveryMethod register={register} />
           <TimeDelivery register={register} />
@@ -57,7 +57,7 @@ export const Basket = () => {
             Оформить заказ
           </button>
         </div>
-        <div>
+        <div className={css.rightSide}>
           <h3 className={`${css.title} ${css.basketTitle}`}>Корзина</h3>
           <BasketList />
         </div>

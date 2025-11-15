@@ -117,6 +117,13 @@ body {
   background-color: #f9f9fb;
 }
 
+.container {
+  width: 1100px;
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
 /* !--- Custom Radio Button Styling --- */
 
 .labelContainer {

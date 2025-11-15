@@ -16,7 +16,7 @@
 }
 
 .topHeaderContainer {
-  width: 1440px;
+  /* width: 1440px; */
   display: flex;
   justify-content: space-between;
   gap: 135px;

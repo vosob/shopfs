@@ -6,7 +6,9 @@ import css from "./Contacts.module.css";
 export const Contacts = () => {
   return (
     <div>
-      <div className={css.contactsContainer}>Контактна інформація</div>
+      <div className={`${css.contactsContainer} ${"container"}`}>
+        Контактна інформація
+      </div>
       <ContactsInfo />
       <FormInfo />
     </div>

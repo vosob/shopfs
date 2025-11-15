@@ -35,10 +35,10 @@ export const BouquetByIdPage = () => {
   const { name, flowers, images, price } = data;
   return (
     <>
-      <div>
+      <div className="container">
         <Breadcrumbs />
       </div>
-      <div className={css.container}>
+      <div className={`${css.byIdContainer} ${"container"}`}>
         <div>
           <img className={css.mainImg} src={images[0]?.url || ""} alt={name} />
         </div>

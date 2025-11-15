@@ -1,11 +1,6 @@
 .inputFormContainer {
   background-color: white;
   display: flex;
-  margin: 0 auto;
-  width: 1440px;
-}
-
-.textContainer {
 }
 
 .formContainer {
@@ -80,7 +75,6 @@
   align-self: flex-start;
   transition: background-color 0.3s ease;
   margin-left: auto;
-  margin-right: 330px;
 }
 
 .titleStyle {
@@ -91,8 +85,6 @@
   line-height: 22px;
   padding-top: 21px;
   display: flex;
-  margin: 0 auto;
   justify-content: center;
-  width: 1440px;
   padding-bottom: 25px;
 }

@@ -8,7 +8,7 @@ export const Header = () => {
   return (
     <div>
       <div className={css.topHeader}>
-        <div className={css.topHeaderContainer}>
+        <div className={`${css.topHeaderContainer} ${"container"}`}>
           <div className={css.location}>
             <FaLocationDot size="19" fill="white" />
             <span className={css.city}>м.Рівне,</span>

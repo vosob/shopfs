@@ -2,7 +2,7 @@ import css from "./DeliveryInfo.module.css";
 
 export const DeliveryInfo = () => {
   return (
-    <section className={css.deliveryInfo}>
+    <section className={`${css.deliveryInfo} ${"container"}`}>
       <h2 className={css.deliveryTitle}>
         🌸 Умови створення та доставки букетів 🌸
       </h2>

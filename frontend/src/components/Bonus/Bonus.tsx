@@ -3,8 +3,8 @@ import css from "./Bonus.module.css";
 export const Bonus = () => {
   return (
     <div>
-      <div className={css.container}>
-        <ul className={css.bonusList}>
+      <div className={css.BonusContainer}>
+        <ul className={`${css.bonusList} ${"container"}`}>
           <li>
             <img src="../../../public/images/bonus/01.png" alt="bonus1" />
             <span className={css.spanColor}>Безкоштовна</span> доставка по місту

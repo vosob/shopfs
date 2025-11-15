@@ -7,7 +7,7 @@ export const NavBar = () => {
   const { isAuthenticated } = useAuth();
 
   return (
-    <div className={css.navbarContainer}>
+    <div className={`${css.navbarContainer} ${"container"}`}>
       <ul className={css.navbar}>
         <Link to="/category">Каталог</Link>
         <Link to="/reviews">Відгуки</Link>

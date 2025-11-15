@@ -47,7 +47,9 @@ export const Filters = ({
             <span>{price.name}</span>
           </div>
         ))}
-        <button onClick={() => onSelectedPrise("")}>Reset</button>
+        <button className={css.clearBtn} onClick={() => onSelectedPrise("")}>
+          Скинути фільтри
+        </button>
       </div>
     </div>
   );

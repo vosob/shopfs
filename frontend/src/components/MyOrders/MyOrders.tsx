@@ -5,7 +5,7 @@ export const MyOrders = () => {
   return (
     <>
       <Breadcrumbs />
-      <div className={css.container}>
+      <div>
         <div className={css.orderContainer}>Мої Замовлення</div>
       </div>
     </>

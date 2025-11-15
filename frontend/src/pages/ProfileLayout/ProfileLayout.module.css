@@ -1,6 +1,4 @@
-.container {
-  width: 1440px;
-  margin: 0 auto;
+.profileLayoutContainer {
   display: flex;
   gap: 20px;
 }

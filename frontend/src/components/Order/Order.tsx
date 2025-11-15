@@ -3,7 +3,7 @@ import order from "../../image/Order/order.png";
 
 export const Order = () => {
   return (
-    <section className={css.order}>
+    <section className={`${css.orderContainer} ${"container"}`}>
       <h2 className={css.orderTitle}>
         <span>ЗАМОВИТИ</span> У 4 КРОКИ
       </h2>
