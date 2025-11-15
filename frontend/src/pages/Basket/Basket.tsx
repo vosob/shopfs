@@ -11,28 +11,6 @@ import css from "./Basket.module.css";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
-export type Inputs = {
-  deliveryMethod: "deliveryInTheCity" | "pickup";
-
-  deliveryDate: string; // значення з input: date
-  deliveryTimeOrDate: "timeFrameForReceivingAnOrder" | "exactTime";
-  deliveryExactTime: string; // значення з input: time типу 20:00
-  incognito: boolean;
-
-  Recipient: "iRecipient" | "OtherRecipient";
-  recipientMobile: string;
-  recipientName: string;
-  recipientCity: string;
-  recipientAddress: string;
-  recipientNote?: string;
-
-  senderName: string;
-  senderMobile: string;
-  senderCity: string;
-
-  selfPickupCash: "Cash" | "CashCourier" | "OnlinePayment";
-};
-
 export const Basket = () => {
   const { register, handleSubmit, watch, reset } = useForm<Inputs>({
     defaultValues: {

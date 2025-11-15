@@ -12,6 +12,7 @@
   "dependencies": {
     "@tanstack/react-query": "^4.42.0",
     "axios": "^1.13.2",
+    "date-fns": "^4.1.0",
     "embla-carousel-autoplay": "^8.6.0",
     "embla-carousel-react": "^8.6.0",
     "modern-normalize": "^3.0.1",

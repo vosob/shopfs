@@ -1,58 +1,22 @@
-import React from "react";
 import { Breadcrumbs } from "../Breadcrumbs/Breadcrumbs";
 import css from "./MyOrders.module.css";
-
-const orders = [
-  {
-    id: 1,
-    date: "26.09.19",
-    number: "1N30325",
-    items: [
-      {
-        name: "Букет из разноцветных роз (малый)",
-        qty: "x2",
-        price: "11 300 руб.",
-      },
-      {
-        name: "Букет из разноцветных роз (малый)",
-        qty: "x2",
-        price: "11 300 руб.",
-      },
-    ],
-    total: "90 000 руб.",
-    status: "Доставлено",
-  },
-  {
-    id: 2,
-    date: "26.09.19",
-    number: "1N30326",
-    items: [
-      {
-        name: "Букет из разноцветных роз (малый)",
-        qty: "x2",
-        price: "11 300 руб.",
-      },
-    ],
-    total: "11 300 руб.",
-    status: "Оплачен",
-  },
-  {
-    id: 3,
-    date: "26.09.19",
-    number: "1N30327",
-    items: [
-      {
-        name: "Букет из разноцветных роз (малый)",
-        qty: "x2",
-        price: "11 300 руб.",
-      },
-    ],
-    total: "90 000 руб.",
-    status: "В обработке",
-  },
-];
+import { useQuery } from "@tanstack/react-query";
+import { getUserOrders } from "../../services/order";
+import { Order } from "../../types/orders";
+import { format } from "date-fns";
 
 export const MyOrders = () => {
+  const { data, isLoading, isError } = useQuery<Order[]>({
+    queryKey: ["userOrders"],
+    queryFn: () => getUserOrders(),
+  });
+
+  if (isLoading) return <div>Loading...</div>;
+  if (isError) return <div>Error</div>;
+
+  const formatOrderNumber = (id: string) => id.slice(0, 8);
+
+  console.log(data);
   return (
     <>
       <Breadcrumbs />
@@ -60,39 +24,42 @@ export const MyOrders = () => {
         <table className={css.table}>
           <thead>
             <tr>
-              <th>Дата заказа</th>
-              <th>Наименование</th>
+              <th>Дата замовлення</th>
+              <th>Назва</th>
               <th>Сумма</th>
               <th>Статус</th>
             </tr>
           </thead>
           <tbody>
-            {orders.map((order) => (
-              <React.Fragment key={order.id}>
-                <tr className={css.orderHeader}>
-                  <td>
-                    <div>{order.date}</div>
-                    <div>{order.number}</div>
+            {data.map((order) => (
+              <>
+                <tr key={`${order.id}-${order.items[0].id}`}>
+                  <td rowSpan={order.items.length}>
+                    <div>
+                      <span>Дата замовлення:</span>
+                      <p>{format(new Date(order.createdAt), "dd.MM.yyyy")}</p>
+                    </div>
+                    <div>
+                      <span>Номер замовлення:</span>
+                      <p>{formatOrderNumber(order.id)}</p>
+                    </div>
                   </td>
-                  <td>
-                    {order.items.map((item, idx) => (
-                      <div key={idx}>
-                        {item.name} {item.qty} {item.price}
-                      </div>
-                    ))}
-                  </td>
-                  <td>
-                    <div>{order.total}</div>
-                  </td>
-                  <td
-                    className={
-                      css[order.status.replace(/\s+/g, "").toLowerCase()]
-                    }
-                  >
-                    {order.status}
+
+                  <td>{order.items[0].bouquet.name}</td>
+                  <td>{order.items[0].price} грн.</td>
+                  <td rowSpan={order.items.length}>
+                    <span>Статус:</span>
+                    <p>{order.status}</p>
                   </td>
                 </tr>
-              </React.Fragment>
+
+                {order.items.slice(1).map((item) => (
+                  <tr key={`${order.id}-${item.id}`}>
+                    <td>{item.bouquet.name}</td>
+                    <td>{item.price} грн.</td>
+                  </tr>
+                ))}
+              </>
             ))}
           </tbody>
         </table>
