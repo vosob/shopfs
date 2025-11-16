@@ -3,18 +3,14 @@
   margin: 0 auto;
 }
 
-.orderContainer {
-  width: 874px;
+.tableContainer {
+  width: 100%;
+  overflow-x: auto;
   height: 458px;
   border-radius: 10px;
   background: rgba(255, 255, 255, 1);
   padding: 20px;
-  margin-bottom: 20px;
-}
-
-.tableContainer {
-  width: 100%;
-  overflow-x: auto;
+  margin-bottom: 30px;
 }
 
 .table {
@@ -58,4 +54,33 @@ td > div {
 .processing {
   color: #2f3eb1;
   font-weight: 600;
+}
+
+.spanStyle {
+  color: rgba(130, 130, 130, 1);
+  font-family: Literal;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  text-align: right;
+}
+
+.pStyle {
+  color: var(--chocolate);
+
+  font-family: var(--font-literal);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+}
+
+.price {
+  color: var(--chocolate);
+
+  font-family: Literal;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19px;
+  letter-spacing: 0%;
+  /* text-align: right; */
 }

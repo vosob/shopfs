@@ -16,47 +16,68 @@ export const MyOrders = () => {
 
   const formatOrderNumber = (id: string) => id.slice(0, 8);
 
-  console.log(data);
   return (
-    <>
+    <div style={{ width: "100%" }}>
       <Breadcrumbs />
+
       <div className={css.tableContainer}>
         <table className={css.table}>
-          <thead>
-            <tr>
-              <th>Дата замовлення</th>
-              <th>Назва</th>
-              <th>Сумма</th>
-              <th>Статус</th>
-            </tr>
-          </thead>
           <tbody>
             {data.map((order) => (
               <>
                 <tr key={`${order.id}-${order.items[0].id}`}>
                   <td rowSpan={order.items.length}>
-                    <div>
-                      <span>Дата замовлення:</span>
-                      <p>{format(new Date(order.createdAt), "dd.MM.yyyy")}</p>
+                    <div style={{ marginBottom: "8px" }}>
+                      <span className={css.spanStyle}>Дата замовлення:</span>
+                      <p className={css.pStyle}>
+                        {format(new Date(order.createdAt), "dd.MM.yyyy")}
+                      </p>
                     </div>
+
                     <div>
-                      <span>Номер замовлення:</span>
-                      <p>{formatOrderNumber(order.id)}</p>
+                      <span className={css.spanStyle}>Номер замовлення:</span>
+                      <p className={css.pStyle}>
+                        {formatOrderNumber(order.id)}
+                      </p>
                     </div>
                   </td>
 
-                  <td>{order.items[0].bouquet.name}</td>
-                  <td>{order.items[0].price} грн.</td>
+                  <td>
+                    <span className={css.spanStyle}>Назва</span>
+                    <p className={css.pStyle}>{order.items[0].bouquet.name}</p>
+                  </td>
+
+                  <td className={css.price}>
+                    <span className={css.spanStyle}>Ціна</span>
+                    <p>{order.items[0].price} грн.</p>
+                  </td>
+
+                  <td className={css.price}>
+                    <span className={css.spanStyle}>Сумма</span>
+                    <p>
+                      {order.items.reduce((acc, item) => acc + item.price, 0)}
+                      грн.
+                    </p>
+                  </td>
+
                   <td rowSpan={order.items.length}>
-                    <span>Статус:</span>
-                    <p>{order.status}</p>
+                    <span className={css.spanStyle}>Статус:</span>
+                    <p className={css.pStyle}>
+                      {order.status === "PENDING" ? "В обробці" : order.status}
+                    </p>
                   </td>
                 </tr>
 
                 {order.items.slice(1).map((item) => (
                   <tr key={`${order.id}-${item.id}`}>
-                    <td>{item.bouquet.name}</td>
-                    <td>{item.price} грн.</td>
+                    <td>
+                      <p className={css.pStyle}>{item.bouquet.name}</p>
+                    </td>
+
+                    <td className={css.price}>
+                      <span className={css.spanStyle}>Сумма</span>
+                      <p>{item.price} грн.</p>
+                    </td>
                   </tr>
                 ))}
               </>
@@ -64,6 +85,6 @@ export const MyOrders = () => {
           </tbody>
         </table>
       </div>
-    </>
+    </div>
   );
 };

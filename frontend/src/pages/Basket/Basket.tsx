@@ -10,6 +10,7 @@ import { postOrder } from "../../services/order";
 import css from "./Basket.module.css";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { Inputs } from "../../types/orders";
 
 export const Basket = () => {
   const { register, handleSubmit, watch, reset } = useForm<Inputs>({

@@ -35,7 +35,7 @@ export const ProfileLayout = () => {
         </nav>
       </aside>
 
-      <main>
+      <main style={{ flex: 1, width: "100%" }}>
         {/* тут рендеряться вкладені маршрути */}
         <Outlet />
       </main>

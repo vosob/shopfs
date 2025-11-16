@@ -4,6 +4,7 @@
 }
 
 .asideContainer {
+  flex: 0 0 290px;
   padding: 37px 17px 0px 17px;
   background-color: rgba(242, 242, 242, 1);
 }

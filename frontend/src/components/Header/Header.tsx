@@ -3,8 +3,10 @@ import css from "./Header.module.css";
 import { FaPhoneAlt } from "react-icons/fa";
 import { BsBasket2 } from "react-icons/bs";
 import { FaLocationDot } from "react-icons/fa6";
+import { useBasket } from "../../context/contextBasket";
 
 export const Header = () => {
+  const { getTotalPrice } = useBasket();
   return (
     <div>
       <div className={css.topHeader}>
@@ -25,7 +27,14 @@ export const Header = () => {
           </div>
           <div className={css.basket}>
             <BsBasket2 fill="white" size="20px" />
-            <span className={css.cash}>69 000 грн</span>
+
+            {getTotalPrice() === 0 ? (
+              <span className={css.cash}>Корзина порожня</span>
+            ) : (
+              <span className={css.cash}>
+                {getTotalPrice().toFixed(2)} грн.
+              </span>
+            )}
           </div>
         </div>
       </div>

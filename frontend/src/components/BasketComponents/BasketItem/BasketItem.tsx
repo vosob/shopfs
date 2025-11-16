@@ -57,8 +57,6 @@ export const BasketItem = ({ data }: Props) => {
           <span className={css.totalPriceText}>Загальна ціна:</span>
           <span className={css.priceText}>{totalPrice.toFixed(2)} грн</span>
         </p>
-
-        {/* Опціонально: кнопка видалення */}
         <button
           onClick={() => removeFromBasket(data.id)}
           className={css.removeBtn}
