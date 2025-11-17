@@ -18,12 +18,10 @@ export const HomePage = () => {
   const [sortList, setSortList] = useState<SortType>("default");
   const deferredSearch = useDeferredValue(searchQuery);
   const [selectedPrise, setSelectedPrise] = useState<string>("");
-  console.log(selectedPrise);
 
   const { data, isLoading, isError } = useQuery({
     queryKey: ["bouquet", deferredSearch, selectedPrise],
     queryFn: () => fetchBouquet(deferredSearch, selectedPrise),
-    keepPreviousData: true,
   });
 
   const sortedBouquet = sortProducts({
@@ -34,19 +32,13 @@ export const HomePage = () => {
   return (
     <div>
       <HeroHomePage />
-      {isLoading && <p>Loading...</p>}
       {isError && <p>An error occurred</p>}
-
       <Bonus />
-
       <div className={`${css.mainContent} ${"container"}`}>
         <div className={css.homeContainer}>
           <SortBy sort={setSortList} />
-          {data && data.length > 0 ? (
-            <BouquetList data={sortedBouquet} />
-          ) : (
-            <div className={css.noData}> No data </div>
-          )}
+
+          <BouquetList isLoading={isLoading} data={sortedBouquet || []} />
         </div>
 
         <Filters

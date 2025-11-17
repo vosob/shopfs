@@ -8,7 +8,7 @@ export const BasketList = () => {
   if (items.length === 0) {
     return (
       <div>
-        <p>Ваша корзина порожня</p>
+        <p className={css.emptyBasket}>Наразі ваша корзина порожня</p>
       </div>
     );
   }

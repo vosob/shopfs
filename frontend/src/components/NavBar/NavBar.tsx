@@ -9,12 +9,13 @@ export const NavBar = () => {
   return (
     <div className={`${css.navbarContainer} ${"container"}`}>
       <ul className={css.navbar}>
-        <Link to="/category">Каталог</Link>
-        <Link to="/reviews">Відгуки</Link>
-        <Link to="/contacts">Контакти</Link>
         <Link to="/">
           <img className={css.iconHome} src="../../../public/images/icon.png" />
         </Link>
+        <Link to="/category">Каталог</Link>
+        <Link to="/reviews">Відгуки</Link>
+        <Link to="/contacts">Контакти</Link>
+
         <Link to="/info">Інформація для клієнтів</Link>
 
         {isAuthenticated ? (
