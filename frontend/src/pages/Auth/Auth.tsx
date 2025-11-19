@@ -6,17 +6,6 @@ import { AuthFormBtn } from "../../components/AuthFormBtn/AuthFormBtn";
 
 export type ActivePathType = "login" | "register";
 
-export type AuthInputs = {
-  registerName: string;
-  registerMail: string;
-  registerPhone: number;
-  registerCity: string;
-  registerPassword: string;
-
-  loginMail: string;
-  loginPassword: string;
-};
-
 export const Auth = () => {
   const [activePath, setActivePath] = useState<ActivePathType>("login");
 

@@ -1,3 +1,5 @@
+// ! перейменувати типи на capitalize
+
 export interface userRegister {
   email: string;
   name: string;

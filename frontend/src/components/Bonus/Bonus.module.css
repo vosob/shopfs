@@ -28,3 +28,8 @@
 .spanColor {
   color: var(--text-green);
 }
+
+.bonusImg {
+  width: 140px;
+  height: 140px;
+}

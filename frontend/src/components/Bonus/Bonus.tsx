@@ -1,26 +1,32 @@
+import freeDeliveryImg from "./bonus/freeDelivery.png";
+import giftCardImg from "./bonus/giftCard.png";
+import allDayDeliveryImg from "./bonus/allDayDelivery.png";
+import discountSystemImg from "./bonus/discountSystem.png";
+
+import { useTranslation } from "react-i18next";
 import css from "./Bonus.module.css";
 
 export const Bonus = () => {
+  const { t } = useTranslation("bonus");
+
+  const bonuses = [
+    { key: "freeDelivery", img: freeDeliveryImg },
+    { key: "giftCard", img: giftCardImg },
+    { key: "allDayDelivery", img: allDayDeliveryImg },
+    { key: "discountSystem", img: discountSystemImg },
+  ];
+
   return (
     <div>
       <div className={css.BonusContainer}>
         <ul className={`${css.bonusList} ${"container"}`}>
-          <li>
-            <img src="../../../public/images/bonus/01.png" alt="bonus1" />
-            <span className={css.spanColor}>Безкоштовна</span> доставка по місту
-          </li>
-          <li>
-            <img src="../../../public/images/bonus/02.png" alt="bonus1" />
-            Відкритка <span className={css.spanColor}>у подарунок</span>
-          </li>
-          <li>
-            <img src="../../../public/images/bonus/03.png" alt="bonus1" />
-            <span className={css.spanColor}>Цілодобава</span> доставка
-          </li>
-          <li>
-            <img src="../../../public/images/bonus/04.png" alt="bonus1" />
-            Накопичувальна система <span className={css.spanColor}>знижок</span>
-          </li>
+          {bonuses.map(({ key, img }) => (
+            <li key={key}>
+              <img className={css.bonusImg} src={img} alt={key} />
+              <span className={css.spanColor}>{t(`${key}.highlight`)}</span>
+              <span>{t(`${key}.text`)}</span>
+            </li>
+          ))}
         </ul>
       </div>
     </div>

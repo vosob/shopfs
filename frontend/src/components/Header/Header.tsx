@@ -4,17 +4,20 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { BsBasket2 } from "react-icons/bs";
 import { FaLocationDot } from "react-icons/fa6";
 import { useBasket } from "../../context/contextBasket";
+import { useTranslation } from "react-i18next";
+import { LanguageSelect } from "../LanguageSelect/LanguageSelect";
 
 export const Header = () => {
   const { getTotalPrice } = useBasket();
+  const { t } = useTranslation("topHeader");
   return (
     <div>
       <div className={css.topHeader}>
         <div className={`${css.topHeaderContainer} ${"container"}`}>
           <div className={css.location}>
             <FaLocationDot size="19" fill="white" />
-            <span className={css.city}>м.Рівне,</span>
-            вул. Кулика і Гудачека 28
+            <span className={css.city}>{t("city")}</span>
+            <span>{t("street")}</span>
           </div>
           <div className={css.contacts}>
             <FaPhoneAlt size="14px" fill="green" />
@@ -29,12 +32,16 @@ export const Header = () => {
             <BsBasket2 fill="white" size="20px" />
 
             {getTotalPrice() === 0 ? (
-              <span className={css.cash}>Корзина порожня</span>
+              <span className={css.cash}>{t("emptyBasket")}</span>
             ) : (
               <span className={css.cash}>
                 {getTotalPrice().toFixed(2)} грн.
               </span>
             )}
+
+            <div className={css.language}>
+              <LanguageSelect />
+            </div>
           </div>
         </div>
       </div>

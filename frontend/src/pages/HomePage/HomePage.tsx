@@ -34,7 +34,7 @@ export const HomePage = () => {
       <HeroHomePage />
       {isError && <p>An error occurred</p>}
       <Bonus />
-      <div className={`${css.mainContent} ${"container"}`}>
+      <div className={`${css.mainContent} container`}>
         <div className={css.homeContainer}>
           <SortBy sort={setSortList} />
 

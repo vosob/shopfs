@@ -1,0 +1,18 @@
+{
+  "freeDelivery": {
+    "highlight": "Free delivery",
+    "text": "to the city"
+  },
+  "giftCard": {
+    "highlight": "Voucher",
+    "text": "in the gift"
+  },
+  "allDayDelivery": {
+    "highlight": "All day delivery",
+    "text": "delivery"
+  },
+  "discountSystem": {
+    "highlight": "Accumulative system",
+    "text": "discounts"
+  }
+}

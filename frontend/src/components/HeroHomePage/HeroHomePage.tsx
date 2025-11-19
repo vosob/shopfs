@@ -8,6 +8,9 @@ import banner3 from "../../image/HeroSlider/Баннер3.png";
 import banner4 from "../../image/HeroSlider/Баннер4.png";
 import banner5 from "../../image/HeroSlider/Баннер5.png";
 
+import { useTranslation } from "react-i18next";
+import { Trans } from "react-i18next";
+
 const data = [
   { id: 1, source: banner1 },
   { id: 2, source: banner2 },
@@ -17,6 +20,8 @@ const data = [
 ];
 
 export const HeroHomePage = () => {
+  const { t } = useTranslation("hero");
+
   const [emblaRef] = useEmblaCarousel({ loop: true }, [
     Autoplay({ delay: 10000, stopOnInteraction: false }),
   ]);
@@ -30,11 +35,17 @@ export const HeroHomePage = () => {
               style={{ backgroundImage: `url(${item.source})` }}
               className={css.container}
             >
-              <h2 className={css.h2}>
-                <span className={css.span}>Доставка </span>квітів у місті
-              </h2>
-              <h1 className={css.h1}>чааааРівному</h1>
-              <button className={css.button}>Каталог</button>
+              <h1 className={css.h2}>
+                <Trans
+                  i18nKey="title"
+                  ns="hero"
+                  components={[<span className={css.span} />]}
+                />
+              </h1>
+
+              <p className={css.h1}>{t("subtitle")}</p>
+
+              <button className={css.button}>{t("button")}</button>
             </div>
           </li>
         ))}
