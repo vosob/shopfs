@@ -5,7 +5,7 @@ import { HomePage } from "../HomePage/HomePage";
 import { Category } from "../Category/Category";
 
 import { Basket } from "../Basket/Basket";
-import { Reviews } from "../Reviews/Reviews";
+import { ReviewsLayout } from "../Reviews/ReviewsLayout";
 import { Contacts } from "../Contacts/Contacts";
 import { Info } from "../Info/Info";
 import { BouquetByIdPage } from "../BouquetByIdPage/BouquetByIdPage";
@@ -19,6 +19,8 @@ import { Profile } from "../../components/Profile/Profile";
 import { ChangePassword } from "../../components/ChangePassword/ChangePassword";
 import { PublicRoute } from "../Route/PublicRoute";
 import { Auth } from "../Auth/Auth";
+import { TextReviews } from "../../components/TextReviews/TextReviews";
+import { PhotoReviews } from "../../components/PhotoReviews/PhotoReviews";
 
 export const App = () => {
   return (
@@ -26,7 +28,7 @@ export const App = () => {
       <Routes>
         <Route index element={<HomePage />} />
         <Route path="/category" element={<Category />} />
-        <Route path="/reviews" element={<Reviews />} />
+
         <Route path="/contacts" element={<Contacts />} />
         <Route path="/info" element={<Info />} />
         <Route
@@ -48,6 +50,11 @@ export const App = () => {
           <Route path="profile" element={<Profile />} />
           <Route path="myOrder" element={<MyOrders />} />
           <Route path="password" element={<ChangePassword />} />
+        </Route>
+
+        <Route path="/reviews" element={<ReviewsLayout />}>
+          <Route path="textReviews" element={<TextReviews />} />
+          <Route path="photoReviews" element={<PhotoReviews />} />
         </Route>
 
         <Route path="/basket" element={<Basket />} />
