@@ -8,6 +8,7 @@ import { FlowerModule } from './flower/flower.module';
 import { BouquetModule } from './bouquet/bouquet.module';
 import { CloudinaryModule } from './cloudinary/cloudinary.module';
 import { OrderModule } from './order/order.module';
+import { CommentModule } from './comment/comment.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { OrderModule } from './order/order.module';
     BouquetModule,
     CloudinaryModule,
     OrderModule,
+    CommentModule,
   ],
   controllers: [AppController],
   providers: [AppService],
