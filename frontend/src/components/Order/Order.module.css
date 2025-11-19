@@ -5,44 +5,29 @@
   max-width: 1440px;
 }
 
-.orderTitle {
-  font-family: var(--font-karton);
-  margin-bottom: 50px;
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 29px;
-  letter-spacing: 0%;
-}
-
-.orderTitle span {
-  color: #64b45f;
-}
-
 .steps {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 60px 100px;
 }
 
-.step {
+.itemContainer {
   display: flex;
+  gap: 20px;
   align-items: center;
-  gap: 24px;
 }
 
-.stepImage {
-  position: relative;
-  flex-shrink: 0;
+.titleContainer {
+  margin-bottom: 50px;
+
+  font-family: var(--font-karton);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 29px;
 }
 
-.stepNumber {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 48px;
-  font-weight: 600;
-  color: #4c3f4c;
+.titleContainer span:first-child {
+  color: #64b45f;
 }
 
 .stepText {

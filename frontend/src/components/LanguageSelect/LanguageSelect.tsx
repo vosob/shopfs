@@ -8,19 +8,19 @@ export const LanguageSelect = () => {
   };
 
   return (
-    <div>
-      <select
-        className={css.select}
-        onChange={(e) => handleChangeLanguage(e.target.value)}
+    <div className={css.LanguageSelectContainer}>
+      <button
+        className={`${css.btn} ${i18n.language === "uk" ? css.active : ""}`}
+        onClick={() => handleChangeLanguage("uk")}
       >
-        <option className={css.option} selected value="ua">
-          UA
-        </option>
-
-        <option className={css.option} value="en">
-          EN
-        </option>
-      </select>
+        UA
+      </button>
+      <button
+        className={`${css.btn} ${i18n.language === "en" ? css.active : ""}`}
+        onClick={() => handleChangeLanguage("en")}
+      >
+        EN
+      </button>
     </div>
   );
 };

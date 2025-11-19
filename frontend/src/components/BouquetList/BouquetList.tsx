@@ -9,6 +9,7 @@ interface BouquetListProps {
 }
 
 export const BouquetList = ({ data, isLoading }: BouquetListProps) => {
+  console.log(data);
   return (
     <>
       {isLoading ? (

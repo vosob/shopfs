@@ -1,0 +1,23 @@
+{
+  "orderTitle": {
+    "firstWord": "Order ",
+    "secondWord": "by four steps"
+  },
+
+  "choiceBouquet": {
+    "highlight": "Choose a bouquet",
+    "text": "In the catalog choose a bouquet that you like."
+  },
+  "choiceSize": {
+    "highlight": "Choose a size and accessories",
+    "text": "On the page with the bouquet description choose the appropriate size. Add a flower, candy, or any other gift to the bouquet."
+  },
+  "enterShippingDetails": {
+    "highlight": "Enter shipping details",
+    "text": "Fill in the shipping form and pay for the order in a convenient way."
+  },
+  "BouquetReady": {
+    "highlight": "The bouquet is ready!",
+    "text": "The bouquet will be collected from the freshest flowers and delivered to the recipient at the specified time."
+  }
+}

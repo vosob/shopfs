@@ -4,6 +4,7 @@ import allDayDeliveryImg from "./bonus/allDayDelivery.png";
 import discountSystemImg from "./bonus/discountSystem.png";
 
 import { useTranslation } from "react-i18next";
+
 import css from "./Bonus.module.css";
 
 export const Bonus = () => {

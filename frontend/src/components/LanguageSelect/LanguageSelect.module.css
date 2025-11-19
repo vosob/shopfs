@@ -1,18 +1,14 @@
-.select {
-  outline: none;
-  border-radius: 5px;
-  background: rgba(250, 250, 250, 1);
+.LanguageSelectContainer {
+  display: flex;
+  gap: 5px;
+}
+
+.btn {
+  all: unset;
+  color: white;
   cursor: pointer;
 }
 
-.option {
-  outline: none;
-  border-radius: 5px;
-  background-color: #fff;
-  cursor: pointer;
-}
-
-select option:hover {
-  background-color: teal;
-  cursor: pointer;
+.active {
+  border-bottom: 1px solid white;
 }

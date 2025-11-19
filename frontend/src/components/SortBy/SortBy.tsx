@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { SortType } from "../../Utils/SortList";
 import css from "./SortBy.module.css";
 
@@ -6,20 +7,22 @@ interface SortProps {
 }
 
 export const SortBy = ({ sort }: SortProps) => {
+  const { t } = useTranslation("sortBouquetList");
+
   return (
     <div className={css.sortContainer}>
-      <p className={css.sorting}>Сортувати по :</p>
+      <p className={css.sorting}>{t("sortText")}</p>
       <button onClick={() => sort("new")} className={css.sortBtn}>
-        Новинки
+        {t("sortByNew")}
       </button>
       <button onClick={() => sort("price-asc")} className={css.sortBtn}>
-        Ціна по збільшенню
+        {t("sortByIncrease")}
       </button>
       <button onClick={() => sort("price-desc")} className={css.sortBtn}>
-        Ціна по зменшенню
+        {t("sortByDecrease")}
       </button>
       <button onClick={() => sort("size")} className={css.sortBtn}>
-        Розмір
+        {t("sordBySize")}
       </button>
     </div>
   );
