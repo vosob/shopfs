@@ -12,10 +12,10 @@ export const AddReviews = () => {
   });
   return (
     <div className={css.reviewsContainer}>
-      <form>
-        <label>
-          Ведіть ваший коментар
-          <textarea>Ваше повідомлення</textarea>
+      <form className={css.form}>
+        <label className={css.label}>
+          <span>Ведіть ваший коментар</span>
+          <textarea className={css.textarea} placeholder="Ваше повідомлення" />
         </label>
         <label>
           Оцініть нашу роботу

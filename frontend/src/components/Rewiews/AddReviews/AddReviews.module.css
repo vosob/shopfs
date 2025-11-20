@@ -1,2 +1,21 @@
 .reviewsContainer {
 }
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+}
+
+.textarea {
+  padding-left: 15px;
+  padding-top: 10px;
+  height: 80px;
+  resize: none;
+  border-radius: 10px;
+  outline: none;
+}

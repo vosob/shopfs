@@ -1,6 +1,8 @@
 .profileLayoutContainer {
   display: flex;
   gap: 20px;
+  background: #ffffff;
+  border-radius: 10px;
 }
 
 .asideContainer {
