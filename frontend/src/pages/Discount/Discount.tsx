@@ -1,3 +1,3 @@
-export const Category = () => {
+export const Discount = () => {
   return <div>Category</div>;
 };

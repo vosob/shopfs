@@ -1,0 +1,19 @@
+{
+  "deliveryTitle": {
+    "title": " Conditions for creating and delivering bouquets ",
+    "handcrafted": "Our bouquets are created with maximum attention to detail and love —, each composition repeats the original in the photo as much as possible. However, since each bouquet is made by hand by our florists, slight differences in the shape or arrangement of flowers are possible.",
+
+    "substitutions": "Sometimes, depending on the seasonality or the presence of certain flowers in your region, we can replace individual elements with equivalent ones in terms of quality, appearance and cost. This allows us to fulfill your order without delays and preserve the beauty of each bouquet.",
+
+    "deliveryTime": "When placing an order, you will see the nearest available delivery date and time, taking into account the selected city.",
+
+    "recommendation": "💐 We recommend placing an order in advance, especially on holidays —, then we will be able to guarantee timely delivery of your bouquet.",
+
+    "moreInfo": "More detailed information can be found on the checkout page."
+  },
+  "deliveryInfo": {
+    "title": "🚚 Delivery:",
+    "inUk": "In Ukraine, delivery was possible on the day of placing and paying for the order.",
+    "inOther": "For countries far abroad — 2–3 working days after payment."
+  }
+}

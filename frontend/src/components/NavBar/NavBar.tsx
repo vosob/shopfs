@@ -20,7 +20,7 @@ export const NavBar = () => {
           </Link>
         </li>
         <li>
-          <Link to="/category">{t("category")}</Link>
+          <Link to="/discount">{t("discount")}</Link>
         </li>
         <li>
           <Link to="/reviews">{t("reviews")}</Link>

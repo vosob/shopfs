@@ -6,7 +6,7 @@ export const MapInfo = () => {
       {/* <!-- Google Maps карта --> */}
       <div className={css.mapContainer}>
         <iframe
-          src="https://www.openstreetmap.org/export/embed.html?bbox=26.272827386856083%2C50.60420715376102%2C26.290744543075565%2C50.610035562842754&amp;layer=mapnik&amp;marker=50.60712144854993%2C26.28178596496582"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=26.2428081035614%2C50.608285754182305%2C26.260725259780887%2C50.61411365805069&amp;layer=mapnik&amp;marker=50.611199796362%2C26.251766681671143"
           className={css.mapInfo}
         ></iframe>
       </div>

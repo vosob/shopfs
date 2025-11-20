@@ -1,0 +1,23 @@
+{
+  "contactInfo": {
+    "title": "Contact information",
+    "street": "c. Rivne, str. Kulik and Hudachek, 28",
+    "workTime": "Working hours: Mon–Sb from 8:00 a.m. to 10:00 p.m"
+  },
+
+  "forUsers": {
+    "title": "For users",
+    "orders": "Place an order ",
+    "question": "Questions and answers",
+    "changeOrder": "Changing or canceling an order",
+    "payOrder": "Ways of delivery and payment"
+  },
+  "questionCall": {
+    "title": "Any questions? Contact us",
+    "name": "Your name",
+    "number": "Mobile phone",
+    "message": "Your message.",
+    "endPoint": "© 2025 Flower shop",
+    "btn": "Send"
+  }
+}
