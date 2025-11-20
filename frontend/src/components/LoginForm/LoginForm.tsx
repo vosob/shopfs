@@ -6,6 +6,7 @@ import { loginUser } from "../../services/users";
 import { useAuth } from "../../context/contextAuth";
 import { useNavigate } from "react-router";
 import toast from "react-hot-toast";
+import { useTranslation } from "react-i18next";
 
 export interface OrderFormValuesLogin {
   email: string;
@@ -18,6 +19,7 @@ export const LoginForm = () => {
   const { createToken } = useAuth();
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
+  const { t } = useTranslation("login");
   const onSubmit = async (data: OrderFormValuesLogin) => {
     try {
       const response = await loginUser(data);
@@ -45,24 +47,24 @@ export const LoginForm = () => {
     <div>
       <form onSubmit={handleSubmit(onSubmit)} className={css.form}>
         <label className={css.labelForm} htmlFor={`${fieldId}-email`}>
-          Пошта:
+          {t("login.mailName")}
           <input
             id={`${fieldId}-email`}
             type="email"
             {...register("email")}
-            placeholder="Ваша почта"
+            placeholder={t("login.mailInput")}
             className={css.input}
           />
         </label>
 
         <label htmlFor={`${fieldId}-password`}>
-          Пароль:
+          {t("login.password")}
           <div className={css.passwordWrapper}>
             <input
               id={`${fieldId}-password`}
               type={showPassword ? "text" : "password"}
               {...register("password")}
-              placeholder="Введіть пароль"
+              placeholder={t("login.passwordInput")}
               className={css.input}
             />
             <button
@@ -76,7 +78,7 @@ export const LoginForm = () => {
         </label>
 
         <button type="submit" className={css.submitBtn}>
-          Увійти
+          {t("login.btn")}
         </button>
       </form>
     </div>

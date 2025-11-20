@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { ActivePathType } from "../../pages/Auth/Auth";
 import css from "./AuthFormBtn.module.css";
 
@@ -7,6 +8,7 @@ interface Props {
 }
 
 export const AuthFormBtn = ({ activePath, setActivePath }: Props) => {
+  const { t } = useTranslation("authType");
   return (
     <div>
       <div className={css.tabs}>
@@ -15,7 +17,7 @@ export const AuthFormBtn = ({ activePath, setActivePath }: Props) => {
           onClick={() => setActivePath("login")}
           type="button"
         >
-          Вхід
+          {t("authType.titleLogin")}
         </button>
         <button
           className={`${css.tab} ${
@@ -24,7 +26,7 @@ export const AuthFormBtn = ({ activePath, setActivePath }: Props) => {
           onClick={() => setActivePath("register")}
           type="button"
         >
-          Реєстрація
+          {t("authType.titleRegister")}
         </button>
       </div>
     </div>

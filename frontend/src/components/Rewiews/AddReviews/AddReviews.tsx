@@ -14,13 +14,23 @@ export const AddReviews = () => {
     <div className={css.reviewsContainer}>
       <form className={css.form}>
         <label className={css.label}>
-          <span>Ведіть ваший коментар</span>
-          <textarea className={css.textarea} placeholder="Ваше повідомлення" />
+          <span className={css.spanStyle}>Ведіть ваший коментар</span>
+          <textarea
+            {...register("reviewsComment")}
+            className={css.textarea}
+            placeholder="Ваше повідомлення"
+          />
         </label>
-        <label>
-          Оцініть нашу роботу
-          <CreateStars />
-        </label>
+
+        <div className={css.rating}>
+          <div className={css.ratingContainer}>
+            <span className={css.spanStyle}>Оцініть нашу роботу</span>
+            <CreateStars />
+          </div>
+          <button type="submit" className={css.btnStyle}>
+            Відправити
+          </button>
+        </div>
       </form>
     </div>
   );

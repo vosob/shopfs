@@ -1,11 +1,13 @@
+import { useTranslation } from "react-i18next";
 import css from "./FormInfo.module.css";
 
 export const FormInfo = () => {
+  const { t } = useTranslation("formInfoQuestion");
   return (
     <div className={`${css.inputFormContainer} ${"container"}`}>
       <div className={css.textContainer}>
         <h3 className={`${css.titleStyle} ${"container"}`}>
-          Залишились питання? Звяжіться з нами
+          {t("formInfoQuestion.title")}
         </h3>
         <form className={css.formContainer}>
           <div style={{ display: "flex", gap: "20px" }}>
@@ -14,7 +16,7 @@ export const FormInfo = () => {
                 <input
                   className={css.inputSize}
                   type="text"
-                  placeholder="Ім'я та фамілія"
+                  placeholder={t("formInfoQuestion.name")}
                   name="text"
                 />
               </label>
@@ -23,7 +25,7 @@ export const FormInfo = () => {
                 <input
                   className={css.inputSize}
                   type="email"
-                  placeholder="Електрона пошта"
+                  placeholder={t("formInfoQuestion.mail")}
                   name="email"
                 />
               </label>
@@ -32,7 +34,7 @@ export const FormInfo = () => {
                 <input
                   className={css.inputSize}
                   type="tel"
-                  placeholder="Мобільний номер"
+                  placeholder={t("formInfoQuestion.phone")}
                   name="tel"
                 />
               </label>
@@ -40,12 +42,12 @@ export const FormInfo = () => {
             <label className={css.areaContainer}>
               <textarea
                 className={css.areaStyle}
-                placeholder="Ваше питання"
+                placeholder={t("formInfoQuestion.message")}
               ></textarea>
             </label>
           </div>
           <button className={css.buttonStyle} type="submit">
-            Відправити
+            {t("formInfoQuestion.button")}
           </button>
         </form>
       </div>

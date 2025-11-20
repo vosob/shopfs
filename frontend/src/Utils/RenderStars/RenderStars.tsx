@@ -1,4 +1,5 @@
 import css from "./RenderStars.module.css";
+import { FaRegStar, FaStar } from "react-icons/fa";
 
 export const RenderStars = (rating: number) => {
   const stars = [];
@@ -9,19 +10,19 @@ export const RenderStars = (rating: number) => {
     if (i < fullStars) {
       stars.push(
         <span key={i} className={css.yellow}>
-          ★
+          <FaStar />
         </span>
       );
     } else if (i === fullStars && hasHalfStar) {
       stars.push(
         <span key={i} className={css.yellow}>
-          ☆
+          <FaRegStar />
         </span>
       );
     } else {
       stars.push(
         <span key={i} className={css.grey}>
-          ★
+          <FaStar />
         </span>
       );
     }
