@@ -35,7 +35,10 @@ model User {
 
 model Comment {
   id        String   @id @default(cuid())
+
   text      String
+  rating    Int
+  
   userId    String
 
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
