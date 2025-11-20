@@ -1,5 +1,18 @@
+.topHeader {
+  background: var(--Brown, rgba(91, 74, 88, 1));
+}
+
 .header {
   background-color: #f2f2f2;
+}
+
+.topHeaderContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .city {
@@ -11,28 +24,33 @@
   padding-right: 3px;
 }
 
-.topHeader {
-  background: var(--Brown, rgba(91, 74, 88, 1));
-}
-
-.topHeaderContainer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  /* gap: 135px; */
-  margin: 0 auto;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
 .location {
   display: flex;
-
+  align-items: center;
   font-size: 16px;
   font-weight: 400;
   font-family: var(--font-literal);
   line-height: 19px;
   color: white;
+
+  flex: 1;
+}
+
+.contacts {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+
+  flex: 1;
+}
+
+.basket {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  flex: 1;
+  justify-content: flex-end;
 }
 
 .telegram {
@@ -66,19 +84,6 @@
   text-align: left;
 }
 
-.basket {
-  min-width: 170px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
 .language {
   margin-left: 25px;
-}
-
-.contacts {
-  display: flex;
-  align-items: center;
-  gap: 11px;
 }

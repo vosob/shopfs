@@ -1,17 +1,15 @@
 .navbarContainer {
   display: flex;
   justify-content: space-between;
-
-  /* width: 1440px; */
   margin: 0 auto;
 }
 
 .navbar {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   height: 108px;
-  width: 1440px;
+  width: 100%;
   font-family: var(--font-literal);
   color: var(--Brown, rgba(91, 74, 88, 1));
   font-size: 14px;
@@ -20,9 +18,16 @@
   text-transform: uppercase;
 }
 
+.navbar li {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 90px;
+}
+
 .iconHome {
-  width: 102px;
-  height: 84px;
+  width: 100px;
+  height: 85px;
 }
 
 .orderContainer {

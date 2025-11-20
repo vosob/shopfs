@@ -19,6 +19,7 @@ export const Header = () => {
             <span className={css.city}>{t("city")}</span>
             <span>{t("street")}</span>
           </div>
+
           <div className={css.contacts}>
             <FaPhoneAlt size="14px" fill="green" />
             <div>
@@ -28,6 +29,7 @@ export const Header = () => {
               </span>
             </div>
           </div>
+
           <div className={css.basket}>
             <BsBasket2 fill="white" size="20px" />
 
