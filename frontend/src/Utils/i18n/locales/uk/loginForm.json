@@ -1,0 +1,9 @@
+{
+  "login": {
+    "mailName": "Пошта",
+    "mailInput": "Ваша пошта",
+    "password": "Пароль",
+    "passwordInput": "Введіть пароль",
+    "btn": "Увійти"
+  }
+}

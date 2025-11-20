@@ -1,0 +1,9 @@
+{
+  "acardionInputForm": {
+    "name": "Name and surname",
+    "inputName": "Vlad Osobskyi",
+    "mail": "E-mail",
+    "comment": "Your comment",
+    "button": "Send"
+  }
+}

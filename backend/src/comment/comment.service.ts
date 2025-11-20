@@ -12,7 +12,16 @@ export class CommentService {
   constructor(private readonly prismaService: PrismaService) {}
 
   async getAllComments(): Promise<Comment[]> {
-    return this.prismaService.comment.findMany();
+    return this.prismaService.comment.findMany({
+      include: {
+        user: {
+          select: {
+            name: true,
+            city: true,
+          },
+        },
+      },
+    });
   }
 
   async addComment(dto: CreateCommentDto, userId: string): Promise<Comment> {

@@ -1,0 +1,9 @@
+{
+  "login": {
+    "mailName": "Mail",
+    "mailInput": "Your Mail",
+    "password": "Password",
+    "passwordInput": "Enter your password",
+    "btn": "Log in"
+  }
+}

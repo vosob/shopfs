@@ -10,6 +10,15 @@ import enSortBouquet from "./locales/en/sortBouquetList.json";
 import enOrderSteps from "./locales/en/orderSteps.json";
 import enDelivery from "./locales/en/delivery.json";
 import enFooter from "./locales/en/footer.json";
+import enReviews from "./locales/en/reviews.json";
+import enContactsInfo from "./locales/en/contactsInfo.json";
+import enContacts from "./locales/en/contacts.json";
+import enFormInfo from "./locales/en/formInfo.json";
+import enAcardionInfo from "./locales/en/acardionInfo.json";
+import enAcardionInput from "./locales/en/acardionInput.json";
+import enLoginForm from "./locales/en/loginForm.json";
+import enRegisterForm from "./locales/en/registerForm.json";
+import enAuth from "./locales/en/auth.json";
 
 import ukCommon from "./locales/uk/common.json";
 import ukNavbar from "./locales/uk/navbar.json";
@@ -20,6 +29,15 @@ import ukSortBouquet from "./locales/uk/sortBouquetList.json";
 import ukOrderSteps from "./locales/uk/orderSteps.json";
 import ukDelivery from "./locales/uk/delivery.json";
 import ukFooter from "./locales/uk/footer.json";
+import ukReviews from "./locales/uk/reviews.json";
+import ukContactsInfo from "./locales/uk/contactsInfo.json";
+import ukContacts from "./locales/uk/contacts.json";
+import ukFormInfo from "./locales/uk/formInfo.json";
+import ukAcardionInfo from "./locales/uk/acardionInfo.json";
+import ukAcardionInput from "./locales/uk/acardionInput.json";
+import ukLoginForm from "./locales/uk/loginForm.json";
+import ukRegisterForm from "./locales/uk/registerForm.json";
+import ukAuth from "./locales/uk/auth.json";
 
 i18n.use(initReactI18next).init({
   resources: {
@@ -33,6 +51,15 @@ i18n.use(initReactI18next).init({
       orderSteps: enOrderSteps,
       delivery: enDelivery,
       footer: enFooter,
+      reviews: enReviews,
+      contact: enContactsInfo,
+      contacts: enContacts,
+      formInfoQuestion: enFormInfo,
+      acardionItems: enAcardionInfo,
+      acardionInputForm: enAcardionInput,
+      login: enLoginForm,
+      register: enRegisterForm,
+      authType: enAuth,
     },
     uk: {
       common: ukCommon,
@@ -44,6 +71,15 @@ i18n.use(initReactI18next).init({
       orderSteps: ukOrderSteps,
       delivery: ukDelivery,
       footer: ukFooter,
+      reviews: ukReviews,
+      contact: ukContactsInfo,
+      contacts: ukContacts,
+      formInfoQuestion: ukFormInfo,
+      acardionItems: ukAcardionInfo,
+      acardionInputForm: ukAcardionInput,
+      login: ukLoginForm,
+      register: ukRegisterForm,
+      authType: ukAuth,
     },
   },
   fallbackLng: "uk",
@@ -58,6 +94,15 @@ i18n.use(initReactI18next).init({
     "orderSteps",
     "delivery",
     "footer",
+    "reviews",
+    "contact",
+    "contacts",
+    "formInfoQuestion",
+    "acardionItems",
+    "acardionInputForm",
+    "login",
+    "register",
+    "authType",
   ],
   defaultNS: "common",
   interpolation: {
