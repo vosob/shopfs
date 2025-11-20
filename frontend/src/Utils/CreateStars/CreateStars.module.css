@@ -1,0 +1,8 @@
+.itemContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.gold {
+  color: rgba(242, 201, 76, 1);
+}
