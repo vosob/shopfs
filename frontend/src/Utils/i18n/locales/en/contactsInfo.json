@@ -1,0 +1,23 @@
+{
+  "contact": {
+    "phone": {
+      "title": "Mobile phone"
+    },
+    "social": {
+      "title": "Social networks"
+    },
+    "mail": {
+      "title": "E-mail"
+    },
+    "adress": {
+      "title": "Adress",
+      "city": "c. Rivne",
+      "street": "28 Kulik and Gudachek St"
+    },
+    "workTime": {
+      "title": "Mode of operation",
+      "workData": "Mon-Sat from 8:00 to 22:00",
+      "offDuty": "Sunday — is a day off"
+    }
+  }
+}

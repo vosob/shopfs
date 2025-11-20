@@ -1,0 +1,15 @@
+{
+  "register": {
+    "name": "Name and surname",
+    "nameInput": "Enter your name and surname",
+    "mail": "Email",
+    "mailInput": "Enter your email",
+    "phone": "Phone",
+
+    "city": "City",
+    "cityInput": "Enter your city",
+    "password": "Password",
+    "passwordInput": "Enter your password",
+    "btn": "Register"
+  }
+}

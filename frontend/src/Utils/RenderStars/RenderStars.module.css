@@ -1,7 +1,13 @@
 .yellow {
   color: rgba(242, 201, 76, 1);
+  display: inline-block;
+  width: 16px;
+  height: 16px;
 }
 
 .grey {
   color: grey;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
 }

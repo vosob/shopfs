@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import { registerUser } from "../../services/users";
 import { useNavigate } from "react-router";
 import { ActivePathType } from "../../pages/Auth/Auth";
+import { useTranslation } from "react-i18next";
 
 export interface OrderFormValuesRegister {
   email: string;
@@ -23,6 +24,7 @@ export const RegisterForm = ({ setActivePath }: Props) => {
   const { register, handleSubmit, reset } = useForm<OrderFormValuesRegister>();
   const fieldId = useId();
   const navigate = useNavigate();
+  const { t } = useTranslation("register");
   const onSubmit = async (data: OrderFormValuesRegister) => {
     try {
       await registerUser(data);
@@ -54,29 +56,29 @@ export const RegisterForm = ({ setActivePath }: Props) => {
     <div>
       <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor={`${fieldId}-name`}>
-          Ім’я та прізвище:
+          {t("register.name")}
           <input
             id={`${fieldId}-name`}
             type="text"
             {...register("name")}
-            placeholder="Введіть ім’я та прізвище"
+            placeholder={t("register.nameInput")}
             className={css.input}
           />
         </label>
 
         <label htmlFor={`${fieldId}-email`}>
-          Пошта:
+          {t("register.mail")}
           <input
             id={`${fieldId}-email`}
             type="email"
             {...register("email")}
-            placeholder="Введіть пошту"
+            placeholder={t("register.mailInput")}
             className={css.input}
           />
         </label>
 
         <label htmlFor={`${fieldId}-phone`}>
-          Телефон:
+          {t("register.phone")}
           <input
             id={`${fieldId}-phone`}
             type="tel"
@@ -87,29 +89,29 @@ export const RegisterForm = ({ setActivePath }: Props) => {
         </label>
 
         <label htmlFor={`${fieldId}-city`}>
-          Місто:
+          {t("register.city")}
           <input
             id={`${fieldId}-city`}
             type="text"
             {...register("city")}
-            placeholder="Введіть місто"
+            placeholder={t("register.cityInput")}
             className={css.input}
           />
         </label>
 
         <label htmlFor={`${fieldId}-password`}>
-          Пароль:
+          {t("register.password")}
           <input
             id={`${fieldId}-password`}
             type="password"
             {...register("password")}
-            placeholder="Введіть пароль"
+            placeholder={t("register.passwordInput")}
             className={css.input}
           />
         </label>
 
         <button type="submit" className={css.submitBtn}>
-          Зареєструватися
+          {t("register.btn")}
         </button>
       </form>
     </div>
