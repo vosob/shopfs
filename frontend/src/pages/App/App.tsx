@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router";
 import "./App.css";
 import { Layout } from "../../Layout";
 import { HomePage } from "../HomePage/HomePage";
-import { Category } from "../Category/Category";
+import { Discount } from "../Discount/Discount";
 
 import { Basket } from "../Basket/Basket";
 import { ReviewsLayout } from "../Reviews/ReviewsLayout";
@@ -27,7 +27,7 @@ export const App = () => {
     <Layout>
       <Routes>
         <Route index element={<HomePage />} />
-        <Route path="/category" element={<Category />} />
+        <Route path="/discount" element={<Discount />} />
 
         <Route path="/contacts" element={<Contacts />} />
         <Route path="/info" element={<Info />} />
