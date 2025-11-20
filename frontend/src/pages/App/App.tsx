@@ -19,8 +19,8 @@ import { Profile } from "../../components/Profile/Profile";
 import { ChangePassword } from "../../components/ChangePassword/ChangePassword";
 import { PublicRoute } from "../Route/PublicRoute";
 import { Auth } from "../Auth/Auth";
-import { TextReviews } from "../../components/TextReviews/TextReviews";
-import { PhotoReviews } from "../../components/PhotoReviews/PhotoReviews";
+import { TextReviews } from "../../components/Rewiews/TextReviews/TextReviews";
+import { PhotoReviews } from "../../components/Rewiews/PhotoReviews/PhotoReviews";
 
 export const App = () => {
   return (
