@@ -11,6 +11,7 @@ import css from "./Basket.module.css";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { Inputs } from "../../types/orders";
+import { useTranslation } from "react-i18next";
 
 export const Basket = () => {
   const { register, handleSubmit, watch, reset } = useForm<Inputs>({
@@ -33,6 +34,7 @@ export const Basket = () => {
     },
   });
 
+  const { t } = useTranslation("basket");
   const { items, clearBasket } = useBasket();
   const navigate = useNavigate();
 
@@ -64,7 +66,7 @@ export const Basket = () => {
     <form autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
       <div className={`${css.basketContainer} ${"container"}`}>
         <div className={css.leftSide}>
-          <h2 className={css.title}>Оформлення замовлення</h2>
+          <h2 className={css.title}>{t("basketNote.order")}</h2>
           <DeliveryMethod register={register} />
 
           <div
@@ -87,11 +89,13 @@ export const Basket = () => {
 
           <PayMethod register={register} />
           <button className={css.btn} type="submit">
-            Оформить заказ
+            {t("basketNote.btn")}
           </button>
         </div>
         <div className={css.rightSide}>
-          <h3 className={`${css.title} ${css.basketTitle}`}>Корзина</h3>
+          <h3 className={`${css.title} ${css.basketTitle}`}>
+            {t("basketNote.basket")}
+          </h3>
           <BasketList />
         </div>
       </div>

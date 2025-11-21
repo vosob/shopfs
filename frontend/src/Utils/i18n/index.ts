@@ -19,6 +19,11 @@ import enAcardionInput from "./locales/en/acardionInput.json";
 import enLoginForm from "./locales/en/loginForm.json";
 import enRegisterForm from "./locales/en/registerForm.json";
 import enAuth from "./locales/en/auth.json";
+import enBouquetItem from "./locales/en/bouquetItem.json";
+import enFilters from "./locales/en/filters.json";
+import enBasket from "./locales/en/basket.json";
+import enBouquetById from "./locales/en/bouquetById.json";
+import enProfile from "./locales/en/profile.json";
 
 import ukCommon from "./locales/uk/common.json";
 import ukNavbar from "./locales/uk/navbar.json";
@@ -38,6 +43,11 @@ import ukAcardionInput from "./locales/uk/acardionInput.json";
 import ukLoginForm from "./locales/uk/loginForm.json";
 import ukRegisterForm from "./locales/uk/registerForm.json";
 import ukAuth from "./locales/uk/auth.json";
+import ukBouquetItem from "./locales/uk/bouquetItem.json";
+import ukFilters from "./locales/uk/filters.json";
+import ukBasket from "./locales/uk/basket.json";
+import ukBouquetById from "./locales/uk/bouquetById.json";
+import ukProfile from "./locales/uk/profile.json";
 
 i18n.use(initReactI18next).init({
   resources: {
@@ -60,6 +70,11 @@ i18n.use(initReactI18next).init({
       login: enLoginForm,
       register: enRegisterForm,
       authType: enAuth,
+      bouquetItemPage: enBouquetItem,
+      filters: enFilters,
+      basket: enBasket,
+      bouquetById: enBouquetById,
+      profile: enProfile,
     },
     uk: {
       common: ukCommon,
@@ -80,6 +95,11 @@ i18n.use(initReactI18next).init({
       login: ukLoginForm,
       register: ukRegisterForm,
       authType: ukAuth,
+      bouquetItemPage: ukBouquetItem,
+      filters: ukFilters,
+      basket: ukBasket,
+      bouquetById: ukBouquetById,
+      profile: ukProfile,
     },
   },
   fallbackLng: "uk",
@@ -103,6 +123,11 @@ i18n.use(initReactI18next).init({
     "login",
     "register",
     "authType",
+    "bouquetItemPage",
+    "filters",
+    "basket",
+    "bouquetById",
+    "profile",
   ],
   defaultNS: "common",
   interpolation: {

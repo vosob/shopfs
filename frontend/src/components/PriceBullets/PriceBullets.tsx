@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import css from "./PriceBullets.module.css";
 
 interface Props {
@@ -7,6 +8,7 @@ interface Props {
 }
 
 export const PriceBullets = ({ price, activePrice, setActivePrice }: Props) => {
+  const { t } = useTranslation("bouquetById");
   return (
     <form className={css.form}>
       <input
@@ -20,9 +22,9 @@ export const PriceBullets = ({ price, activePrice, setActivePrice }: Props) => {
       />
       <label htmlFor="small" className={css.label}>
         <div className={css.info}>
-          <p className={css.infoText}>Малий</p>
+          <p className={css.infoText}>{t("priceBullets.bouquetLittle")}</p>
           <p className={css.infoPrice}>
-            {(price - price * 0.15).toFixed(0)} грн.
+            {(price - price * 0.15).toFixed(0)} {t("priceBullets.currency")}
           </p>
         </div>
         <span className={css.customRadio}></span>
@@ -39,8 +41,10 @@ export const PriceBullets = ({ price, activePrice, setActivePrice }: Props) => {
       />
       <label htmlFor="medium" className={css.label}>
         <div className={css.info}>
-          <p className={css.infoText}>Середній</p>
-          <p className={css.infoPrice}>{price.toFixed(0)} грн.</p>
+          <p className={css.infoText}>{t("priceBullets.medium")}</p>
+          <p className={css.infoPrice}>
+            {price.toFixed(0)} {t("priceBullets.currency")}
+          </p>
         </div>
         <span className={css.customRadio}></span>
       </label>
@@ -56,9 +60,9 @@ export const PriceBullets = ({ price, activePrice, setActivePrice }: Props) => {
       />
       <label htmlFor="big" className={css.label}>
         <div className={css.info}>
-          <p className={css.infoText}>Великий</p>
+          <p className={css.infoText}>{t("priceBullets.big")}</p>
           <p className={css.infoPrice}>
-            {(price + price * 0.15).toFixed(0)} грн.
+            {(price + price * 0.15).toFixed(0)} {t("priceBullets.currency")}
           </p>
         </div>
         <span className={css.customRadio}></span>

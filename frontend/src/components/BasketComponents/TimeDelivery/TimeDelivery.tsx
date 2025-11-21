@@ -2,21 +2,24 @@ import css from "./TimeDelivery.module.css";
 import { formatted } from "../../../Utils/TodayDate";
 import { useId } from "react";
 import { UseFormRegister } from "react-hook-form";
-import { Inputs } from "../../../pages/Basket/Basket";
+import { Inputs } from "../../../types/orders";
+import { useTranslation } from "react-i18next";
+
 interface Props {
   register: UseFormRegister<Inputs>;
 }
 
 export const TimeDelivery = ({ register }: Props) => {
+  const { t } = useTranslation("basket");
   const fieldId = useId();
 
   return (
     <div className={css.container}>
-      <h3>Дата і час</h3>
+      <h3>{t("timeDelivery.dateAndTime")}</h3>
       <div>
         {/* Вкажіть дату input: calendar */}
         <label className={css.dateContainer}>
-          Дата
+          {t("timeDelivery.date")}
           <input
             type="date"
             {...register("deliveryDate")}
@@ -39,7 +42,7 @@ export const TimeDelivery = ({ register }: Props) => {
             />
             <span className="customRadio"></span>
             <span className={css.labelContent}>
-              Вкажіть проміжок часу для отримання замовлення
+              {t("timeDelivery.timeDelivery")}
             </span>
           </label>
 
@@ -66,7 +69,7 @@ export const TimeDelivery = ({ register }: Props) => {
           />
           <span className="customRadio"></span>
           <span className={css.labelContent}>
-            Подзвонити отримувачу для уточнення часу і адреси.
+            {t("timeDelivery.callOrder")}
           </span>
         </label>
 
@@ -80,7 +83,9 @@ export const TimeDelivery = ({ register }: Props) => {
               className={css.actualCheckbox}
             />
             <p>
-              По телефону <strong>не говорити</strong>, що це квіти
+              {t("timeDelivery.span1")}
+              <strong>{t("timeDelivery.span2")}</strong>
+              {t("timeDelivery.span3")}
             </p>
           </label>
         </div>

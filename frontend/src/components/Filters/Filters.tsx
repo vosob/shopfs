@@ -1,5 +1,6 @@
 import css from "./Filters.module.css";
 import { CiSearch } from "react-icons/ci";
+import { useTranslation } from "react-i18next";
 
 interface FiltersProps {
   onSearchChange: (value: string) => void;
@@ -8,12 +9,12 @@ interface FiltersProps {
 }
 
 const prices = [
-  { id: 1, name: "до 700 грн", value: "700" },
-  { id: 2, name: "від 700 до 800 грн", value: "700/800" },
-  { id: 3, name: "від 800 до 900 грн", value: "800/900" },
-  { id: 4, name: " від 900 до 1000 грн", value: "900/1000" },
-  { id: 5, name: "від 1000 до 1200 грн", value: "1000/1200" },
-  { id: 6, name: "1200 грн і більше", value: "1200+" },
+  { id: 1, name: "till700", value: "700" },
+  { id: 2, name: "price700", value: "700/800" },
+  { id: 3, name: "price800", value: "800/900" },
+  { id: 4, name: "price900", value: "900/1000" },
+  { id: 5, name: "price1000", value: "1000/1200" },
+  { id: 6, name: "price1200plus", value: "1200+" },
 ];
 
 export const Filters = ({
@@ -21,20 +22,21 @@ export const Filters = ({
   onSelectedPrise,
   selectedPrise,
 }: FiltersProps) => {
+  const { t } = useTranslation("filters");
   return (
     <div className={css.filterContainer}>
       <div className={css.searchContainer}>
         <input
           className={css.search}
           type="text"
-          placeholder="Пошук букетів..."
+          placeholder={t("searchFilter")}
           // value={search}
           onChange={(e) => onSearchChange(e.target.value)}
         />
         <CiSearch className={css.searchIcon} />
       </div>
       <div className={css.priceFilter}>
-        <p className={css.labelBox}>Ціна:</p>
+        <p className={css.labelBox}>{t("price")}</p>
         {prices.map((price) => (
           <div className={css.checkboxFlex} key={price.id}>
             <input
@@ -44,11 +46,11 @@ export const Filters = ({
               checked={selectedPrise === price.value}
               onChange={() => onSelectedPrise(price.value)}
             />
-            <span>{price.name}</span>
+            <span>{t(`prices.${price.name}`)}</span>
           </div>
         ))}
         <button className={css.clearBtn} onClick={() => onSelectedPrise("")}>
-          Скинути фільтри
+          {t("Btn")}
         </button>
       </div>
     </div>

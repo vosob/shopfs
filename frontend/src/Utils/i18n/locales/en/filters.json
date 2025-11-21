@@ -1,0 +1,13 @@
+{
+  "searchFilter": "Looking for bouquets...",
+  "price": "Price:",
+  "Btn": "Reset filters",
+  "prices": {
+    "till700": "up to UAH 700",
+    "price700": "from 700 to 800 UAH",
+    "price800": "from 800 to 900 UAH",
+    "price900": "from 900 to 1000 UAH",
+    "price1000": "from 1000 to 1200 UAH",
+    "price1200plus": "1200 UAH and more"
+  }
+}

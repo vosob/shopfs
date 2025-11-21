@@ -21,6 +21,7 @@ export const BouquetDetailsTab = ({
 }: Props) => {
   const { i18n } = useTranslation();
   const lang = i18n.language;
+  const { t } = useTranslation("bouquetById");
 
   return (
     <div className={css.container}>
@@ -29,14 +30,14 @@ export const BouquetDetailsTab = ({
           className={activeTab === "composition" ? css.active : ""}
           onClick={() => setActiveTab("composition")}
         >
-          Склад букету
+          {t("bouquetDetail.composition")}
         </button>
 
         <button
           className={activeTab === "delivery" ? css.active : ""}
           onClick={() => setActiveTab("delivery")}
         >
-          Доставка та оплата
+          {t("bouquetDetail.delivery")}
         </button>
       </div>
 
@@ -47,7 +48,7 @@ export const BouquetDetailsTab = ({
 
             return (
               <li key={flower.flower.id}>
-                {name} - {flower.quantity} шт.
+                {name} - {flower.quantity} {t("bouquetDetail.number")}
               </li>
             );
           })}
@@ -58,18 +59,16 @@ export const BouquetDetailsTab = ({
         <div className={css.tabContent}>
           <ul className={css.deliveryList}>
             <li className={css.deliveryItem}>
-              <FiBox /> Доставка по Україні: через Нову Пошту або Укрпошту.
+              <FiBox /> {t("bouquetDetail.deliveryUk")}
             </li>
             <li className={css.deliveryItem}>
-              <IoCardOutline /> Оплата: карткою онлайн, або післяплатою при
-              отриманні.
+              <IoCardOutline /> {t("bouquetDetail.pay")}
             </li>
             <li className={css.deliveryItem}>
-              <FaRegClock /> Час доставки: з 9:00 до 20:00
+              <FaRegClock /> {t("bouquetDetail.time")}
             </li>
             <li className={css.deliveryItem}>
-              <SlPresent /> Подарункова упаковка: доступна за додаткову плату 50
-              грн.
+              <SlPresent /> {t("bouquetDetail.present")}
             </li>
           </ul>
         </div>

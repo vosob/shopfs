@@ -2,8 +2,10 @@ import { NavLink, Outlet } from "react-router-dom";
 import css from "./ProfileLayout.module.css";
 import { useAuth } from "../../context/contextAuth";
 import { useBasket } from "../../context/contextBasket";
+import { useTranslation } from "react-i18next";
 
 export const ProfileLayout = () => {
+  const { t } = useTranslation("profile");
   const { logout } = useAuth();
   const { clearBasket } = useBasket();
 
@@ -15,22 +17,22 @@ export const ProfileLayout = () => {
   return (
     <div className={`${css.profileLayoutContainer} ${"container"}`}>
       <aside className={css.asideContainer}>
-        <h2 className={css.profileLayoutTitle}>Особистий кабінет</h2>
+        <h2 className={css.profileLayoutTitle}>{t("personalOffice")}</h2>
         <nav className={css.navContainer}>
           <NavLink className={css.linkItem} to="profile">
-            Профіль
+            {t("profile")}
           </NavLink>
           <NavLink className={css.linkItem} to="myOrder" end>
-            Мої замовлення
+            {t("myOrder")}
           </NavLink>
           <NavLink className={css.linkItem} to="password">
-            Зміна пароля
+            {t("password")}
           </NavLink>
           <button
             className={`${css.linkItem} ${css.logoutButton}`}
             onClick={handleLogout}
           >
-            Вихід
+            {t("exit")}
           </button>
         </nav>
       </aside>

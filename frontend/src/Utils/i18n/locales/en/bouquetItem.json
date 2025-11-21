@@ -1,0 +1,9 @@
+{
+  "bouquetItemPage": {
+    "priceFrom": "Price from:",
+    "price": "UAH.",
+    "bouquetSize": "The size of this bouquet",
+    "centimeters": "cm",
+    "btn": "Review"
+  }
+}
