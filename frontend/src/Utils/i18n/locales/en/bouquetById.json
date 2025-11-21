@@ -1,0 +1,26 @@
+{
+  "priceBullets": {
+    "bouquetLittle": "Small",
+    "currency": "UAH",
+    "medium": "Medium",
+    "big": "Large"
+  },
+  "bouquetPage": {
+    "size": "Size:"
+  },
+  "bouquetDetail": {
+    "composition": "Bouquet composition",
+    "delivery": "Delivery and payment",
+    "number": "pcs",
+    "deliveryUk": "Delivery across Ukraine: via Nova Poshta or Ukrposhta.",
+    "pay": "Payment: online by card or cash on delivery.",
+    "time": "Delivery time: from 9:00 to 20:00",
+    "present": "Gift packaging: available for an additional fee of 50 UAH."
+  },
+  "bouquetByOrder": {
+    "number": "pcs",
+    "currency": "UAH",
+    "basket": "Add to cart",
+    "total": "Total:"
+  }
+}

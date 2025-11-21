@@ -12,6 +12,7 @@ import { useTranslation } from "react-i18next";
 import { getTranslatedField } from "../../Utils/getTranslatedField";
 
 export const BouquetByIdPage = () => {
+  const { t } = useTranslation("bouquetById");
   const { id } = useParams<{ id: string }>();
   const [activeTab, setActiveTab] = useState<"composition" | "delivery">(
     "composition"
@@ -40,6 +41,7 @@ export const BouquetByIdPage = () => {
   const { flowers, images, price } = data;
 
   const name = getTranslatedField(data, "name", lang);
+
   return (
     <>
       <div className="container">
@@ -51,7 +53,7 @@ export const BouquetByIdPage = () => {
         </div>
         <div>
           <h2 className={css.title}>{name}</h2>
-          <p className={css.sizeText}>Розмір:</p>
+          <p className={css.sizeText}>{t("bouquetPage.size")}</p>
           <PriceBullets
             price={price}
             setActivePrice={setActivePrice}

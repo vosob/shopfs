@@ -1,12 +1,19 @@
 import { BasketItem as BasketItemType } from "../../../types/typesItem";
 import { useBasket } from "../../../context/contextBasket";
 import css from "./BasketItem.module.css";
+import { useTranslation } from "react-i18next";
+import { getTranslatedField } from "../../../Utils/getTranslatedField";
 
 interface Props {
   data: BasketItemType;
 }
 
 export const BasketItem = ({ data }: Props) => {
+  const { i18n } = useTranslation();
+  const lang = i18n.language;
+  const name = getTranslatedField(data, "name", lang);
+  console.log(data);
+
   const { updateQuantity, removeFromBasket, getTotalPrice } = useBasket();
 
   const handleIncrement = () => {
@@ -20,6 +27,7 @@ export const BasketItem = ({ data }: Props) => {
       removeFromBasket(data.id);
     }
   };
+  const { t } = useTranslation("basket");
 
   const totalPrice = data.price * data.quantity;
 
@@ -32,9 +40,13 @@ export const BasketItem = ({ data }: Props) => {
           alt={data.name}
         />
         <div className={css.textBouquet}>
-          <h3 className={css.titleBouquet}>{data.name}</h3>
-          <p className={css.priceBouquet}>Ціна: {data.price} грн.</p>
-          <p className={css.sizeBouquet}>Розмір: {data.size}</p>
+          <h3 className={css.titleBouquet}>{name}</h3>
+          <p className={css.priceBouquet}>
+            {t("basketItem.price")} {data.price} {t("basketItem.currency")}
+          </p>
+          <p className={css.sizeBouquet}>
+            {t("basketItem.size")} {data.size}
+          </p>
         </div>
       </div>
       <div className={css.divider}></div>
@@ -48,28 +60,36 @@ export const BasketItem = ({ data }: Props) => {
           >
             -
           </button>
-          <p>{data.quantity} шт.</p>
+          <p>
+            {data.quantity} {t("basketItem.quantity")}
+          </p>
           <button onClick={handleIncrement} className={css.quantityBtn}>
             +
           </button>
         </div>
         <p className={css.totalPriceContainer}>
-          <span className={css.totalPriceText}>Загальна ціна:</span>
-          <span className={css.priceText}>{totalPrice.toFixed(2)} грн</span>
+          <span className={css.totalPriceText}>
+            {t("basketItem.totalPrice")}
+          </span>
+          <span className={css.priceText}>
+            {totalPrice.toFixed(2)} {t("basketItem.currency")}
+          </span>
         </p>
         <button
           onClick={() => removeFromBasket(data.id)}
           className={css.removeBtn}
         >
-          Видалити
+          {t("basketItem.btn")}
         </button>
       </div>
 
       <div>
         <p>
-          <span className={css.totalPriceText}>Загальна ціна:</span>
+          <span className={css.totalPriceText}>
+            {t("basketItem.totalPrice")}
+          </span>
           <span className={css.priceText}>
-            {getTotalPrice().toFixed(2)} грн
+            {getTotalPrice().toFixed(2)} {t("basketItem.currency")}
           </span>
         </p>
       </div>

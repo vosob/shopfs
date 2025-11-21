@@ -1,7 +1,9 @@
 import { UseFormRegister } from "react-hook-form";
 import css from "./YouContacts.module.css";
-import { Inputs } from "../../../pages/Basket/Basket";
+
 import { useId } from "react";
+import { useTranslation } from "react-i18next";
+import { Inputs } from "../../../types/orders";
 
 interface Props {
   register: UseFormRegister<Inputs>;
@@ -9,20 +11,21 @@ interface Props {
 
 export const YouContacts = ({ register }: Props) => {
   const fieldId = useId();
+  const { t } = useTranslation("basket");
   return (
     <div className={css.container}>
-      <h3>Ваші котакти</h3>
+      <h3>{t("yourContacts.contact")}</h3>
 
       <div className={css.nameAndMobile}>
         {/* Ваші контакти (Ім'я та фамілія) */}
         <div className={css.labelPosition}>
           <label className={css.labelName} htmlFor={`${fieldId}-yourName`}>
-            Ім'я та фамілія
+            {t("yourContacts.name")}
             <input
               type="text"
               {...register("senderName")}
               className={css.inputStyle}
-              placeholder="Введіть ваше ім'я"
+              placeholder={t("yourContacts.inputName")}
               id={`${fieldId}-yourName`}
             />
           </label>
@@ -31,7 +34,7 @@ export const YouContacts = ({ register }: Props) => {
         {/* Моб.телефон */}
         <div className={css.labelPosition}>
           <label className={css.labelName} htmlFor={`${fieldId}-yourMobile`}>
-            Моб.телефон
+            {t("yourContacts.phone")}
             <input
               type="tel"
               className={css.inputStyle}
@@ -45,12 +48,12 @@ export const YouContacts = ({ register }: Props) => {
         {/* Місто */}
         <div className={css.labelPosition}>
           <label className={css.labelName} htmlFor={`${fieldId}-yourCity`}>
-            Місто
+            {t("yourContacts.city")}
             <input
               className={css.inputStyle}
               type="text"
               {...register("senderCity")}
-              placeholder="Рівне"
+              placeholder={t("yourContacts.inputCity")}
               id={`${fieldId}-yourCity`}
             />
           </label>

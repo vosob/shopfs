@@ -1,0 +1,61 @@
+{
+  "basketItem": {
+    "price": "Price:",
+    "currency": "UAH.",
+    "size": "Size:",
+    "quantity": "pc.",
+    "totalPrice": "Total price:",
+    "btn": "Delete"
+  },
+  "basketList": {
+    "basketContains": "Your cart is currently empty"
+  },
+  "basketDeliveryMethod": {
+    "deliveryMethod": "Method of delivery",
+    "deliveryCity": "Delivery around the city",
+    "pickup": "Self-pickup",
+    "street": "m. Rivne, str. Kulik and Hudachek 28"
+  },
+  "payMethod": {
+    "pay": "Payment method",
+    "payCash": "Payment in cash at the time of receipt (self-call)",
+    "payCourier": "Cash payment to the courier (only if the recipient is — You)",
+    "payCard": "Online payment — Monobank"
+  },
+  "recipients": {
+    "recipient": "Recipient",
+    "im": "I am the recipient",
+    "other": "Recipient is another person",
+    "name": "Full Name",
+    "inputName": "Enter your full name",
+    "phone": "Mobile Phone",
+    "city": "City",
+    "inputCity": "Rivne",
+    "street": "Address",
+    "inputStreet": "28 Makarova St., Rivne",
+    "note": "Note",
+    "inputNote": "Enter your note"
+  },
+  "basketNote": {
+    "order": "Placing an order",
+    "basket": "Basket",
+    "btn": "Order"
+  },
+  "timeDelivery": {
+    "dateAndTime": "Date and Time",
+    "date": "Date",
+    "timeDelivery": "Specify a time slot for order delivery",
+    "callOrder": "Call the recipient to clarify the time and address.",
+    "span1": "By phone",
+    "span2": "do not speak",
+    "span3": ", that these are flowers"
+  },
+  "yourContacts": {
+    "contact": "Your Contacts",
+    "name": "Full Name",
+    "inputName": "Enter your full name",
+    "phone": "Mobile Phone",
+    "city": "City",
+    "inputCity": "Rivne"
+  }
+}

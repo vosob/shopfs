@@ -1,17 +1,20 @@
 import { UseFormRegister } from "react-hook-form";
 import css from "./Recipient.module.css";
-import { Inputs } from "../../../pages/Basket/Basket";
+
 import { useId } from "react";
+import { useTranslation } from "react-i18next";
+import { Inputs } from "../../../types/orders";
 
 interface Props {
   register: UseFormRegister<Inputs>;
 }
 
 export const Recipient = ({ register }: Props) => {
+  const { t } = useTranslation("basket");
   const fieldId = useId();
   return (
     <div className={css.container}>
-      <h3>Отримувач</h3>
+      <h3>{t("recipients.recipient")}</h3>
 
       <div className={css.textPosition}>
         {/* Я отримувач */}
@@ -24,7 +27,7 @@ export const Recipient = ({ register }: Props) => {
             className={css.hiddenRadio}
           />
           <span className="customRadio"></span>
-          <span className={css.recipientOrder}>Я отримувач</span>
+          <span className={css.recipientOrder}>{t("recipients.im")}</span>
         </label>
 
         {/* Отримувач інша людина */}
@@ -37,7 +40,7 @@ export const Recipient = ({ register }: Props) => {
             className={css.hiddenRadio}
           />
           <span className="customRadio"></span>
-          <span className={css.recipientOrder}>Отримувач інша людина</span>
+          <span className={css.recipientOrder}>{t("recipients.other")}</span>
         </label>
       </div>
 
@@ -45,12 +48,12 @@ export const Recipient = ({ register }: Props) => {
         {/* Ім'я та фамілія отримувача */}
         <div className={css.labelPosition}>
           <label className={css.labelName} htmlFor={`${fieldId}-recipientName`}>
-            Ім'я та фамілія
+            {t("recipients.name")}
             <input
               type="text"
               {...register("recipientName")}
               className={css.inputStyle}
-              placeholder="Введіть ваше ім'я"
+              placeholder={t("recipients.inputName")}
               id={`${fieldId}-recipientName`}
               autoComplete="one-time-code"
             />
@@ -63,7 +66,7 @@ export const Recipient = ({ register }: Props) => {
             className={css.labelName}
             htmlFor={`${fieldId}-recipientMobile`}
           >
-            Моб.телефон
+            {t("recipients.phone")}
             <input
               type="tel"
               {...register("recipientMobile")}
@@ -80,12 +83,12 @@ export const Recipient = ({ register }: Props) => {
         {/* Місто отримувача */}
         <div className={css.labelPosition}>
           <label className={css.labelName} htmlFor={`${fieldId}-recipientCity`}>
-            Місто
+            {t("recipients.city")}
             <input
               className={css.inputStyle}
               type="text"
               {...register("recipientCity")}
-              placeholder="Рівне"
+              placeholder={t("recipients.inputCity")}
               id={`${fieldId}-recipientCity`}
               autoComplete="one-time-code"
             />
@@ -97,12 +100,12 @@ export const Recipient = ({ register }: Props) => {
             className={css.labelName}
             htmlFor={`${fieldId}-recipientAddress`}
           >
-            Адрес
+            {t("recipients.street")}
             <input
               type="text"
               className={css.inputStyle}
               {...register("recipientAddress")}
-              placeholder="м.Рівне, вул. Макарова 28"
+              placeholder={t("recipients.inputStreet")}
               id={`${fieldId}-recipientAddress`}
               autoComplete="one-time-code"
             />
@@ -113,10 +116,10 @@ export const Recipient = ({ register }: Props) => {
         {/* Примітка отримувача */}
         <div className={css.labelPosition}>
           <label className={css.labelName} htmlFor={`${fieldId}-recipientNote`}>
-            Примітка
+            {t("recipients.note")}
             <textarea
               {...register("recipientNote")}
-              placeholder="Введіть вашу примітку"
+              placeholder={t("recipients.inputNote")}
               className={css.noteStyle}
               id={`${fieldId}-recipientNote`}
             />

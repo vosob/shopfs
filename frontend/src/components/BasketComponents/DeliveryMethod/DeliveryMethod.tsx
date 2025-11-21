@@ -1,7 +1,9 @@
 import { useId } from "react";
 import css from "./DeliveryMethod.module.css";
 import { UseFormRegister } from "react-hook-form";
-import { Inputs } from "../../../pages/Basket/Basket";
+
+import { useTranslation } from "react-i18next";
+import { Inputs } from "../../../types/orders";
 
 interface Props {
   register: UseFormRegister<Inputs>;
@@ -9,10 +11,11 @@ interface Props {
 
 export const DeliveryMethod = ({ register }: Props) => {
   const fieldId = useId();
+  const { t } = useTranslation("basket");
 
   return (
     <div className={css.container}>
-      <h3>Спосіб доставки</h3>
+      <h3>{t("basketDeliveryMethod.deliveryMethod")}</h3>
       <div className={css.textPosition}>
         <label className={css.labelContainer} htmlFor={`${fieldId}-delivery`}>
           <input
@@ -23,7 +26,9 @@ export const DeliveryMethod = ({ register }: Props) => {
             className={css.hiddenRadio}
           />
           <span className={css.customRadio}></span>
-          <span className={css.hStyle}>Доставка по місту</span>
+          <span className={css.hStyle}>
+            {t("basketDeliveryMethod.deliveryCity")}
+          </span>
         </label>
 
         <label className={css.labelContainer} htmlFor={`${fieldId}-self`}>
@@ -36,8 +41,8 @@ export const DeliveryMethod = ({ register }: Props) => {
           />
           <span className={css.customRadio}></span>
           <span className={css.hStyle}>
-            Самовивіз
-            <span> м. Рівне, вул. Кулика і Гудачека 28</span>
+            {t("basketDeliveryMethod.pickup")}
+            <span>{t("basketDeliveryMethod.street")}</span>
           </span>
         </label>
       </div>
