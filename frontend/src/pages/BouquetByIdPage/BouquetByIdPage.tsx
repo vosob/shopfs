@@ -8,6 +8,8 @@ import { useState } from "react";
 import { Breadcrumbs } from "../../components/Breadcrumbs/Breadcrumbs";
 import { BouquetByIdOrderActions } from "../../components/BouquetByIdOrderActions/BouquetByIdOrderActions";
 import { Size } from "../../types/typesItem";
+import { useTranslation } from "react-i18next";
+import { getTranslatedField } from "../../Utils/getTranslatedField";
 
 export const BouquetByIdPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -22,6 +24,9 @@ export const BouquetByIdPage = () => {
     enabled: !!id,
   });
 
+  const { i18n } = useTranslation();
+  const lang = i18n.language;
+
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -32,7 +37,9 @@ export const BouquetByIdPage = () => {
 
   if (!data) return <div>No data found</div>;
 
-  const { name, flowers, images, price } = data;
+  const { flowers, images, price } = data;
+
+  const name = getTranslatedField(data, "name", lang);
   return (
     <>
       <div className="container">

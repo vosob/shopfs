@@ -1,11 +1,7 @@
 import { useState } from "react";
 import css from "./Acardion.module.css";
 import { AcardionItem } from "./AcardionItem";
-
-interface AcardionText {
-  a: string;
-  b: string;
-}
+import { AcardionText } from "./AcardionInfo";
 
 interface Props {
   acardionText: AcardionText[];

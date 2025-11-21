@@ -51,8 +51,13 @@ model Comment {
 
 model Flower {
   id        String   @id @default(cuid())
-  name      String
-  color     String
+  // name      String
+  name_uk  String @default("")
+  name_en  String @default("")
+
+  color_uk      String @default("")
+  color_en      String @default("")
+
   price     Int
 
   
@@ -79,7 +84,10 @@ model BouquetImage {
 
 model Bouquet {
   id        String   @id @default(cuid())
-  name      String
+
+  name_uk      String @default("")
+  name_en      String @default("")
+
   size      Int
   price     Int
   

@@ -25,7 +25,12 @@ export class CreateBouquetDto {
   @IsNotEmpty()
   @IsString()
   @MaxLength(50)
-  name: string;
+  name_uk: string;
+
+  @IsNotEmpty()
+  @IsString()
+  @MaxLength(50)
+  name_en: string;
 
   @IsNotEmpty()
   @IsInt()

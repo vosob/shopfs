@@ -4,12 +4,22 @@ export class CreateFlowerDto {
   @IsNotEmpty()
   @IsString()
   @MaxLength(50)
-  name: string;
+  name_uk: string;
+
+  @IsNotEmpty()
+  @IsString()
+  @MaxLength(50)
+  name_en: string;
 
   @IsNotEmpty()
   @IsString()
   @MaxLength(30)
-  color: string;
+  color_uk: string;
+
+  @IsNotEmpty()
+  @IsString()
+  @MaxLength(30)
+  color_en: string;
 
   @IsNotEmpty()
   @IsInt()

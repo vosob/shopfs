@@ -1,29 +1,45 @@
-import { useState } from "react";
 import css from "./CreateStars.module.css";
 import { FaStar } from "react-icons/fa";
+import {
+  UseFormRegister,
+  UseFormSetValue,
+  UseFormWatch,
+} from "react-hook-form";
+import { Numbers, Reviews } from "../../types/reviews";
 
-interface numberItemProps {
+interface CreateStarsProps {
   numberItem?: number;
+  register: UseFormRegister<Reviews>;
+  setValue: UseFormSetValue<Reviews>;
+  watch: UseFormWatch<Reviews>;
 }
 
-export const CreateStars = ({ numberItem = 5 }: numberItemProps) => {
-  const [activeItem, setActiveItem] = useState<number>(-1);
+export const CreateStars = ({
+  numberItem = 5,
+  register,
+  setValue,
+  watch,
+}: CreateStarsProps) => {
+  const rating = watch("rating") || 0;
 
   return (
-    <ul className={css.itemContainer}>
-      {Array.from({ length: numberItem }).map((_, index) => {
-        const activeStyle = index <= activeItem ? { color: "gold" } : {};
+    <>
+      <input type="hidden" {...register("rating")} />
 
-        return (
-          <li
-            key={index}
-            style={activeStyle}
-            onClick={() => setActiveItem(index)}
-          >
-            <FaStar />
-          </li>
-        );
-      })}
-    </ul>
+      <ul className={css.itemContainer}>
+        {Array.from({ length: numberItem }).map((_, index) => {
+          const isActive = index < rating;
+          return (
+            <li
+              key={index}
+              style={{ color: isActive ? "gold" : "gray", cursor: "pointer" }}
+              onClick={() => setValue("rating", (index + 1) as Numbers)}
+            >
+              <FaStar />
+            </li>
+          );
+        })}
+      </ul>
+    </>
   );
 };

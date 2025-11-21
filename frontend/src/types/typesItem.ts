@@ -8,8 +8,10 @@ export interface ImagesList {
 
 export interface Flower {
   id: string;
-  name: string;
-  color: string;
+  name_uk: string;
+  name_en: string;
+  color_uk: string;
+  color_en: string;
   price: number;
   createdAt: string;
   updatedAt: string;
@@ -27,7 +29,8 @@ export interface FlowersList {
 
 export interface Bouquet {
   id: string;
-  name: string;
+  name_uk: string;
+  name_en: string;
   size: number;
   price: number;
   createdAt: string;

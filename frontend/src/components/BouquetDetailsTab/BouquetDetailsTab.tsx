@@ -5,6 +5,8 @@ import { FaRegClock } from "react-icons/fa";
 import css from "./BouquetDetailsTab.module.css";
 
 import { FiBox } from "react-icons/fi";
+import { getTranslatedField } from "../../Utils/getTranslatedField";
+import { useTranslation } from "react-i18next";
 
 interface Props {
   flowers: FlowersList[];
@@ -17,6 +19,9 @@ export const BouquetDetailsTab = ({
   activeTab,
   setActiveTab,
 }: Props) => {
+  const { i18n } = useTranslation();
+  const lang = i18n.language;
+
   return (
     <div className={css.container}>
       <div className={css.activeTab}>
@@ -37,11 +42,15 @@ export const BouquetDetailsTab = ({
 
       {activeTab === "composition" && (
         <ul className={css.flowersList}>
-          {flowers.map((flower) => (
-            <li key={flower.flower.id}>
-              {flower.flower.name} - {flower.quantity} шт.
-            </li>
-          ))}
+          {flowers.map((flower) => {
+            const name = getTranslatedField(flower.flower, "name", lang);
+
+            return (
+              <li key={flower.flower.id}>
+                {name} - {flower.quantity} шт.
+              </li>
+            );
+          })}
         </ul>
       )}
 

@@ -1,13 +1,19 @@
 import { Link } from "react-router";
 import { Bouquet } from "../../types/typesItem";
 import css from "./BouquetItem.module.css";
+import { useTranslation } from "react-i18next";
+import { getTranslatedField } from "../../Utils/getTranslatedField";
 
 interface BouquetItemProps {
   data: Bouquet;
 }
 
 export const BouquetItem = ({ data }: BouquetItemProps) => {
-  const { name, price, images, size, id } = data;
+  const { price, images, size, id } = data;
+  const { i18n } = useTranslation();
+  const lang = i18n.language;
+
+  const name = getTranslatedField(data, "name", lang);
 
   return (
     <Link to={`/bouquet/${id}`} className={css.itemContainer}>

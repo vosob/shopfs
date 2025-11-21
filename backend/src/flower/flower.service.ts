@@ -12,12 +12,14 @@ export class FlowerService {
   }
 
   async addFlower(dto: CreateFlowerDto): Promise<Flower> {
-    const { name, color, price } = dto;
+    const { name_en, name_uk, color_en, color_uk, price } = dto;
 
     const newFlower = await this.prismaService.flower.create({
       data: {
-        name,
-        color,
+        name_en,
+        name_uk,
+        color_en,
+        color_uk,
         price,
       },
     });

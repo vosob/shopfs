@@ -1,8 +1,8 @@
-type Numbers = 1 | 2 | 3 | 4 | 5;
+export type Numbers = 1 | 2 | 3 | 4 | 5;
 
 export interface Reviews {
-  reviewsComment: string;
-  reviewsRating: Numbers;
+  text: string;
+  rating: Numbers;
 }
 
 interface UserReviews {

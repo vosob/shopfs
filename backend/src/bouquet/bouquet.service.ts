@@ -19,12 +19,13 @@ export class BouquetService {
     const where: Prisma.BouquetWhereInput = {};
 
     // Якщо є пошуковий запит
-    if (filters?.search) {
-      where.name = {
-        contains: filters.search,
-        mode: 'insensitive', // регістронезалежний пошук
-      };
-    }
+    // if (filters?.search) {
+    //   where.name = {
+    //     contains: filters.search,
+    //     mode: 'insensitive', // регістронезалежний пошук
+    //   };
+    // }
+
     // Якщо є сортування за ціною
     // lte - менше або дорівнює
     // gte - більше або дорівнює
@@ -62,12 +63,13 @@ export class BouquetService {
 
   async getBouquetsByIds(
     id: string,
-  ): Promise<Pick<Bouquet, 'id' | 'name' | 'size' | 'price'>> {
+  ): Promise<Pick<Bouquet, 'id' | 'name_uk' | 'name_en' | 'size' | 'price'>> {
     const bouquet = await this.prismaService.bouquet.findUnique({
       where: { id },
       select: {
         id: true,
-        name: true,
+        name_uk: true,
+        name_en: true,
         size: true,
         price: true,
         images: true,
@@ -83,11 +85,12 @@ export class BouquetService {
   }
 
   async addBouquet(dto: CreateBouquetDto): Promise<Bouquet> {
-    const { name, size, price, flowers } = dto;
+    const { name_en, name_uk, size, price, flowers } = dto;
 
     const newBouquet = await this.prismaService.bouquet.create({
       data: {
-        name,
+        name_en,
+        name_uk,
         size,
         price,
         flowers: {
