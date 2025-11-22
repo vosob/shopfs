@@ -54,7 +54,8 @@ export type Size = "small" | "medium" | "big";
 export interface BasketItem {
   id: string;
   productId: string;
-  name: string;
+  name_en: string;
+  name_uk: string;
   price: number;
   images: ImagesList[];
   size: Size;

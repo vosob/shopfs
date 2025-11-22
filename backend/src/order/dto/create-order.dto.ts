@@ -19,7 +19,10 @@ export class OrderItemDto {
   productId: string; // це bouquetId в БД
 
   @IsString()
-  name: string;
+  name_uk: string;
+
+  @IsString()
+  name_en: string;
 
   @IsString()
   size: string; // "big", "medium", "small"

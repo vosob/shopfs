@@ -39,6 +39,9 @@ export const Basket = () => {
   const navigate = useNavigate();
 
   const onSubmit = async (data: Inputs) => {
+    console.log("data", data);
+    console.log("items", items);
+
     const requestBody = {
       ...data,
       ["orders"]: items,

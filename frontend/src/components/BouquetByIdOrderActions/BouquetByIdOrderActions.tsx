@@ -32,7 +32,8 @@ export const BouquetByIdOrderActions = ({ data, activePrice }: Props) => {
     const item: BasketItem = {
       id: uuidv4(),
       productId: data.id,
-      name: data.name_uk,
+      name_uk: data.name_uk,
+      name_en: data.name_en,
       price: data.price,
       images: data.images,
       size: activePrice,

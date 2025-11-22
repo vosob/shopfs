@@ -5,6 +5,8 @@ import { useTranslation } from "react-i18next";
 
 export const BasketList = () => {
   const { t } = useTranslation("basket");
+
+  const { getTotalPrice } = useBasket();
   const { items } = useBasket();
 
   if (items.length === 0) {
@@ -22,6 +24,17 @@ export const BasketList = () => {
           <BasketItem key={index} data={item} />
         ))}
       </ul>
+
+      <div>
+        <p>
+          <span className={css.totalPriceText}>
+            {t("basketItem.totalPrice")}
+          </span>
+          <span className={css.priceText}>
+            {getTotalPrice().toFixed(2)} {t("basketItem.currency")}
+          </span>
+        </p>
+      </div>
     </div>
   );
 };

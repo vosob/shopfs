@@ -14,7 +14,7 @@ export const BasketItem = ({ data }: Props) => {
   const name = getTranslatedField(data, "name", lang);
   console.log(data);
 
-  const { updateQuantity, removeFromBasket, getTotalPrice } = useBasket();
+  const { updateQuantity, removeFromBasket } = useBasket();
 
   const handleIncrement = () => {
     updateQuantity(data.id, data.quantity + 1);
@@ -34,11 +34,7 @@ export const BasketItem = ({ data }: Props) => {
   return (
     <div className={css.itemContainer}>
       <div>
-        <img
-          className={css.flowerPhoto}
-          src={data.images[0].url}
-          alt={data.name}
-        />
+        <img className={css.flowerPhoto} src={data.images[0].url} alt={name} />
         <div className={css.textBouquet}>
           <h3 className={css.titleBouquet}>{name}</h3>
           <p className={css.priceBouquet}>
@@ -81,17 +77,6 @@ export const BasketItem = ({ data }: Props) => {
         >
           {t("basketItem.btn")}
         </button>
-      </div>
-
-      <div>
-        <p>
-          <span className={css.totalPriceText}>
-            {t("basketItem.totalPrice")}
-          </span>
-          <span className={css.priceText}>
-            {getTotalPrice().toFixed(2)} {t("basketItem.currency")}
-          </span>
-        </p>
       </div>
     </div>
   );
