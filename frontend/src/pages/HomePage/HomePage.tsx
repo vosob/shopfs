@@ -5,6 +5,7 @@ import { BouquetList } from "../../components/BouquetList/BouquetList";
 import { HeroHomePage } from "../../components/HeroHomePage/HeroHomePage";
 import { SortBy } from "../../components/SortBy/SortBy";
 import { fetchBouquet } from "../../services/items";
+import { FaPlay } from "react-icons/fa6";
 
 import css from "./HomePage.module.css";
 import { useQuery } from "@tanstack/react-query";
@@ -30,25 +31,27 @@ export const HomePage = () => {
   });
 
   return (
-    <div>
+    <>
       <HeroHomePage />
       {isError && <p>An error occurred</p>}
       <Bonus />
-      <div className={`${css.mainContent} container`}>
+      <div className={`${css.mainContent} ${"container"}`}>
         <div className={css.homeContainer}>
-          <SortBy sort={setSortList} />
+          <div className={css.sortContainerMobile}>
+            <SortBy sort={setSortList} />
+          </div>
 
           <BouquetList isLoading={isLoading} data={sortedBouquet || []} />
         </div>
 
-        <Filters
+        {/* <Filters
           onSearchChange={setSearchQuery}
           onSelectedPrise={setSelectedPrise}
           selectedPrise={selectedPrise}
-        />
+        /> */}
       </div>
       <Order />
       <DeliveryInfo />
-    </div>
+    </>
   );
 };

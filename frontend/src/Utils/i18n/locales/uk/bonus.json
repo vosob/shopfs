@@ -1,18 +1,18 @@
 {
   "freeDelivery": {
-    "highlight": "Безкоштовна",
+    "highlight": "Безкоштовна ",
     "text": "доставка по місту"
   },
   "giftCard": {
-    "highlight": "Відкритка",
+    "highlight": "Відкритка ",
     "text": "у подарунку"
   },
   "allDayDelivery": {
-    "highlight": "Цілодобава",
+    "highlight": "Цілодобава ",
     "text": "доставка"
   },
   "discountSystem": {
-    "highlight": "Накопичувальна система",
+    "highlight": "Накопичувальна система ",
     "text": "знижок"
   }
 }

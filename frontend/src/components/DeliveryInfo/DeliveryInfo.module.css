@@ -23,7 +23,7 @@
 
 .deliveryBlock {
   background-color: #fff7f3;
-  border-left: 4px solid var(--text-chocolate, #5b3a29);
+  border: 2px solid #5b3a29;
   padding: 16px 20px;
   margin: 24px 0;
   border-radius: 8px;

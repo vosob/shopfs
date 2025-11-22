@@ -11,7 +11,7 @@ export const Header = () => {
   const { getTotalPrice } = useBasket();
   const { t } = useTranslation("topHeader");
   return (
-    <div>
+    <header>
       <div className={css.topHeader}>
         <div className={`${css.topHeaderContainer} ${"container"}`}>
           <div className={css.location}>
@@ -21,12 +21,14 @@ export const Header = () => {
           </div>
 
           <div className={css.contacts}>
-            <FaPhoneAlt size="14px" fill="green" />
             <div>
-              <span className={css.telegram}> Telegram </span>
-              <span className={css.phone}>
-                + 380 98 3285 882 / +380 63 7210 966
+              <span className={css.telegram}>
+                <FaPhoneAlt className={css.icon} fill="green" /> Telegram
               </span>
+              <p className={css.phone}>
+                <span className="displayNone">+ 380 98 3285 882 /</span>
+                <span>+380 63 7210 966</span>
+              </p>
             </div>
           </div>
 
@@ -47,9 +49,9 @@ export const Header = () => {
           </div>
         </div>
       </div>
-      <div className={css.header}>
+      <div className={`${css.header} ${"container"}`}>
         <NavBar />
       </div>
-    </div>
+    </header>
   );
 };

@@ -1,37 +1,101 @@
 .navbarContainer {
+  padding: 20px 0;
+  position: relative;
+}
+
+.iconHome {
+  width: 68px;
+  height: 57px;
+}
+
+.mobileMenu {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  margin: 0 auto;
+  gap: 30px;
+}
+
+.burgerButton,
+.closeButton {
+  outline: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.fullscreenMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 300;
+}
+
+.fullscreenMenu.open {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .navbar {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  height: 108px;
-  width: 100%;
+  gap: 30px;
   font-family: var(--font-literal);
   color: var(--Brown, rgba(91, 74, 88, 1));
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 17px;
+  font-size: 18px;
   text-transform: uppercase;
 }
 
 .navbar li {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  min-width: 90px;
-}
-
-.iconHome {
-  width: 100px;
-  height: 85px;
+  width: 100%;
+  text-align: center;
 }
 
 .orderContainer {
   display: flex;
   align-items: center;
   gap: 5px;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 250;
+}
+
+@media (min-width: 768px) {
+  .fullscreenMenu,
+  .mobileMenu {
+    display: none;
+  }
+
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+    width: auto;
+  }
+
+  .navbar li {
+    font-size: 12px;
+    width: auto;
+    text-align: left;
+  }
 }

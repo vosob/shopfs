@@ -35,7 +35,7 @@ export const HeroHomePage = () => {
               style={{ backgroundImage: `url(${item.source})` }}
               className={css.container}
             >
-              <h1 className={css.h2}>
+              <h1 className={css.mainTitle}>
                 <Trans
                   i18nKey="title"
                   ns="hero"
@@ -43,7 +43,7 @@ export const HeroHomePage = () => {
                 />
               </h1>
 
-              <p className={css.h1}>{t("subtitle")}</p>
+              <p className={css.subtitle}>{t("subtitle")}</p>
 
               <button className={css.button}>{t("button")}</button>
             </div>

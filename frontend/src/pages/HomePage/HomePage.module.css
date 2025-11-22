@@ -1,13 +1,13 @@
 .mainContent {
-  display: flex;
-  gap: 20px;
-  justify-content: space-between;
+  /* display: flex; */
+  /* gap: 20px; */
+  /* justify-content: space-between; */
   margin: 0 auto;
 }
 
 .homeContainer {
   width: 100%;
-  padding-top: 100px;
+  padding-top: 50px;
   /* background-color: #f2f2f2; */
 }
 
@@ -19,4 +19,43 @@
   font-size: 24px;
   padding-top: 50px;
   padding-bottom: 50px;
+}
+
+.sortBtnMobile {
+  color: var(--text-chocolate);
+  font-family: var(--font-literal);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+}
+
+.sortContainerMobile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 40px;
+
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 15px 20px;
+}
+
+.playIcon {
+  cursor: pointer;
+
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #bdbdbd;
 }

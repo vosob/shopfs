@@ -5,7 +5,8 @@
 
 .btn {
   all: unset;
-  color: white;
+  /* color: white; */
+  /* color: var(--text-chocolate); */
   cursor: pointer;
 }
 

@@ -1,43 +1,31 @@
 .sortContainer {
-  /* width: 1440px; */
-  margin: 0 auto;
-  height: 50px;
-  margin-bottom: 20px;
-  background-color: white;
-  display: flex;
-  align-items: center;
-  border-radius: 10px;
-  gap: 20px;
+  width: 100%;
+  margin-bottom: 16px;
 }
 
-.sortBtn {
-  border: none;
-  background-color: white;
-  color: rgba(189, 189, 189, 1);
-  font-family: var(--text-literal);
+.select {
+  width: 100%;
+  padding: 12px 16px;
   font-size: 16px;
-  font-weight: 400;
-  line-height: 19px;
-  letter-spacing: 0%;
+  color: #333;
+  background-color: #fff;
+  border: 2px solid #6aae55;
+  border-radius: 8px;
   cursor: pointer;
+  appearance: none;
+  outline: none;
+  transition: all 0.3s ease;
 }
 
-.sortBtn:focus {
-  color: var(--text-chocolate);
-  text-decoration: underline;
+.select:hover {
+  border-color: #5a9647;
 }
 
-.sortBtn:hover {
-  color: var(--text-chocolate);
-  text-decoration: underline;
+.select:focus {
+  border-color: #6aae55;
+  box-shadow: 0 0 0 3px rgba(106, 174, 85, 0.1);
 }
 
-.sorting {
-  color: rgba(130, 130, 130, 1);
-  font-family: var(--text-literal);
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 19px;
-  letter-spacing: 0%;
-  padding-left: 20px;
+.select option:disabled {
+  color: #999;
 }

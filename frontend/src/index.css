@@ -117,11 +117,33 @@ body {
   background-color: #f9f9fb;
 }
 
+.displayNone {
+  display: none;
+}
+
 .container {
-  width: 1130px;
+  width: 100%;
+  max-width: 420px;
   margin: 0 auto;
   padding-left: 15px;
   padding-right: 15px;
+}
+
+/* Tablet screen */
+@media only screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+/* Desktop screen */
+@media only screen and (min-width: 1130px) {
+  .container {
+    max-width: 1130px;
+    padding: 0 15px;
+  }
 }
 
 /* !--- Custom Radio Button Styling --- */

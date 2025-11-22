@@ -9,21 +9,21 @@ interface SortProps {
 export const SortBy = ({ sort }: SortProps) => {
   const { t } = useTranslation("sortBouquetList");
 
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    sort(e.target.value as SortType);
+  };
+
   return (
     <div className={css.sortContainer}>
-      <p className={css.sorting}>{t("sortText")}</p>
-      <button onClick={() => sort("new")} className={css.sortBtn}>
-        {t("sortByNew")}
-      </button>
-      <button onClick={() => sort("price-asc")} className={css.sortBtn}>
-        {t("sortByIncrease")}
-      </button>
-      <button onClick={() => sort("price-desc")} className={css.sortBtn}>
-        {t("sortByDecrease")}
-      </button>
-      <button onClick={() => sort("size")} className={css.sortBtn}>
-        {t("sordBySize")}
-      </button>
+      <select className={css.select} defaultValue="" onChange={handleChange}>
+        <option value="" disabled>
+          {t("sortText")}
+        </option>
+        <option value="new">{t("sortByNew")}</option>
+        <option value="price-asc">{t("sortByIncrease")}</option>
+        <option value="price-desc">{t("sortByDecrease")}</option>
+        <option value="size">{t("sordBySize")}</option>
+      </select>
     </div>
   );
 };
