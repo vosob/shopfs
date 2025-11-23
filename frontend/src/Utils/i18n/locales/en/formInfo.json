@@ -2,7 +2,7 @@
   "formInfoQuestion": {
     "title": "Any questions left? Contact us",
     "name": "Name and surname",
-    "email": "E-mail",
+    "mail": "E-mail",
     "phone": "Mobile number",
     "message": "Your message",
     "button": "Send"

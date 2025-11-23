@@ -5,7 +5,21 @@
 
 .mapContainer {
   display: flex;
-  margin: 0 auto;
-  width: 825px;
-  height: 400px;
+  width: 280px;
+  height: 250px;
+}
+
+@media only screen and (min-width: 768px) {
+  .mapContainer {
+    width: 420px;
+    height: 400px;
+  }
+}
+
+@media only screen and (min-width: 1130px) {
+  .mapContainer {
+    width: 825px;
+    height: 400px;
+    margin: 0 auto;
+  }
 }

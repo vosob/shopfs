@@ -10,7 +10,7 @@ export const FormInfo = () => {
           {t("formInfoQuestion.title")}
         </h3>
         <form className={css.formContainer}>
-          <div style={{ display: "flex", gap: "20px" }}>
+          <div className={css.containerInput} style={{ display: "flex", gap: "20px" }}>
             <div>
               <label className={css.labelSize}>
                 <input
