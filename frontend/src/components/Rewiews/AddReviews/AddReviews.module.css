@@ -18,13 +18,19 @@
 }
 
 .rating {
-  display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+@media only screen and (min-width: 1130px) {
+  .rating {
+    display: flex;
+  }
+}
+
 .ratingContainer {
   display: flex;
+  justify-content: space-between;
   gap: 20px;
 }
 
@@ -37,6 +43,10 @@
   cursor: pointer;
   align-self: flex-start;
   transition: background-color 0.3s ease;
+
+  margin: 0 auto;
+  margin-bottom: 35px;
+  display: flex;
 }
 
 .btnStyle:hover,

@@ -1,11 +1,18 @@
 .inputFormContainer {
   background-color: white;
+  display: flex;
+  flex-direction: column;
 }
 
 .formContainer {
   padding: 24px 30px 24px 30px;
   /* display: flex;
   gap: 20px; */
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
 }
 
 .inputSize {
@@ -16,7 +23,7 @@
 .inputSize {
   display: flex;
   flex-direction: column;
-  width: 330px;
+  width: 230px;
   padding-left: 15px;
   margin-bottom: 15px;
   color: var(--text-chocolate);
@@ -24,6 +31,12 @@
   font-size: 16px;
   font-weight: 400;
   line-height: 120%;
+}
+
+@media only screen and (min-width: 768px) {
+  .inputSize {
+    width: 330px;
+  }
 }
 
 .spanName {
@@ -34,6 +47,19 @@
   font-size: 14px;
   font-weight: 700;
   line-height: 120%;
+}
+
+@media only screen and (min-width: 768px) {
+  .spanName {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media only screen and (min-width: 1130px) {
+  .spanName {
+    display: block;
+  }
 }
 
 .areaContainer {
@@ -60,7 +86,8 @@
 }
 
 .buttonStyle {
-  display: block;
+  display: flex;
+  margin: 0 auto;
   background-color: #62b15c;
   color: #fff;
   border: none;
@@ -69,6 +96,24 @@
   cursor: pointer;
   align-self: flex-start;
   transition: background-color 0.3s ease;
-  margin-left: auto;
-  margin-right: 330px;
+}
+
+@media only screen and (min-width: 768px) {
+  .buttonStyle {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (min-width: 1130px) {
+  .buttonStyle {
+    display: block;
+    margin-left: auto;
+    margin-right: 330px;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .labelContainer {
+    margin: 0 auto;
+  }
 }

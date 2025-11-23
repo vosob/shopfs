@@ -1,6 +1,6 @@
 .contactsContainer {
   display: flex;
-  justify-content: center;
+
   margin: 0 auto;
   padding-top: 80px;
   padding-bottom: 30px;
@@ -11,4 +11,10 @@
   line-height: 29px;
   text-transform: uppercase;
   background-color: rgba(249, 248, 251, 1);
+}
+
+@media only screen and (min-width: 1130px) {
+  .contactsContainer {
+    justify-content: center;
+  }
 }

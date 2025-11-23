@@ -6,8 +6,11 @@ export const InputForm = () => {
   return (
     <div className={css.inputFormContainer}>
       <form className={css.formContainer}>
-        <div style={{ display: "flex", gap: "20px" }}>
-          <div>
+        <div
+          className={css.inputContainer}
+          style={{ display: "flex", gap: "20px" }}
+        >
+          <div className={css.labelContainer}>
             <label className={css.labelSize}>
               <span className={css.spanName}>
                 {t("acardionInputForm.name")}
