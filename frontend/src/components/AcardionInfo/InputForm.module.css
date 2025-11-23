@@ -15,6 +15,12 @@
   flex-direction: column;
 }
 
+@media only screen and (min-width: 768px) {
+  .inputContainer {
+    flex-direction: unset;
+  }
+}
+
 .inputSize {
   width: 327px;
   height: 40px;

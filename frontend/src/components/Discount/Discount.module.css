@@ -1,0 +1,121 @@
+.flowerPhoto {
+  width: 250px;
+  height: 242px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+@media only screen and (min-width: 768px) {
+  .flowerPhoto {
+    width: 250px;
+    height: 242px;
+  }
+}
+
+.flowerContainer {
+  /* display: flex; 
+   justify-content: center; */
+  padding-left: 35px;
+}
+
+@media only screen and (min-width: 768px) {
+  .flowerContainer {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 50px;
+  }
+}
+
+.card {
+  position: relative;
+  list-style: none;
+  background-color: white;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 250px;
+  height: 242px;
+}
+
+.discountTitle {
+  text-align: center;
+  margin-bottom: 40px;
+  color: var(--text-chocolate);
+  font-family: var(--font-karton);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 29px;
+}
+
+.bouquetName {
+  text-align: center;
+
+  color: var(--text-chocolate);
+  font-family: var(--font-literal);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 22px;
+  letter-spacing: 0%;
+  text-align: center;
+  padding: 0 20px;
+  margin-bottom: 16px;
+  margin-top: 5px;
+}
+
+.bouquetPrice {
+  text-align: center;
+  margin-bottom: 10px;
+
+  color: rgba(130, 130, 130, 1);
+  font-family: var(--font-literal);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+}
+
+.discountBtn {
+  width: 223px;
+  height: 40px;
+  border: 1px solid rgba(106, 174, 85, 1);
+  border-radius: 10px;
+  background: rgba(106, 174, 85, 1);
+  color: rgba(255, 255, 255, 1);
+  font-family: var(--font-literal);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19px;
+  letter-spacing: 0%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+.badge {
+  position: absolute;
+
+  background: #6aae55;
+  color: white;
+
+  padding: 4px 10px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 8px;
+
+  font-family: var(--font-literal);
+  z-index: 5;
+}
+
+.fifteen {
+  background-color: #680c20;
+}
+
+.ten {
+  background-color: rgba(242, 153, 74, 1);
+}

@@ -1,0 +1,22 @@
+{
+  "discountItems": [
+    {
+      "a": "We want everyone to have the opportunity to give beauty without overpaying. That’s why we regularly update our assortment and offer discounts on bouquets that have been in the catalog longer, as well as on new arrivals. It’s our little way of making special moments more accessible."
+    },
+    {
+      "a": "We constantly expand our collection with new bouquets, so from time to time we offer discounts on previous compositions. This allows us to make room for fresh ideas and gives you the chance to purchase your favorite bouquets at a better price."
+    },
+    {
+      "a": "Our bouquets are created to bring emotions. That's why we offer seasonal discounts — so everyone can surprise their loved ones without overpaying. Beautiful moments should be accessible to everyone."
+    },
+    {
+      "a": "We carefully ensure that our bouquets are always fresh and up to date. Therefore, the oldest items receive a great discount, new arrivals get a special offer, and the middle ones an optimal price. This way, you always receive the best value for the best quality."
+    }
+  ],
+  "title": "Special Offers on Bouquets",
+  "discount": "Discount",
+  "priceDiscount": "Discounted Price:",
+  "uah": "uah",
+  "btn": "View",
+  "note": "If you order a bouquet from this list, please note that it has a discount in the comments"
+}
