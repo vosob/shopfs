@@ -114,7 +114,7 @@ export const Recipient = ({ register }: Props) => {
       </div>
       <div>
         {/* Примітка отримувача */}
-        <div className={css.labelPosition}>
+        <div className={`${css.labelPosition} ${css.noteContainer}`}>
           <label className={css.labelName} htmlFor={`${fieldId}-recipientNote`}>
             {t("recipients.note")}
             <textarea

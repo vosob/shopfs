@@ -1,11 +1,14 @@
 .container {
   background: #fff;
   border-radius: 12px;
-  padding-top: 30px;
-  padding-left: 30px;
-  padding-bottom: 40px;
+  /* padding-top: 30px; */
+  /* padding-left: 30px; */
+  /* padding-bottom: 40px; */
+  padding: 10px;
+
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   margin-bottom: 20px;
+  text-align: center;
 }
 
 .container h3 {
@@ -14,17 +17,25 @@
   font-size: 16px;
   font-weight: 700;
   line-height: 19px;
-  margin-bottom: 16px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+@media only screen and (min-width: 768px) {
+  .container h3 {
+    text-align: left;
+    margin-bottom: 20px;
+  }
 }
 
 .textPosition {
   display: flex;
   flex-wrap: wrap;
+  gap: 20px;
   padding-bottom: 24px;
 }
 
 .recipientOrder {
-  margin-right: 102px;
   color: var(--text-chocolate);
   font-family: var(--font-literal);
   font-size: 16px;
@@ -72,22 +83,33 @@
 }
 
 .nameAndMobile {
-  display: flex;
-  margin: 0 auto;
-  gap: 20px;
   padding-bottom: 24px;
 }
 
+@media only screen and (min-width: 768px) {
+  .nameAndMobile {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+  }
+}
+
 .cityContainer {
-  display: flex;
-  margin: 0 auto;
-  gap: 20px;
   padding-bottom: 24px;
+}
+
+@media only screen and (min-width: 768px) {
+  .cityContainer {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+  }
 }
 
 .labelName {
   color: var(--text-chocolate);
   font-family: var(--font-literal);
+  text-align: left;
   font-size: 14px;
   font-weight: 700;
   line-height: 120%;
@@ -100,9 +122,15 @@
   border: 1px solid rgba(224, 224, 224, 1);
   border-radius: 5px;
   background: rgba(250, 250, 250, 1);
-  width: 280px;
+  width: 100%;
   height: 40px;
   padding-left: 10px;
+}
+
+@media only screen and (min-width: 768px) {
+  .inputStyle {
+    width: 300px;
+  }
 }
 
 .labelPosition {
@@ -111,7 +139,7 @@
 }
 
 .noteStyle {
-  width: 578px;
+  width: 100%;
   height: 90px;
   display: block;
   margin-top: 12px;
@@ -121,4 +149,18 @@
   padding-left: 10px;
   padding-top: 5px;
   resize: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .noteContainer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media only screen and (min-width: 1130px) {
+  .noteContainer {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
 }

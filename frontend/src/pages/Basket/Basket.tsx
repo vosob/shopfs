@@ -68,6 +68,11 @@ export const Basket = () => {
   return (
     <form autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
       <div className={`${css.basketContainer} ${"container"}`}>
+        <div className={css.rightSide}>
+          <h3 className={css.title}>{t("basketNote.basket")}</h3>
+          <BasketList />
+        </div>
+
         <div className={css.leftSide}>
           <h2 className={css.title}>{t("basketNote.order")}</h2>
           <DeliveryMethod register={register} />
@@ -94,12 +99,6 @@ export const Basket = () => {
           <button className={css.btn} type="submit">
             {t("basketNote.btn")}
           </button>
-        </div>
-        <div className={css.rightSide}>
-          <h3 className={`${css.title} ${css.basketTitle}`}>
-            {t("basketNote.basket")}
-          </h3>
-          <BasketList />
         </div>
       </div>
     </form>

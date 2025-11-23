@@ -1,10 +1,12 @@
 .container {
   background: #fff;
   border-radius: 12px;
-  padding-left: 30px;
+  /* padding-left: 30px;
   padding-top: 17px;
   padding-right: 30px;
-  padding-bottom: 30px;
+  padding-bottom: 30px; */
+
+  padding: 10px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 
   margin-bottom: 20px;
@@ -13,10 +15,19 @@
 .container h3 {
   color: var(--text-chocolate);
   font-family: var(--font-literal);
+  text-align: center;
   font-size: 16px;
   font-weight: 700;
   line-height: 19px;
-  margin-bottom: 12px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+@media only screen and (min-width: 768px) {
+  .container h3 {
+    text-align: left;
+    margin-bottom: 20px;
+  }
 }
 
 .labelContent {
@@ -25,6 +36,9 @@
   font-size: 16px;
   font-weight: 700;
   line-height: 120%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* --- Date Section Styles --- */
@@ -62,13 +76,14 @@
 .textPosition {
   display: flex;
   flex-direction: column;
-  gap: 19px;
+  gap: 20px;
 }
 
 .radioOption,
 .activeRadio {
   display: flex;
   align-items: center;
+
   gap: 10px;
   color: var(--text-chocolate);
   font-family: var(--font-literal);
@@ -158,9 +173,9 @@
 }
 
 /* --- Checkbox Styling --- */
-.checkboxOption {
+/* .checkboxOption {
   padding-left: 15px;
-}
+} */
 
 .actualCheckbox {
   /* Style or replace the default checkbox if needed to match the image */

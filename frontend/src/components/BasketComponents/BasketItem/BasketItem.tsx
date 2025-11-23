@@ -33,7 +33,7 @@ export const BasketItem = ({ data }: Props) => {
 
   return (
     <div className={css.itemContainer}>
-      <div>
+      <div className={css.bouquetCardContainer}>
         <img className={css.flowerPhoto} src={data.images[0].url} alt={name} />
         <div className={css.textBouquet}>
           <h3 className={css.titleBouquet}>{name}</h3>
@@ -45,7 +45,7 @@ export const BasketItem = ({ data }: Props) => {
           </p>
         </div>
       </div>
-      <div className={css.divider}></div>
+      {/* <div className={css.divider}></div> */}
 
       <div className={css.itemInfo}>
         <div className={css.quantityContainer}>
@@ -71,13 +71,13 @@ export const BasketItem = ({ data }: Props) => {
             {totalPrice.toFixed(2)} {t("basketItem.currency")}
           </span>
         </p>
-        <button
-          onClick={() => removeFromBasket(data.id)}
-          className={css.removeBtn}
-        >
-          {t("basketItem.btn")}
-        </button>
       </div>
+      <button
+        onClick={() => removeFromBasket(data.id)}
+        className={css.removeBtn}
+      >
+        {t("basketItem.btn")}
+      </button>
     </div>
   );
 };

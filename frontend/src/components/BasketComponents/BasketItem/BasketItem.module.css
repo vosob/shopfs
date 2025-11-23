@@ -1,27 +1,84 @@
 .flowerPhoto {
-  width: 120px;
-  height: 120px;
+  width: 250px;
+  height: 250px;
   border-radius: 10px;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+  .flowerPhoto {
+    margin: 0;
+    width: 330px;
+    height: 330px;
+  }
+}
+
+@media only screen and (min-width: 1130px) {
+  .flowerPhoto {
+    margin: 0;
+    width: 200px;
+    height: 200px;
+  }
 }
 
 .itemContainer {
-  width: 400px;
+  margin: 0 auto;
+  /* width: 400px; */
   gap: 20px;
 
-  padding-top: 25px;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-bottom: 25px;
+  padding: 10px;
 
   border-radius: 10px;
   background: rgba(255, 255, 255, 1);
 }
 
+@media only screen and (min-width: 768px) {
+  .itemContainer {
+    width: 600px;
+  }
+}
+
+.bouquetCardContainer {
+  margin-bottom: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+  .bouquetCardContainer {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+@media only screen and (min-width: 1130px) {
+  .bouquetCardContainer {
+    display: flex;
+    justify-content: start;
+    gap: 30px;
+  }
+}
+
 .textBouquet {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
   margin-bottom: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+  .textBouquet {
+    align-items: center;
+    /* justify-content: center; */
+    padding-right: 25px;
+    padding-top: 50px;
+  }
+}
+
+@media only screen and (min-width: 1130px) {
+  .textBouquet {
+    align-items: start;
+  }
 }
 
 .titleBouquet {
@@ -53,10 +110,23 @@
   margin-bottom: 20px;
 }
 
+@media only screen and (min-width: 768px) {
+  .itemInfo {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
+@media only screen and (min-width: 1130px) {
+  .itemInfo {
+    padding-left: 20px;
+    padding-right: 50px;
+  }
+}
+
 .totalPriceContainer {
   display: flex;
   flex-direction: column;
-
   gap: 10px;
 }
 
@@ -74,4 +144,24 @@
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.removeBtn {
+  background-color: var(--text-chocolate);
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+@media only screen and (min-width: 1130px) {
+  .removeBtn {
+    margin-left: 20px;
+    margin-right: auto;
+  }
 }

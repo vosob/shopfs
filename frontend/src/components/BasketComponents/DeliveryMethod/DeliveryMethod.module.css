@@ -1,8 +1,9 @@
 .container {
   background: #fff;
   border-radius: 12px;
-  padding-left: 30px;
-  padding-bottom: 40px;
+  /* padding-left: 30px; */
+  /* padding-bottom: 40px; */
+  padding: 10px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   margin-bottom: 20px;
 }
@@ -10,17 +11,38 @@
 .container h3 {
   color: var(--text-chocolate);
   font-family: var(--font-literal);
+  text-align: center;
   font-size: 16px;
   font-weight: 700;
   line-height: 19px;
-  padding-bottom: 18px;
-  padding-top: 22px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
-.textPosition {
+@media only screen and (min-width: 768px) {
+  .container h3 {
+    text-align: left;
+    margin-bottom: 20px;
+  }
+}
+
+/* .textPosition {
   display: flex;
   gap: 95px;
   align-items: flex-start;
+} */
+
+.textPosition {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media only screen and (min-width: 1130px) {
+  .textPosition {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 
 .hStyle {

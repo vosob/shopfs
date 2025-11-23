@@ -13,6 +13,7 @@ export const BasketList = () => {
     return (
       <div>
         <p className={css.emptyBasket}>{t("basketList.basketContains")}</p>
+        <div className={css.emptyBasketLine}></div>
       </div>
     );
   }
@@ -25,15 +26,11 @@ export const BasketList = () => {
         ))}
       </ul>
 
-      <div>
-        <p>
-          <span className={css.totalPriceText}>
-            {t("basketItem.totalPrice")}
-          </span>
-          <span className={css.priceText}>
-            {getTotalPrice().toFixed(2)} {t("basketItem.currency")}
-          </span>
-        </p>
+      <div className={css.totalPriceContainer}>
+        <span className={css.totalPriceText}>{t("basketItem.totalPrice")}</span>
+        <span className={css.priceText}>
+          {getTotalPrice().toFixed(2)} {t("basketItem.currency")}
+        </span>
       </div>
     </div>
   );

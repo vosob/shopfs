@@ -1,15 +1,18 @@
-.basketContainer {
-  display: flex;
-  gap: 20px;
-  margin-top: 20px;
+@media only screen and (min-width: 1130px) {
+  .basketContainer {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    gap: 30px;
+  }
 }
 
-.leftSide {
+/* .leftSide {
   width: 640px;
-}
+} */
 
 .rightSide {
-  width: 400px;
+  margin-bottom: 30px;
 }
 
 .title {
@@ -19,9 +22,7 @@
   font-weight: 700;
   line-height: 29px;
   margin-bottom: 28px;
-}
-
-.basketTitle {
+  text-align: center;
   font-family: var(--font-karton);
 }
 
