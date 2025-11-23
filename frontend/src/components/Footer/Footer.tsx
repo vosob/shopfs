@@ -9,7 +9,7 @@ export const Footer = () => {
   const { t } = useTranslation("footer");
   return (
     <footer className={css.footer}>
-      <div className={`${"container"}`}>
+      <div className={`${css.footerContainer} ${"container"}`}>
         <div className={css.footerContacts}>
           <div className={css.infoContainer}>
             <div className={css.contactInfo}>
@@ -53,8 +53,10 @@ export const Footer = () => {
         <div>
           <h3 className={css.footerTitle}>{t("questionCall.title")}</h3>
           <form className={css.footerForm}>
-            <input type="text" placeholder={t("questionCall.name")} />
-            <input type="text" placeholder={t("questionCall.number")} />
+            <div style={{ display: "flex", gap: "20px" }}>
+              <input type="text" placeholder={t("questionCall.name")} />
+              <input type="text" placeholder={t("questionCall.number")} />
+            </div>
 
             <textarea placeholder={t("questionCall.message")}></textarea>
             <button type="submit">{t("questionCall.btn")}</button>

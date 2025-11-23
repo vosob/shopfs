@@ -1,14 +1,26 @@
 .mainContent {
-  /* display: flex; */
-  /* gap: 20px; */
-  /* justify-content: space-between; */
   margin: 0 auto;
+}
+
+@media only screen and (min-width: 1130px) {
+  .mainContent {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+  }
 }
 
 .homeContainer {
   width: 100%;
   padding-top: 50px;
-  /* background-color: #f2f2f2; */
+  padding-bottom: 50px;
+}
+
+@media only screen and (min-width: 1130px) {
+  .homeContainer {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
 }
 
 .noData {

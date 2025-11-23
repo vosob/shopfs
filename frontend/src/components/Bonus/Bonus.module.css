@@ -1,13 +1,13 @@
 .bonusContainer {
   padding-top: 30px;
-  padding-bottom: 30px;
+  width: 100%;
 }
 
-.bonusItem {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0 10px;
+@media only screen and (min-width: 1130px) {
+  .bonusContainer {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
 }
 
 .spanColor {
@@ -15,40 +15,29 @@
 }
 
 .img {
+  display: block;
+
+  width: 140px;
+  height: 140px;
+
+  margin: 0 auto;
   margin-bottom: 10px;
 }
 
-.embla {
-  overflow: hidden;
+.slide {
+  padding-bottom: 30px;
 }
 
-.embla__container {
-  display: flex;
-  gap: 20px;
+.text {
+  text-align: center;
 }
 
-.dots {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
+:global(.swiper-pagination) {
+  bottom: 0px !important;
 }
 
-.dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #cfcfcf;
-  border: none;
-  cursor: pointer;
-  transition: background 0.3s ease;
+:global(.swiper-pagination-bullet) {
+  background: var(--text-green) !important;
 }
 
-.dotActive {
-  background: #5b4955;
-}
-
-.embla__slide {
-  flex: 0 0 100%;
-  min-width: 0;
-  margin-bottom: 15px;
-}
+/* swiper-pagination-bullet swiper-pagination-bullet-active */

@@ -90,3 +90,14 @@
     margin-bottom: 0px;
   }
 }
+
+@media only screen and (min-width: 1130px) {
+  .footerContainer {
+    display: flex;
+    gap: 80px;
+  }
+
+  .infoContainer {
+    gap: 80px;
+  }
+}

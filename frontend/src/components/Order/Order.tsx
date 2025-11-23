@@ -24,7 +24,7 @@ export const Order = () => {
       </div>
       <ul className={css.steps}>
         {orderSteps.map(({ key, img }) => (
-          <li key={key}>
+          <li className={css.stepItem} key={key}>
             <img src={img} alt={key} />
 
             <div className={css.stepText}>

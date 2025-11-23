@@ -1,5 +1,9 @@
-import useEmblaCarousel from "embla-carousel-react";
-import Autoplay from "embla-carousel-autoplay";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import { Autoplay } from "swiper/modules";
+
+import "swiper/css";
+
 import css from "./HeroHomePage.module.css";
 
 import banner1 from "../../image/HeroSlider/Баннер1.png";
@@ -22,15 +26,16 @@ const data = [
 export const HeroHomePage = () => {
   const { t } = useTranslation("hero");
 
-  const [emblaRef] = useEmblaCarousel({ loop: true }, [
-    Autoplay({ delay: 10000, stopOnInteraction: false }),
-  ]);
-
   return (
-    <div className={css.embla} ref={emblaRef}>
-      <ul className={css.embla__container}>
+    <div>
+      <Swiper
+        modules={[Autoplay]}
+        loop
+        autoplay={{ delay: 15000 }}
+        slidesPerView={1}
+      >
         {data.map((item) => (
-          <li key={item.id} className={css.embla__slide}>
+          <SwiperSlide key={item.id}>
             <div
               style={{ backgroundImage: `url(${item.source})` }}
               className={css.container}
@@ -47,9 +52,9 @@ export const HeroHomePage = () => {
 
               <button className={css.button}>{t("button")}</button>
             </div>
-          </li>
+          </SwiperSlide>
         ))}
-      </ul>
+      </Swiper>
     </div>
   );
 };

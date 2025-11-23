@@ -3,9 +3,8 @@ import { Bonus } from "../../components/Bonus/Bonus";
 import { BouquetList } from "../../components/BouquetList/BouquetList";
 
 import { HeroHomePage } from "../../components/HeroHomePage/HeroHomePage";
-import { SortBy } from "../../components/SortBy/SortBy";
+import { SortByMobile } from "../../components/SortBy/SortBySortByMobile";
 import { fetchBouquet } from "../../services/items";
-import { FaPlay } from "react-icons/fa6";
 
 import css from "./HomePage.module.css";
 import { useQuery } from "@tanstack/react-query";
@@ -13,6 +12,8 @@ import { sortProducts, SortType } from "../../Utils/SortList";
 import { Filters } from "../../components/Filters/Filters";
 import { Order } from "../../components/Order/Order";
 import { DeliveryInfo } from "../../components/DeliveryInfo/DeliveryInfo";
+import { useWindowSize } from "usehooks-ts";
+import { SortByDesktop } from "../../components/SortBy/SortByDesktop";
 
 export const HomePage = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -30,6 +31,9 @@ export const HomePage = () => {
     sortType: sortList,
   });
 
+  const { width } = useWindowSize();
+  const isDesktop = width >= 1130;
+
   return (
     <>
       <HeroHomePage />
@@ -37,18 +41,24 @@ export const HomePage = () => {
       <Bonus />
       <div className={`${css.mainContent} ${"container"}`}>
         <div className={css.homeContainer}>
-          <div className={css.sortContainerMobile}>
-            <SortBy sort={setSortList} />
-          </div>
+          {!isDesktop ? (
+            <div className={css.sortContainerMobile}>
+              <SortByMobile sort={setSortList} />
+            </div>
+          ) : (
+            <SortByDesktop sort={setSortList} />
+          )}
 
           <BouquetList isLoading={isLoading} data={sortedBouquet || []} />
         </div>
 
-        {/* <Filters
-          onSearchChange={setSearchQuery}
-          onSelectedPrise={setSelectedPrise}
-          selectedPrise={selectedPrise}
-        /> */}
+        {isDesktop && (
+          <Filters
+            onSearchChange={setSearchQuery}
+            onSelectedPrise={setSelectedPrise}
+            selectedPrise={selectedPrise}
+          />
+        )}
       </div>
       <Order />
       <DeliveryInfo />

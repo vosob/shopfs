@@ -1,5 +1,4 @@
 .deliveryInfo {
-  /* max-width: 1440px; */
   margin: 0 auto;
   padding: 40px 20px;
   font-family: var(--font-literal, "Arial", sans-serif);
@@ -42,4 +41,10 @@
 
 .deliveryList li {
   margin-bottom: 8px;
+}
+
+@media only screen and (min-width: 1130px) {
+  .deliveryInfo {
+    padding: 100px 20px;
+  }
 }

@@ -11,7 +11,7 @@
 
 @media only screen and (min-width: 480px) {
   .subtitle {
-    font-size: 45 px;
+    font-size: 45px;
     font-weight: 500;
   }
 }
@@ -32,14 +32,33 @@
   }
 }
 
+@media only screen and (min-width: 1130px) {
+  .mainTitle {
+    font-size: 35px;
+    font-weight: 500;
+    line-height: 42px;
+  }
+
+  .subtitle {
+    font-size: 65px;
+    font-weight: 500;
+    line-height: 78px;
+  }
+}
+
 .container {
-  /* background-image: url("/public/images/backfoto.png"); */
   background-size: cover;
   height: 365px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+@media only screen and (min-width: 1130px) {
+  .container {
+    height: 600px;
+  }
 }
 
 .span {
@@ -64,15 +83,4 @@
 .button:hover {
   background-color: var(--text-chocolate);
   border: 1px solid var(--text-chocolate);
-}
-
-.embla {
-  overflow: hidden;
-}
-.embla__container {
-  display: flex;
-}
-.embla__slide {
-  flex: 0 0 100%;
-  min-width: 0;
 }

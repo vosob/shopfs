@@ -6,7 +6,7 @@ interface SortProps {
   sort: (el: SortType) => void;
 }
 
-export const SortBy = ({ sort }: SortProps) => {
+export const SortByMobile = ({ sort }: SortProps) => {
   const { t } = useTranslation("sortBouquetList");
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {

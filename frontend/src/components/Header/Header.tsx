@@ -26,8 +26,8 @@ export const Header = () => {
                 <FaPhoneAlt className={css.icon} fill="green" /> Telegram
               </span>
               <p className={css.phone}>
-                <span className="displayNone">+ 380 98 3285 882 /</span>
-                <span>+380 63 7210 966</span>
+                <span className={css.displayNone}>+ 380 98 3285 882 /</span>
+                <span> +380 63 7210 966</span>
               </p>
             </div>
           </div>
