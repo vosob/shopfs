@@ -4,14 +4,17 @@ import { Bouquet } from "../../types/typesItem";
 import { getTranslatedField } from "../../Utils/getTranslatedField";
 import { useTranslation } from "react-i18next";
 import css from "./Discount.module.css";
+import { Link } from "react-router";
 
 export const Discount = () => {
   const { t } = useTranslation("discount");
   const { i18n } = useTranslation("");
+
   const { data, isLoading, isError } = useQuery({
     queryKey: ["bouquet"],
     queryFn: () => fetchBouquet(),
   });
+  console.log(data);
 
   if (isLoading) return <p>Loading...</p>;
   if (isError || !data) return <p>Error loading bouquets</p>;
@@ -34,9 +37,7 @@ export const Discount = () => {
     }));
 
   const oldestWithDiscount = addDiscount(oldest, 15);
-
   const middleWithDiscount = addDiscount(middle, 10);
-  console.log(middleWithDiscount, "ono");
   const newestWithDiscount = addDiscount(newest, 5);
 
   return (
@@ -47,26 +48,28 @@ export const Discount = () => {
         {oldestWithDiscount.map((b) => {
           const name = getTranslatedField(b, "name", lang);
           return (
-            <li key={b.id} className={css.card}>
-              <div className={css.imageWrapper}>
-                <span className={`${css.badge} ${css.fifteen}`}>
-                  {t("discount")} 15%
-                </span>
-                <img
-                  src={b.images[0].url}
-                  alt={name}
-                  className={css.flowerPhoto}
-                />
-              </div>
-              <p className={css.bouquetName}>{name}</p>
-              <p className={css.bouquetPrice}>
-                {" "}
-                {t("priceDiscount")} {b.price} {t("uah")}
-              </p>
-              <button className={css.discountBtn} type="submit">
-                {t("btn")}
-              </button>
-            </li>
+            <Link to={`/bouquet/${b.id}`}>
+              <li key={b.id} className={css.card}>
+                <div className={css.imageWrapper}>
+                  <span className={`${css.badge} ${css.fifteen}`}>
+                    {t("discount")} 15%
+                  </span>
+                  <img
+                    src={b.images[0].url}
+                    alt={name}
+                    className={css.flowerPhoto}
+                  />
+                </div>
+                <p className={css.bouquetName}>{name}</p>
+                <p className={css.bouquetPrice}>
+                  {" "}
+                  {t("priceDiscount")} {b.price} {t("uah")}
+                </p>
+                <button className={css.discountBtn} type="submit">
+                  {t("btn")}
+                </button>
+              </li>
+            </Link>
           );
         })}
       </ul>
@@ -76,25 +79,27 @@ export const Discount = () => {
         {middleWithDiscount.map((b) => {
           const name = getTranslatedField(b, "name", lang);
           return (
-            <li key={b.id} className={css.card}>
-              <div className={css.imageWrapper}>
-                <span className={`${css.badge} ${css.ten}`}>
-                  {t("discount")} 10%
-                </span>
-                <img
-                  src={b.images[0].url}
-                  alt={name}
-                  className={css.flowerPhoto}
-                />
-              </div>
-              <p className={css.bouquetName}>{name}</p>
-              <p className={css.bouquetPrice}>
-                {t("priceDiscount")} {b.price} {t("uah")}
-              </p>
-              <button className={css.discountBtn} type="submit">
-                {t("btn")}
-              </button>
-            </li>
+            <Link to={`/bouquet/${b.id}`}>
+              <li key={b.id} className={css.card}>
+                <div className={css.imageWrapper}>
+                  <span className={`${css.badge} ${css.ten}`}>
+                    {t("discount")} 10%
+                  </span>
+                  <img
+                    src={b.images[0].url}
+                    alt={name}
+                    className={css.flowerPhoto}
+                  />
+                </div>
+                <p className={css.bouquetName}>{name}</p>
+                <p className={css.bouquetPrice}>
+                  {t("priceDiscount")} {b.price} {t("uah")}
+                </p>
+                <button className={css.discountBtn} type="submit">
+                  {t("btn")}
+                </button>
+              </li>
+            </Link>
           );
         })}
       </ul>
@@ -104,25 +109,27 @@ export const Discount = () => {
         {newestWithDiscount.map((b) => {
           const name = getTranslatedField(b, "name", lang);
           return (
-            <li key={b.id} className={css.card}>
-              <div className={css.imageWrapper}>
-                <span className={`${css.badge} ${css.five}`}>
-                  {t("discount")} 5%
-                </span>
-                <img
-                  src={b.images[0].url}
-                  alt={name}
-                  className={css.flowerPhoto}
-                />
-              </div>
-              <p className={css.bouquetName}>{name}</p>
-              <p className={css.bouquetPrice}>
-                {t("priceDiscount")} {b.price} {t("uah")}
-              </p>
-              <button className={css.discountBtn} type="submit">
-                {t("btn")}
-              </button>
-            </li>
+            <Link to={`/bouquet/${b.id}`}>
+              <li key={b.id} className={css.card}>
+                <div className={css.imageWrapper}>
+                  <span className={`${css.badge} ${css.five}`}>
+                    {t("discount")} 5%
+                  </span>
+                  <img
+                    src={b.images[0].url}
+                    alt={name}
+                    className={css.flowerPhoto}
+                  />
+                </div>
+                <p className={css.bouquetName}>{name}</p>
+                <p className={css.bouquetPrice}>
+                  {t("priceDiscount")} {b.price} {t("uah")}
+                </p>
+                <button className={css.discountBtn} type="submit">
+                  {t("btn")}
+                </button>
+              </li>
+            </Link>
           );
         })}
       </ul>

@@ -1,0 +1,100 @@
+.profileContainer {
+  background-color: white;
+  padding-left: 15px;
+  border-radius: 10px;
+}
+
+@media only screen and (min-width: 768px) {
+  .profileContainer {
+    padding: 21px 30px;
+  }
+}
+
+.infoContainer {
+  display: flex;
+  justify-content: space-between;
+  /* margin-right: 30px; */
+  padding-top: 25px;
+}
+
+.inputContainer {
+  display: grid;
+}
+
+@media only screen and (min-width: 1130px) {
+  .inputContainer {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.inputForm:last-child {
+  display: flex;
+  width: 290px;
+  border: 1px solid rgba(224, 224, 224, 1);
+  border-radius: 5px;
+  background: rgba(250, 250, 250, 1);
+  padding-top: 10px;
+  padding-bottom: 11px;
+  padding-left: 15px;
+  margin-bottom: 15px;
+}
+
+@media only screen and (min-width: 768px) {
+  .inputForm {
+    width: 370px;
+  }
+}
+
+.labelForm {
+  padding-bottom: 10px;
+  color: var(--text-chocolate);
+  font-family: var(--font-literal);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 120%;
+}
+
+.profileTitle {
+  color: var(--text-chocolate);
+  font-family: var(--font-literal);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 22px;
+  margin-bottom: 14px;
+}
+
+/* @media only screen and (min-width: 768px) {
+  .pfoileTitle {
+  }
+} */
+
+.profileBtn {
+  border-radius: 13px;
+  border: 1px solid rgba(242, 242, 242, 1);
+  background: rgba(242, 242, 242, 1);
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 6px;
+}
+
+@media only screen and (min-width: 768px) {
+  .profileBtn {
+    padding: 2px 14px 5px 20px;
+  }
+}
+
+.btnName {
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .btnName {
+    display: inline;
+    color: var(--text-chocolate);
+    font-family: var(--font-literal);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+  }
+}
