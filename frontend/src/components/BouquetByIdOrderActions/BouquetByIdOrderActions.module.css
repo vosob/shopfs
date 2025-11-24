@@ -1,14 +1,46 @@
 .orderActionsContainer {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 120px;
+  padding-bottom: 60px;
 }
 
+@media only screen and (min-width: 768px) {
+  .orderActionsContainer {
+    flex-direction: row;
+  }
+}
+
+@media only screen and (min-width: 1130px) {
+  .orderActionsContainer {
+    justify-content: center;
+    align-items: center;
+  }
+}
 .counter {
+  width: 100%;
+  padding-right: 20px;
+  padding-left: 20px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   gap: 28px;
+  margin-bottom: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+  .counter {
+    justify-content: start;
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+}
+
+@media only screen and (min-width: 1130px) {
+  .counter {
+    margin-bottom: 0px;
+  }
 }
 
 .decrement {
@@ -48,6 +80,7 @@
   font-family: var(--font-literal);
   font-size: 16px;
   font-weight: 700;
+  text-align: center;
 }
 
 .totalPrice {
@@ -59,10 +92,10 @@
 }
 
 .orderBtn {
-  min-width: 200px;
+  /* min-width: 150px; */
   outline: none;
   border: none;
-  padding: 11px 34px 11px 34px;
+  padding: 8px 16px 8px 16px;
   color: white;
   background-color: var(--text-green);
   border-radius: 10px;
@@ -76,4 +109,23 @@
 .icon {
   margin-right: 20px;
   color: white;
+}
+
+.priceAndBtnContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  .priceAndBtnContainer {
+    justify-content: space-evenly;
+  }
+}
+
+@media only screen and (min-width: 1130px) {
+  .priceAndBtnContainer {
+    gap: 20px;
+  }
 }

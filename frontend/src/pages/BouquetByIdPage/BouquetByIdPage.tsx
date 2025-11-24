@@ -4,7 +4,7 @@ import { useParams } from "react-router";
 import { fetchBouquetById } from "../../services/items";
 import { PriceBullets } from "../../components/PriceBullets/PriceBullets";
 import { BouquetDetailsTab } from "../../components/BouquetDetailsTab/BouquetDetailsTab";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Breadcrumbs } from "../../components/Breadcrumbs/Breadcrumbs";
 import { BouquetByIdOrderActions } from "../../components/BouquetByIdOrderActions/BouquetByIdOrderActions";
 import { Size } from "../../types/typesItem";
@@ -18,12 +18,24 @@ export const BouquetByIdPage = () => {
     "composition"
   );
   const [activePrice, setActivePrice] = useState<Size>("medium");
+  const [allImages, setAllImages] = useState<string[]>([]);
+  const [currentImage, setCurrentImage] = useState<string>(allImages[0] || "");
 
   const { data, error, isLoading } = useQuery({
     queryKey: ["bouquetById", id],
     queryFn: () => fetchBouquetById(id as string),
     enabled: !!id,
   });
+
+  useEffect(() => {
+    if (data) {
+      const images = data.images.map((image) => image.url);
+      setAllImages(images);
+      setCurrentImage(images[0]);
+    }
+  }, [data]);
+
+  console.log(allImages);
 
   const { i18n } = useTranslation();
   const lang = i18n.language;
@@ -38,7 +50,7 @@ export const BouquetByIdPage = () => {
 
   if (!data) return <div>No data found</div>;
 
-  const { flowers, images, price } = data;
+  const { flowers, price } = data;
 
   const name = getTranslatedField(data, "name", lang);
 
@@ -48,8 +60,20 @@ export const BouquetByIdPage = () => {
         <Breadcrumbs />
       </div>
       <div className={`${css.byIdContainer} ${"container"}`}>
-        <div>
-          <img className={css.mainImg} src={images[0]?.url || ""} alt={name} />
+        <div className={css.mainImgContainer}>
+          <img className={css.mainImg} src={currentImage} alt={name} />
+          <ul className={css.minImgContainer}>
+            {allImages.map((img) => (
+              <li key={img}>
+                <button
+                  className={css.clearBtn}
+                  onClick={() => setCurrentImage(img)}
+                >
+                  <img className={css.minImg} src={img} alt={name} />
+                </button>
+              </li>
+            ))}
+          </ul>
         </div>
         <div>
           <h2 className={css.title}>{name}</h2>

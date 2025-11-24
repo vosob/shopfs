@@ -67,18 +67,20 @@ export const BouquetByIdOrderActions = ({ data, activePrice }: Props) => {
         </button>
       </div>
 
-      <div className={css.total}>
-        <p className={css.price}>{t("bouquetByOrder.total")}</p>
-        <p className={css.totalPrice}>
-          {totalPrice.toFixed(2)}
-          {t("bouquetByOrder.currency")}
-        </p>
-      </div>
+      <div className={css.priceAndBtnContainer}>
+        <div className={css.total}>
+          <p className={css.price}>{t("bouquetByOrder.total")}</p>
+          <p className={css.totalPrice}>
+            {totalPrice.toFixed(2)}
+            {t("bouquetByOrder.currency")}
+          </p>
+        </div>
 
-      <button onClick={handleAddToBasket} className={css.orderBtn}>
-        <RiRedPacketLine className={css.icon} />
-        {t("bouquetByOrder.basket")}
-      </button>
+        <button onClick={handleAddToBasket} className={css.orderBtn}>
+          <RiRedPacketLine className={css.icon} />
+          {t("bouquetByOrder.basket")}
+        </button>
+      </div>
     </div>
   );
 };

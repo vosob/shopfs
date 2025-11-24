@@ -1,7 +1,10 @@
-.byIdContainer {
-  display: flex;
-  justify-content: space-between;
-  padding-top: 36px;
+@media only screen and (min-width: 1130px) {
+  .byIdContainer {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 36px;
+    padding-bottom: 120px;
+  }
 }
 
 .title {
@@ -11,6 +14,8 @@
   font-weight: 700;
   line-height: 29px;
   margin-bottom: 13px;
+
+  text-align: center;
 }
 
 .sizeText {
@@ -22,8 +27,62 @@
   margin-bottom: 10px;
 }
 
+.mainImgContainer {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+@media only screen and (min-width: 1130px) {
+  .mainImgContainer {
+    align-items: start;
+  }
+}
+
 .mainImg {
-  width: 420px;
-  height: 410px;
   border-radius: 10px;
+  width: 300px;
+}
+
+@media only screen and (min-width: 768px) {
+  .mainImg {
+    width: 360px;
+  }
+}
+
+@media only screen and (min-width: 1130px) {
+  .mainImg {
+    width: 440px;
+    height: 410px;
+  }
+}
+
+.minImgContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.minImg {
+  display: flex;
+  justify-content: space-between;
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+}
+
+@media only screen and (min-width: 768px) {
+  .minImg {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+.clearBtn {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
 }

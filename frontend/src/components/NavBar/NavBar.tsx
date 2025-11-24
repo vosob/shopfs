@@ -36,11 +36,6 @@ export const NavBar = () => {
       )}
 
       <li>
-        <Link to="/catalog" onClick={closeMenu}>
-          {t("catalog")}
-        </Link>
-      </li>
-      <li>
         <Link to="/discount" onClick={closeMenu}>
           {t("discount")}
         </Link>
