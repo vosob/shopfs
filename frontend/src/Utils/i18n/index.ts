@@ -25,6 +25,7 @@ import enBasket from "./locales/en/basket.json";
 import enBouquetById from "./locales/en/bouquetById.json";
 import enProfile from "./locales/en/profile.json";
 import enDiscountItems from "./locales/en/discount.json";
+import enProfilePassword from "./locales/en/profilePassword.json";
 
 import ukCommon from "./locales/uk/common.json";
 import ukNavbar from "./locales/uk/navbar.json";
@@ -50,6 +51,7 @@ import ukBasket from "./locales/uk/basket.json";
 import ukBouquetById from "./locales/uk/bouquetById.json";
 import ukProfile from "./locales/uk/profile.json";
 import ukDiscountItems from "./locales/uk/discount.json";
+import ukProfilePassword from "./locales/uk/profilePassword.json";
 
 i18n.use(initReactI18next).init({
   resources: {
@@ -78,6 +80,7 @@ i18n.use(initReactI18next).init({
       bouquetById: enBouquetById,
       profile: enProfile,
       discount: enDiscountItems,
+      profilePassword: enProfilePassword,
     },
     uk: {
       common: ukCommon,
@@ -104,6 +107,7 @@ i18n.use(initReactI18next).init({
       bouquetById: ukBouquetById,
       profile: ukProfile,
       discount: ukDiscountItems,
+      profilePassword: ukProfilePassword,
     },
   },
   fallbackLng: "uk",
@@ -133,6 +137,7 @@ i18n.use(initReactI18next).init({
     "bouquetById",
     "profile",
     "discount",
+    "profilePassword",
   ],
   defaultNS: "common",
   interpolation: {
