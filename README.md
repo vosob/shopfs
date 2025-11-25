@@ -1,5 +1,5 @@
 🌸 ShopFS — Online Flower Shop Platform
-<p align="center"> <img src="https://img.shields.io/badge/Frontend-React-blue" /> <img src="https://img.shields.io/badge/Backend-Nest.js-green" /> <img src="[https://img.shields.io/badge/Database-MongoDB-brightgreen](https://img.shields.io/badge/Database-PostGreSQL-brightgreen)" /> <img src="https://img.shields.io/badge/Language-TypeScript-blueviolet" /> </p>
+<p align="center"> <img src="https://img.shields.io/badge/Frontend-React-blue" /> <img src="https://img.shields.io/badge/Backend-Nest.js-green" /> <img src="https://img.shields.io/badge/Database-PostGreSQL-brightgreen"(https://img.shields.io/badge/Database-PostGreSQL-brightgreen)" /> <img src="https://img.shields.io/badge/Language-TypeScript-blueviolet" /> </p>
 
 ShopFS is a modern online flower shop designed to browse bouquets, use discounts, place orders, manage accounts, and access an admin panel for full control.
 This project aims to provide a simple, visually appealing, and smooth shopping experience for users.
