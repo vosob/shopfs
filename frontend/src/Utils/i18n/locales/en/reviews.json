@@ -1,7 +1,9 @@
 {
   "reviews": {
     "title": "Reviews",
-    "textReviews": "Text reviews",
-    "fotoReviews": "Photo reviews"
+    "comment": "Enter your comment",
+    "message": "Your message",
+    "star": "Rate our work",
+    "btn": "Send"
   }
 }
