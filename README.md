@@ -27,7 +27,7 @@ Order confirmation page
 
 🧑‍💼 Admin Panel
 
-Add/edit/delete bouquets/Manage discounts/View and process customer orders/Basic analytics
+Add/edit/delete bouquets / Manage discounts / View and process customer orders / Basic analytics
 
 📄 Informational Pages
 
