@@ -4,9 +4,19 @@
 ShopFS is a modern online flower shop designed to browse bouquets, use discounts, place orders, manage accounts, and access an admin panel for full control.
 This project aims to provide a simple, visually appealing, and smooth shopping experience for users.
 
-🚀 Features
-💐 Bouquet Catalog
+Installation & Setup
+Frontend
+cd frontend
+npm install
+npm run dev
 
+🔧 Backend
+cd backend
+npm install
+npm run dev
+
+
+Bouquet Catalog
 Browse all bouquets with images, descriptions, and prices / Sorting and filtering options / Search by name
 
 🎁 Dynamic Discounts
@@ -34,7 +44,7 @@ Add/edit/delete bouquets / Manage discounts / View and process customer orders /
 About the Store/FAQs/Contacts/Social Media
 
 🛠 Tech Stack
-Frontend / React / TypeScript / React Query / Vite / CSS Modules / Backend / Node.js / Express / MongoDB / Mongoose / JWT / REST API
+Frontend / React / TypeScript / React Query / Vite / CSS Modules / Backend / Node.js / Express / JWT / REST API
 React
 
 🌟 Why ShopFS?
