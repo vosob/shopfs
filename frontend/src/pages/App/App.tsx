@@ -11,7 +11,7 @@ import { Info } from "../Info/Info";
 import { BouquetByIdPage } from "../BouquetByIdPage/BouquetByIdPage";
 // import { Auth } from "../Auth/Auth";
 
-// import { PublicRoute } from "../../pages/Route/PublicRoute";
+import { AdminRoute } from "../../pages/Route/AdminRoute";
 import { PrivateRoute } from "../Route/PrivateRoute";
 import { MyOrders } from "../../components/MyOrders/MyOrders";
 import { ProfileLayout } from "../ProfileLayout/ProfileLayout";
@@ -21,6 +21,7 @@ import { PublicRoute } from "../Route/PublicRoute";
 import { Auth } from "../Auth/Auth";
 import { TextReviews } from "../../components/Rewiews/TextReviews/TextReviews";
 import { PhotoReviews } from "../../components/Rewiews/PhotoReviews/PhotoReviews";
+import { AdminPage } from "../AdminPage/AdminPage";
 
 export const App = () => {
   return (
@@ -60,6 +61,15 @@ export const App = () => {
         <Route path="/basket" element={<Basket />} />
 
         <Route path="/bouquet/:id" element={<BouquetByIdPage />} />
+
+        <Route
+          path="/admin"
+          element={
+            <AdminRoute>
+              <AdminPage />
+            </AdminRoute>
+          }
+        />
 
         <Route path="*" element={<div>Not Found</div>} />
       </Routes>

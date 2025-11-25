@@ -25,7 +25,7 @@ export const NavBar = () => {
     <ul className={css.navbar}>
       {isDesktop ? (
         <Link to="/">
-          <img className={css.logo} src="images/icon.png" alt="logo" />
+          <img className={css.logo} src="/images/icon.png" alt="logo" />
         </Link>
       ) : (
         <li>
