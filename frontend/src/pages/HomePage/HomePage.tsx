@@ -39,7 +39,7 @@ export const HomePage = () => {
       <HeroHomePage />
       {isError && <p>An error occurred</p>}
       <Bonus />
-      <div className={`${css.mainContent} ${"container"}`}>
+      <div className={`${css.mainContent} ${"container"}`} id="bouquet">
         <div className={css.homeContainer}>
           {!isDesktop ? (
             <div className={css.sortContainerMobile}>
