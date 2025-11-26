@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { AcardionInfo } from "../../components/AcardionInfo/AcardionInfo";
 import { InputForm } from "../../components/AcardionInfo/InputForm";
-import css from "./info.module.css";
+import css from "./Info.module.css";
 
 export const Info = () => {
   const { t } = useTranslation("acardionInputForm");
