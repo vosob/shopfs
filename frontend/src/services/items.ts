@@ -1,19 +1,17 @@
-import axios from "axios";
 import type { Bouquet } from "../types/typesItem";
-
-const BASE_URL = "http://localhost:3000";
+import { instance } from "./axiosInstans";
 
 export const fetchBouquet = async (search?: string, sortByPrise?: string) => {
-  const res = await axios.get<Bouquet[]>(`${BASE_URL}/bouquet`, {
+  const res = await instance.get<Bouquet[]>("/bouquet", {
     params: {
       ...(search && { search }),
-      ...(sortByPrise && { sortByPrise }), // додати search тільки якщо він є
+      ...(sortByPrise && { sortByPrise }),
     },
   });
   return res.data;
 };
 
 export const fetchBouquetById = async (id: string) => {
-  const res = await axios.get<Bouquet>(`${BASE_URL}/bouquet/bouquetId/${id}`);
+  const res = await instance.get<Bouquet>(`/bouquet/bouquetId/${id}`);
   return res.data;
 };
