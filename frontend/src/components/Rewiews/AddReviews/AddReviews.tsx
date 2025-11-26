@@ -4,8 +4,10 @@ import { CreateStars } from "../../../Utils/CreateStars/CreateStars";
 import css from "./AddReviews.module.css";
 import { postReview } from "../../../services/reviews";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useTranslation } from "react-i18next";
 
 export const AddReviews = () => {
+  const { t } = useTranslation("reviews");
   const { register, handleSubmit, reset, setValue, watch } = useForm<Reviews>({
     defaultValues: {
       text: "",
@@ -30,17 +32,17 @@ export const AddReviews = () => {
     <div className={css.reviewsContainer}>
       <form onSubmit={onSubmit} className={css.form}>
         <label className={css.label}>
-          <span className={css.spanStyle}>Ведіть ваший коментар</span>
+          <span className={css.spanStyle}>{t("reviews.comment")}</span>
           <textarea
             {...register("text")}
             className={css.textarea}
-            placeholder="Ваше повідомлення"
+            placeholder={t("reviews.message")}
           />
         </label>
 
         <div className={css.rating}>
           <div className={css.ratingContainer}>
-            <span className={css.spanStyle}>Оцініть нашу роботу</span>
+            <span className={css.spanStyle}>{t("reviews.star")}</span>
             <CreateStars
               setValue={setValue}
               watch={watch}
@@ -48,7 +50,7 @@ export const AddReviews = () => {
             />
           </div>
           <button type="submit" className={css.btnStyle}>
-            Відправити
+            {t("reviews.btn")}
           </button>
         </div>
       </form>

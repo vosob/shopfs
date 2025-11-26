@@ -23,6 +23,13 @@ const data = [
   { id: 5, source: banner5 },
 ];
 
+const scrollToBouquet = () => {
+  const element = document.getElementById("bouquet");
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth" });
+  }
+};
+
 export const HeroHomePage = () => {
   const { t } = useTranslation("hero");
 
@@ -50,7 +57,9 @@ export const HeroHomePage = () => {
 
               <p className={css.subtitle}>{t("subtitle")}</p>
 
-              <button className={css.button}>{t("button")}</button>
+              <button className={css.button} onClick={scrollToBouquet}>
+                {t("button")}{" "}
+              </button>
             </div>
           </SwiperSlide>
         ))}

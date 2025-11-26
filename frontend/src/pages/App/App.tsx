@@ -19,8 +19,6 @@ import { Profile } from "../../components/Profile/Profile";
 import { ChangePassword } from "../../components/ChangePassword/ChangePassword";
 import { PublicRoute } from "../Route/PublicRoute";
 import { Auth } from "../Auth/Auth";
-import { TextReviews } from "../../components/Rewiews/TextReviews/TextReviews";
-import { PhotoReviews } from "../../components/Rewiews/PhotoReviews/PhotoReviews";
 import { AdminPage } from "../AdminPage/AdminPage";
 
 export const App = () => {
@@ -53,10 +51,7 @@ export const App = () => {
           <Route path="password" element={<ChangePassword />} />
         </Route>
 
-        <Route path="/reviews" element={<ReviewsLayout />}>
-          <Route path="textReviews" element={<TextReviews />} />
-          <Route path="photoReviews" element={<PhotoReviews />} />
-        </Route>
+        <Route path="/reviews" element={<ReviewsLayout />}></Route>
 
         <Route path="/basket" element={<Basket />} />
 
