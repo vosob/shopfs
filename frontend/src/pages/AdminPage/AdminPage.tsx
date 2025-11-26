@@ -1,18 +1,24 @@
 import { useForm } from "react-hook-form";
-import { postBouquet } from "../../services/admin";
+import { getFlowers, postBouquet } from "../../services/admin";
 import {
   AddNewBouquet,
   Size,
 } from "../../components/Admin/AddNewBouquet/AddNewBouquet";
-import { flowers } from "../../components/Admin/data";
+
 import css from "./AdminPage.module.css";
+import { useQuery } from "@tanstack/react-query";
+
+export type FlowersList = {
+  flowerId: string;
+  quantity: number;
+};
 
 export interface AdminFormData {
   name_uk: string;
   name_en: string;
   size: Size;
   price: number;
-  flowers: string[];
+  flowers: FlowersList[];
 }
 
 export interface BouquetPayload {
@@ -27,6 +33,11 @@ export interface BouquetPayload {
 }
 
 export const AdminPage = () => {
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["flowers"],
+    queryFn: getFlowers,
+  });
+
   const { handleSubmit, register, reset } = useForm<AdminFormData>({
     defaultValues: {
       name_uk: "",
@@ -38,14 +49,12 @@ export const AdminPage = () => {
   });
 
   const onSubmit = async (data: AdminFormData) => {
-    const selectedFlowers = data.flowers.map((flowerUk) => {
-      const flowerObj = flowers.find((f) => f.name_uk === flowerUk);
-      return flowerObj!;
-    });
-
-    const payload: BouquetPayload = {
+    const payload = {
       ...data,
-      flowers: selectedFlowers,
+      flowers: data.flowers.map((f) => ({
+        flowerId: f,
+        quantity: 1,
+      })),
     };
 
     try {
@@ -56,7 +65,6 @@ export const AdminPage = () => {
       reset();
     }
   };
-
   return (
     <div className="container">
       <h2 className={css.title}>Add new bouquet</h2>
