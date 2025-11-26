@@ -248,12 +248,14 @@ export class UserService {
   ) {
     res.cookie('refreshToken', refreshToken, {
       httpOnly: true,
+      path: '/',
       // domain: this.COOKIE_DOMAIN,
       secure: !isDev(this.configService),
       sameSite: !isDev(this.configService) ? 'none' : 'lax',
     });
     res.cookie('accessToken', accessToken, {
       httpOnly: true,
+      path: '/',
       // domain: this.COOKIE_DOMAIN,
       secure: !isDev(this.configService),
       sameSite: !isDev(this.configService) ? 'none' : 'lax',
