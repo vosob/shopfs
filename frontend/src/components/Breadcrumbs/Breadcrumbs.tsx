@@ -23,7 +23,7 @@ export const Breadcrumbs = () => {
       currentLink += `/${crumb}`;
 
       const isLast = index === array.length - 1;
-      const label = isLast && bouquet ? bouquet.name : crumb;
+      const label = isLast && bouquet ? bouquet.name_en : crumb;
 
       return (
         <div className={css.crumb} key={crumb}>
